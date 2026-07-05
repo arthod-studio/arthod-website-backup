@@ -1,6 +1,6 @@
 {
   "work": "02",
-  "savedAt": "2026-07-05T08:58:50.962Z",
+  "savedAt": "2026-07-05T09:37:56.410Z",
   "media": {
     "images": [
       {
@@ -38,7 +38,8 @@
         "key": "wd:02:c0",
         "url": "https://youtu.be/IYLRX5dTQxo"
       }
-    ]
+    ],
+    "refs": []
   },
   "text": {
     "arthod-proj:02:en": "Multimedia Installation",
