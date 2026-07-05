@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T05:34:54.405Z",
+  "savedAt": "2026-07-05T05:41:34.561Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -22,6 +22,7 @@
     "arthod-edit:about:abheroinfop:0": "미디어아트 스튜디오",
     "arthod-edit:about:abphillistli:0": "직관 / 감각 / 감성",
     "arthod-style:work02:wbsectionlabel:0": "{\"color\":\"#111111\",\"weight\":\"700\"}",
+    "arthod-layout:wd:01:g5": "{\"pos\":\"50% 50%\",\"zoom\":1}",
     "arthod-edit:about:abtlyear:1": "2023",
     "arthod-proj:05:type": "Generative Art",
     "arthod-edit:services:pagetitle:0": "\n          Services\n          <span class=\"page-title-en\">예술과 기술이 교차하는 지점에서,<br>새로운 감각적 경험을 설계합니다.</span>\n        ",
