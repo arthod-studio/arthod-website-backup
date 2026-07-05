@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T05:23:39.699Z",
+  "savedAt": "2026-07-05T05:28:33.066Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -481,6 +481,10 @@
     "wd:01:g2": {
       "kind": "image",
       "file": "backup/media/01/wd_01_g2.jpg"
+    },
+    "wd:01:g3": {
+      "kind": "image",
+      "file": "backup/media/01/wd_01_g3.jpg"
     },
     "wd:01:s8": {
       "kind": "image",
