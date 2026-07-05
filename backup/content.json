@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T09:44:39.669Z",
+  "savedAt": "2026-07-05T10:06:49.567Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -512,8 +512,8 @@
       "file": "backup/media/01/wd_01_g3.jpg"
     },
     "wd:01:g4": {
-      "kind": "ref",
-      "refKey": "wd:01:g1"
+      "kind": "image",
+      "file": "backup/media/01/wd_01_g4.jpg"
     },
     "wd:01:g5": {
       "kind": "image",
@@ -559,6 +559,10 @@
       "kind": "image",
       "file": "backup/media/02/wd_02_g6.jpg"
     },
+    "wd:02:next": {
+      "kind": "ref",
+      "refKey": "wd:03:g1"
+    },
     "wd:03:g1": {
       "kind": "image",
       "file": "backup/media/03/wd_03_g1.jpg"
@@ -574,6 +578,14 @@
     "wd:03:g4": {
       "kind": "image",
       "file": "backup/media/03/wd_03_g4.jpg"
+    },
+    "wd:03:g5": {
+      "kind": "image",
+      "file": "backup/media/03/wd_03_g5.jpg"
+    },
+    "wd:03:g6": {
+      "kind": "image",
+      "file": "backup/media/03/wd_03_g6.jpg"
     },
     "wd:04:c0": {
       "kind": "embed",
