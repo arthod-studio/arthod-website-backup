@@ -1,13 +1,13 @@
 {
   "work": "08",
-  "savedAt": "2026-07-05T10:06:48.546Z",
+  "savedAt": "2026-07-05T23:30:43.995Z",
   "media": {
     "images": [],
     "videos": [],
     "embeds": [
       {
         "key": "wd:08:c0",
-        "url": "https://youtu.be/EzlVSJqjMT4"
+        "url": "https://www.youtube.com/embed/EzlVSJqjMT4?autoplay=0&mute=0&loop=1&playlist=EzlVSJqjMT4&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
     "refs": []
