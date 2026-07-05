@@ -1,16 +1,42 @@
 {
   "work": "04",
-  "savedAt": "2026-07-05T10:06:46.543Z",
+  "savedAt": "2026-07-05T23:30:41.128Z",
   "media": {
-    "images": [],
+    "images": [
+      {
+        "key": "wd:04:g1",
+        "file": "backup/media/04/wd_04_g1.jpg"
+      },
+      {
+        "key": "wd:04:g2",
+        "file": "backup/media/04/wd_04_g2.jpg"
+      },
+      {
+        "key": "wd:04:g4",
+        "file": "backup/media/04/wd_04_g4.jpg"
+      },
+      {
+        "key": "wd:04:g5",
+        "file": "backup/media/04/wd_04_g5.jpg"
+      },
+      {
+        "key": "wd:04:g6",
+        "file": "backup/media/04/wd_04_g6.jpg"
+      }
+    ],
     "videos": [],
     "embeds": [
       {
         "key": "wd:04:c0",
-        "url": "https://youtu.be/hTlkd_pxznQ"
+        "url": "https://www.youtube.com/embed/hTlkd_pxznQ?autoplay=0&mute=0&loop=1&playlist=hTlkd_pxznQ&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
-    "refs": []
+    "refs": [
+      {
+        "key": "wd:04:g3",
+        "refKey": "wd:04:g2"
+      }
+    ]
   },
   "text": {
     "arthod-proj:04:type": "Video · Urban Data",
