@@ -1,6 +1,6 @@
 {
   "work": "01",
-  "savedAt": "2026-07-05T05:28:31.940Z",
+  "savedAt": "2026-07-05T05:32:38.012Z",
   "media": {
     "images": [
       {
@@ -14,6 +14,10 @@
       {
         "key": "wd:01:g3",
         "file": "backup/media/01/wd_01_g3.jpg"
+      },
+      {
+        "key": "wd:01:g4",
+        "file": "backup/media/01/wd_01_g4.jpg"
       },
       {
         "key": "wd:01:s8",
