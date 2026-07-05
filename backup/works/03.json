@@ -1,6 +1,6 @@
 {
   "work": "03",
-  "savedAt": "2026-07-05T09:44:35.915Z",
+  "savedAt": "2026-07-05T10:06:45.621Z",
   "media": {
     "images": [
       {
@@ -18,6 +18,14 @@
       {
         "key": "wd:03:g4",
         "file": "backup/media/03/wd_03_g4.jpg"
+      },
+      {
+        "key": "wd:03:g5",
+        "file": "backup/media/03/wd_03_g5.jpg"
+      },
+      {
+        "key": "wd:03:g6",
+        "file": "backup/media/03/wd_03_g6.jpg"
       }
     ],
     "videos": [],
