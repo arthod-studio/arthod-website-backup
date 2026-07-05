@@ -1,0 +1,22 @@
+{
+  "work": "04",
+  "savedAt": "2026-07-05T07:34:16.847Z",
+  "media": {
+    "images": [],
+    "videos": [],
+    "embeds": [
+      {
+        "key": "wd:04:c0",
+        "url": "https://youtu.be/hTlkd_pxznQ"
+      }
+    ]
+  },
+  "text": {
+    "arthod-proj:04:type": "Video · Urban Data",
+    "arthod-proj:04:clientorg": "고양산업진흥원",
+    "arthod-proj:04:en": "Interactive Light Installation",
+    "arthod-proj:04:year": "2024",
+    "arthod-proj:04:project": "고양콘텐츠사업화",
+    "arthod-proj:04:ko": "Luminous Melody"
+  }
+}
