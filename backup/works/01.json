@@ -1,6 +1,6 @@
 {
   "work": "01",
-  "savedAt": "2026-07-05T08:58:50.034Z",
+  "savedAt": "2026-07-05T09:37:55.437Z",
   "media": {
     "images": [
       {
@@ -38,7 +38,8 @@
         "key": "wd:01:c0",
         "url": "https://www.youtube.com/embed/mS1RkQ3O_LI?autoplay=1&mute=1&loop=1&playlist=mS1RkQ3O_LI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3"
       }
-    ]
+    ],
+    "refs": []
   },
   "text": {
     "arthod-layout:wd:01:g3": "{\"ar\":1.7778}",
