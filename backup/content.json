@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T08:58:54.741Z",
+  "savedAt": "2026-07-05T09:38:02.985Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -21,7 +21,7 @@
     "arthod-proj:07:ko": "Emotion Particle",
     "arthod-edit:work04:wbsectionlabel:1": "Details",
     "arthod-edit:work08:specclient": "서울시 도시재생사업단",
-    "arthod-galleryitems:03": "[\"g1\",\"g2\",\"g3\",\"g4\",\"g5\"]",
+    "arthod-galleryitems:03": "[\"g1\",\"g2\",\"g4\",\"g5\",\"g3\",\"g6\"]",
     "arthod-edit:about:abheroinfop:0": "미디어아트 스튜디오",
     "arthod-edit:about:abphillistli:0": "직관 / 감각 / 감성",
     "arthod-style:work02:wbsectionlabel:0": "{\"color\":\"#111111\",\"weight\":\"700\"}",
@@ -126,7 +126,7 @@
     "arthod-edit:work02:wbsectionlabel:1": "Details",
     "arthod-proj:10:year": "2020",
     "arthod-proj:05:en": "Laser Installation",
-    "arthod-gallerylayout:03": "feature-mix",
+    "arthod-gallerylayout:03": "wide-strip",
     "arthod-edit:work:tech": "OpenCV · Arduino · TouchDesigner · DMX · LED Matrix",
     "arthod-edit:work01:wnlabel:0": "Next Project",
     "arthod-edit:services:fcolula:2": "Services",
@@ -429,6 +429,7 @@
     "arthod-edit:work09:desc": "<p style=\"margin-bottom:1.4em\">청각 장애인을 위한 음악 시각화 퍼포먼스로 시작된 프로젝트입니다. 소리를 색으로, 리듬을 형태로 번역하여 모든 사람이 음악을 체험할 수 있는 새로운 방법을 탐구합니다. 감각의 공감각적 번역을 통해 접근성의 새로운 가능성을 제시합니다.</p><p style=\"margin-bottom:1.4em\">소리가 들리지 않아도 음악은 느낄 수 있습니다.</p>",
     "arthod-edit:services:processtitle:0": "작업 방식<br><em>Our Method</em>",
     "arthod-edit:work03:role": "기획 · 모션그래픽 영상 제작 · 구조물 설계 &amp; 설치&nbsp;",
+    "arthod-layout:wimg:03": "{\"zoom\":1,\"shiftX\":11.5,\"shiftY\":-11.37}",
     "arthod-edit:about:abtldesc:0": "인터랙티브 LED 설치와 LiDAR 기반 프로젝션 매핑 2개 작품 발표. 서울 문화예술센터 그룹전 참여.",
     "arthod-edit:services:svctag:32": "Lottie",
     "arthod-edit:work08:wbsectionlabel:1": "Details",
@@ -553,6 +554,22 @@
       "kind": "image",
       "file": "backup/media/02/wd_02_g6.jpg"
     },
+    "wd:03:g1": {
+      "kind": "image",
+      "file": "backup/media/03/wd_03_g1.jpg"
+    },
+    "wd:03:g2": {
+      "kind": "image",
+      "file": "backup/media/03/wd_03_g2.jpg"
+    },
+    "wd:03:g3": {
+      "kind": "image",
+      "file": "backup/media/03/wd_03_g3.jpg"
+    },
+    "wd:03:g4": {
+      "kind": "image",
+      "file": "backup/media/03/wd_03_g4.jpg"
+    },
     "wd:04:c0": {
       "kind": "embed",
       "embedUrl": "https://www.youtube.com/embed/hTlkd_pxznQ?autoplay=0&mute=0&loop=1&playlist=hTlkd_pxznQ&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
@@ -574,6 +591,7 @@
     "services",
     "01",
     "02",
+    "03",
     "04",
     "07",
     "08"
