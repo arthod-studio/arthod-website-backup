@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T07:34:20.998Z",
+  "savedAt": "2026-07-05T08:53:27.818Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -48,7 +48,7 @@
     "arthod-edit:work:speckey:2": "Project",
     "arthod-edit:work:21": "OpenCV · Arduino · TouchDesigner · DMX · LED Matrix",
     "arthod-proj:01:type": "인터렉티브 설치",
-    "arthod-edit:work03:desc": "<p style=\"margin-bottom:1.4em\">음악과 시각이 실시간으로 반응하며 생성되는 라이브 AV 퍼포먼스입니다. Max/MSP로 분석된 음향 데이터가 GLSL 셰이더를 통해 추상적인 시각 형태로 변환됩니다. 사운드의 주파수, 진폭, 리듬이 각각 형태, 색상, 움직임으로 번역됩니다.</p><p style=\"margin-bottom:1.4em\">소리는 눈으로 볼 수 있는 것이 됩니다. 음악의 물리적 파동이 시각적 파동이 되어 공간을 채웁니다.</p>",
+    "arthod-edit:work03:desc": "<p data-start=\"21\" data-end=\"160\" class=\"PDq2pG_selectionAnchorContainer\"><b>&nbsp;Infinity</b> <b>Book</b>은 도서관에서 책을 읽는 순간, 이야기 속으로 깊이 빠져드는 감각을 우주적 공간 경험으로 확장한 미디어아트 설치 작품입니다. 인피니티 거울과 영상을 통해 관람객은 끝없이 이어지는 빛의 공간 안으로 빨려 들어가는 듯한 몰입감을 경험하게 됩니다.<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span></p><p style=\"margin-bottom:1.4em\">\n</p><p data-start=\"162\" data-end=\"279\">&nbsp;책은 하나의 물리적 사물을 넘어, 무한한 상상과 세계로 연결되는 통로가 <br>됩니다. 이 작품은 책이 가진 지식과 이야기의 가치를 시각적으로 확장하며, 도서관이라는 공간 안에서 책의 무한한 가능성을 체험하게 합니다.</p>",
     "arthod-edit:work:wmtag:2": "OpenCV",
     "arthod-edit:work08:duration": "6개월",
     "arthod-edit:work04:speckey:3": "Tech Stack",
@@ -171,7 +171,7 @@
     "arthod-edit:work04:duration": "5개월",
     "arthod-edit:work07:duration": "2개월",
     "arthod-proj:12:ko": "시작점",
-    "arthod-style:works:wpsubtitle:0": "{\"align\":\"left\",\"weight\":\"700\"}",
+    "arthod-style:works:wpsubtitle:0": "{\"align\":\"left\",\"weight\":\"700\",\"size\":24,\"color\":null}",
     "arthod-edit:work03:speckey:2": "Project",
     "arthod-edit:works:2": "12 Projects · 2019–2024",
     "arthod-proj:01:clientorg": "고양산업진흥원",
@@ -193,7 +193,7 @@
     "arthod-edit:work:speckey:1": "Duration",
     "arthod-edit:work01:wctextblockp:1": "관람객의 말과 몸짓에 따라 장면은 계속 변화하며, 이 작품은 생성형 AI와 공간 인터랙션이 만나는 경험을 제안합니다.",
     "arthod-edit:work07:wnlabel:0": "Next Project",
-    "arthod-edit:works:wpsubtitle:0": "빛과 소리, 공간으로 완성한<br data-om-id=\"456b18f7:41\">감각의 기록들.",
+    "arthod-edit:works:wpsubtitle:0": "빛과 소리, 공간으로 완성한 감각의 기록들",
     "arthod-proj:10:ko": "기억의 층",
     "arthod-edit:work05:wbsectionlabel:0": "Project Overview",
     "arthod-edit:services:fcolula:4": "Instagram",
