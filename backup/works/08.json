@@ -1,6 +1,6 @@
 {
   "work": "08",
-  "savedAt": "2026-07-05T08:58:53.792Z",
+  "savedAt": "2026-07-05T09:38:01.659Z",
   "media": {
     "images": [],
     "videos": [],
@@ -9,7 +9,8 @@
         "key": "wd:08:c0",
         "url": "https://youtu.be/EzlVSJqjMT4"
       }
-    ]
+    ],
+    "refs": []
   },
   "text": {
     "arthod-proj:08:project": "모든예술31",
