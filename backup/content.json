@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T06:22:11.730Z",
+  "savedAt": "2026-07-05T06:23:22.284Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -366,7 +366,7 @@
     "arthod-edit:work02:role": "모션그래픽 영상 제작 · 조명 &amp; 레이저 디자인 · 시스템 구축, 동기화",
     "arthod-edit:works:fcolula:1": "Services",
     "arthod-proj:08:clientorg": "부천문화재단",
-    "arthod-edit:work01:desc": "<p data-start=\"457\" data-end=\"673\" class=\"PDq2pG_selectionAnchorContainer\"><strong data-start=\"457\" data-end=\"472\">&nbsp; StreamScape</strong>는 관람객의 언어적 입력과 신체 움직임을 실시간으로 <br>감지하여 시각 이미지로 변환하는 인터랙티브 미디어아트 작품입니다. <br>관람객의 음성은 텍스트 프롬프트로 변환되고, 생성형 AI는 이를 바탕으로 <br>새로운 이미지를 만들어냅니다. 동시에 Kinect는 관람객의 위치, 속도, 제스처와 같은 신체 데이터를 추적하여 이미지의 움직임, 변화 범위, 시각적 흐름에 반영합니다.<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span></p><p style=\"margin-bottom:1.4em\">\n</p><p data-start=\"675\" data-end=\"873\">&nbsp; 이 작품에서 이미지는 고정된 결과물이 아니라 관람객의 말과 몸짓에 반응하며 계속 변화하는 장면입니다. 관람객은 말하고, 움직이고, 다시 반응하는 과정을 통해 자신만의 시각적 풍경을 만들어갑니다. <br>생성형 AI와 모션 트래킹, 라이다 기술을 결합하여 관람객이 작품의 변화에 직접 창작자로써 참여하는 경험을 제안합니다.</p>",
+    "arthod-edit:work01:desc": "<p data-start=\"457\" data-end=\"673\" class=\"PDq2pG_selectionAnchorContainer\"><strong data-start=\"457\" data-end=\"472\">&nbsp; StreamScape</strong>는 관람객의 언어적 입력과 신체 움직임을 실시간으로 <br>감지하여 시각 이미지로 변환하는 인터랙티브 미디어아트 작품입니다. <br>관람객의 음성은 텍스트 프롬프트로 변환되고, 생성형 AI는 이를 바탕으로 <br>새로운 이미지를 만들어냅니다.&nbsp;<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span><span style=\"font-size: clamp(16px, 1.6vw, 20px);\">Kinect&nbsp; 모션 트래킹 시스템은 관람객의 <br>신체 동작을 감지하여 시각적 변화에 반영합니다. 동시에 LiDAR 센서는 <br>벽면을 터치하는 위치와 움직임을 인식해 이미지가 생성되는 영역과 흐름을 조정합니다.</span></p>\n<p data-start=\"323\" data-end=\"506\" data-is-last-node=\"\" data-is-only-node=\"\"></p><p style=\"margin-bottom:1.4em\">\n</p><p data-start=\"675\" data-end=\"873\">&nbsp; 이 작품에서 이미지는 고정된 결과물이 아니라 관람객의 말과 몸짓에 반응하며 계속 변화하는 장면입니다. 관람객은 말하고, 움직이고, 다시 반응하는 과정을 통해 자신만의 시각적 풍경을 만들어갑니다. <br>생성형 AI와 모션 트래킹, 라이다 기술을 결합하여 관람객이 작품의 변화에 직접 창작자로써 참여하는 경험을 제안합니다.</p>",
     "arthod-edit:work07:desc": "<p style=\"margin-bottom:1.4em\">패션 브랜드의 팝업 스토어를 위해 제작된 인터랙티브 설치 작품입니다. 방문객이 제품을 집어들면 그 제품의 이야기가 공간 전체에 반향처럼 퍼져나갑니다. Kinect 센서가 제품의 움직임을 감지하고, 공간에 설치된 프로젝션 시스템이 실시간으로 반응합니다.</p><p style=\"margin-bottom:1.4em\">브랜드의 언어는 이제 공간이 됩니다.</p>",
     "arthod-edit:work:wctextblockp:1": "영상, 무대조명, 레이저는 하나의 흐름으로 연결되어 우주적 속도감과 차원의 전환을 만들어냅니다. <br>이 작품은 관람객이 하이퍼 드라이브를 통과하는 듯한 감각을 공간 안에서 체험하게 합니다.",
     "arthod-edit:work05:location": "공간형",
