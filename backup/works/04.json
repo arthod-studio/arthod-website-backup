@@ -1,6 +1,6 @@
 {
   "work": "04",
-  "savedAt": "2026-07-05T08:58:51.852Z",
+  "savedAt": "2026-07-05T09:37:58.993Z",
   "media": {
     "images": [],
     "videos": [],
@@ -9,7 +9,8 @@
         "key": "wd:04:c0",
         "url": "https://youtu.be/hTlkd_pxznQ"
       }
-    ]
+    ],
+    "refs": []
   },
   "text": {
     "arthod-proj:04:type": "Video · Urban Data",
