@@ -1,9 +1,10 @@
 {
-  "savedAt": "2026-07-05T05:41:34.561Z",
+  "savedAt": "2026-07-05T05:57:10.736Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
     "arthod-edit:works:fcolula:5": "Behance",
+    "arthod-layout:wd:01:g3": "{\"ar\":1.7778}",
     "arthod-edit:work05:caption": "작품 전경 · 국립현대미술관",
     "arthod-edit:services:fcolula:6": "Behance",
     "arthod-edit:about:abtlyear:0": "2024",
@@ -22,7 +23,7 @@
     "arthod-edit:about:abheroinfop:0": "미디어아트 스튜디오",
     "arthod-edit:about:abphillistli:0": "직관 / 감각 / 감성",
     "arthod-style:work02:wbsectionlabel:0": "{\"color\":\"#111111\",\"weight\":\"700\"}",
-    "arthod-layout:wd:01:g5": "{\"pos\":\"50% 50%\",\"zoom\":1}",
+    "arthod-layout:wd:01:g5": "{\"pos\":\"50% 50%\",\"zoom\":2.56,\"shiftX\":-0.46,\"shiftY\":1.02}",
     "arthod-edit:about:abtlyear:1": "2023",
     "arthod-proj:05:type": "Generative Art",
     "arthod-edit:services:pagetitle:0": "\n          Services\n          <span class=\"page-title-en\">예술과 기술이 교차하는 지점에서,<br>새로운 감각적 경험을 설계합니다.</span>\n        ",
@@ -136,6 +137,7 @@
     "arthod-edit:work03:mobfootspan:0": "hello@arthod.kr",
     "arthod-edit:works:wptitle:0": "Works",
     "arthod-edit:work:wnlabel:0": "Next Project",
+    "arthod-gallerylayout:02": "wide-strip",
     "arthod-proj:02:clientorg": "이지위드",
     "arthod-edit:services:fcolh4:0": "Pages",
     "arthod-edit:work:location": "고양아람누리",
