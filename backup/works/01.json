@@ -1,6 +1,6 @@
 {
   "work": "01",
-  "savedAt": "2026-07-05T06:19:51.543Z",
+  "savedAt": "2026-07-05T06:22:10.603Z",
   "media": {
     "images": [
       {
@@ -46,7 +46,7 @@
     "arthod-proj:01:type": "인터렉티브 설치",
     "arthod-proj:01:clientorg": "고양산업진흥원",
     "arthod-proj:01:year": "2025",
-    "arthod-layout:wd:01:g6": "{\"zoom\":3}",
+    "arthod-layout:wd:01:g6": "{\"zoom\":1}",
     "arthod-proj:01:ko": "Stream Scape",
     "arthod-proj:01:en": "Interactive Media Art · Generative AI",
     "arthod-proj:01:project": "고양콘텐츠사업화 지원사업"
