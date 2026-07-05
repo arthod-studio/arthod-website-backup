@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T09:38:02.985Z",
+  "savedAt": "2026-07-05T09:44:39.669Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -55,6 +55,7 @@
     "arthod-edit:work04:speckey:3": "Tech Stack",
     "arthod-edit:about:abphillistli:6": "과학적 탐구와 설계",
     "arthod-edit:work09:role": "기획 · 비주얼 개발 · 퍼포먼스",
+    "arthod-style:work01:wnlabel:0": "{\"color\":\"#ffffff\"}",
     "arthod-edit:work03:wnlabel:0": "Next Project",
     "arthod-edit:services:svcentryname:6": "모션그래픽<em>Motion Graphic</em>",
     "arthod-edit:work02:speckey:1": "Duration",
@@ -128,7 +129,7 @@
     "arthod-proj:05:en": "Laser Installation",
     "arthod-gallerylayout:03": "wide-strip",
     "arthod-edit:work:tech": "OpenCV · Arduino · TouchDesigner · DMX · LED Matrix",
-    "arthod-edit:work01:wnlabel:0": "Next Project",
+    "arthod-edit:work01:wnlabel:0": "<b>Next Project</b>",
     "arthod-edit:services:fcolula:2": "Services",
     "arthod-edit:work01:speckey:3": "Tech Stack",
     "arthod-proj:05:year": "2024",
@@ -499,8 +500,8 @@
       "embedUrl": "https://www.youtube.com/embed/mS1RkQ3O_LI?autoplay=1&mute=1&loop=1&playlist=mS1RkQ3O_LI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3"
     },
     "wd:01:g1": {
-      "kind": "image",
-      "file": "backup/media/01/wd_01_g1.jpg"
+      "kind": "ref",
+      "refKey": "wd:01:s8"
     },
     "wd:01:g2": {
       "kind": "image",
@@ -511,8 +512,8 @@
       "file": "backup/media/01/wd_01_g3.jpg"
     },
     "wd:01:g4": {
-      "kind": "image",
-      "file": "backup/media/01/wd_01_g4.jpg"
+      "kind": "ref",
+      "refKey": "wd:01:g1"
     },
     "wd:01:g5": {
       "kind": "image",
@@ -521,6 +522,10 @@
     "wd:01:g6": {
       "kind": "image",
       "file": "backup/media/01/wd_01_g6.jpg"
+    },
+    "wd:01:next": {
+      "kind": "ref",
+      "refKey": "wd:02:g1"
     },
     "wd:01:s8": {
       "kind": "image",
