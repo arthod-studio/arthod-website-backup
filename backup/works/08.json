@@ -1,0 +1,22 @@
+{
+  "work": "08",
+  "savedAt": "2026-07-05T07:34:19.639Z",
+  "media": {
+    "images": [],
+    "videos": [],
+    "embeds": [
+      {
+        "key": "wd:08:c0",
+        "url": "https://youtu.be/EzlVSJqjMT4"
+      }
+    ]
+  },
+  "text": {
+    "arthod-proj:08:project": "모든예술31",
+    "arthod-proj:08:en": "Interactive Light Installation",
+    "arthod-proj:08:ko": "Emotion Cloud",
+    "arthod-proj:08:year": "2023",
+    "arthod-proj:08:clientorg": "부천문화재단",
+    "arthod-proj:08:type": "Media Facade"
+  }
+}
