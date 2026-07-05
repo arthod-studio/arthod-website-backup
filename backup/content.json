@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-05T08:53:27.818Z",
+  "savedAt": "2026-07-05T08:58:54.741Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:services:svctag:2": "TouchDesigner",
@@ -21,6 +21,7 @@
     "arthod-proj:07:ko": "Emotion Particle",
     "arthod-edit:work04:wbsectionlabel:1": "Details",
     "arthod-edit:work08:specclient": "서울시 도시재생사업단",
+    "arthod-galleryitems:03": "[\"g1\",\"g2\",\"g3\",\"g4\",\"g5\"]",
     "arthod-edit:about:abheroinfop:0": "미디어아트 스튜디오",
     "arthod-edit:about:abphillistli:0": "직관 / 감각 / 감성",
     "arthod-style:work02:wbsectionlabel:0": "{\"color\":\"#111111\",\"weight\":\"700\"}",
@@ -125,6 +126,7 @@
     "arthod-edit:work02:wbsectionlabel:1": "Details",
     "arthod-proj:10:year": "2020",
     "arthod-proj:05:en": "Laser Installation",
+    "arthod-gallerylayout:03": "feature-mix",
     "arthod-edit:work:tech": "OpenCV · Arduino · TouchDesigner · DMX · LED Matrix",
     "arthod-edit:work01:wnlabel:0": "Next Project",
     "arthod-edit:services:fcolula:2": "Services",
