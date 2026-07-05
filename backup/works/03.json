@@ -1,0 +1,35 @@
+{
+  "work": "03",
+  "savedAt": "2026-07-05T09:37:57.696Z",
+  "media": {
+    "images": [
+      {
+        "key": "wd:03:g1",
+        "file": "backup/media/03/wd_03_g1.jpg"
+      },
+      {
+        "key": "wd:03:g2",
+        "file": "backup/media/03/wd_03_g2.jpg"
+      },
+      {
+        "key": "wd:03:g3",
+        "file": "backup/media/03/wd_03_g3.jpg"
+      },
+      {
+        "key": "wd:03:g4",
+        "file": "backup/media/03/wd_03_g4.jpg"
+      }
+    ],
+    "videos": [],
+    "embeds": [],
+    "refs": []
+  },
+  "text": {
+    "arthod-proj:03:type": "공공미술",
+    "arthod-proj:03:project": "열린아트공모전 대상",
+    "arthod-proj:03:year": "2025",
+    "arthod-proj:03:ko": "Infinity Book",
+    "arthod-proj:03:en": "Public Installation",
+    "arthod-proj:03:clientorg": "(주)신세계 프라버티"
+  }
+}
