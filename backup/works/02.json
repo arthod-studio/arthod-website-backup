@@ -1,0 +1,51 @@
+{
+  "work": "02",
+  "savedAt": "2026-07-05T07:04:16.872Z",
+  "media": {
+    "images": [
+      {
+        "key": "wd:02:g1",
+        "file": "backup/media/02/wd_02_g1.jpg"
+      },
+      {
+        "key": "wd:02:g2",
+        "file": "backup/media/02/wd_02_g2.jpg"
+      },
+      {
+        "key": "wd:02:g3",
+        "file": "backup/media/02/wd_02_g3.jpg"
+      },
+      {
+        "key": "wd:02:g4",
+        "file": "backup/media/02/wd_02_g4.jpg"
+      },
+      {
+        "key": "wd:02:g5",
+        "file": "backup/media/02/wd_02_g5.jpg"
+      },
+      {
+        "key": "wd:02:g6",
+        "file": "backup/media/02/wd_02_g6.jpg"
+      },
+      {
+        "key": "wimg:02",
+        "file": "backup/media/02/wimg_02.jpg"
+      }
+    ],
+    "videos": [],
+    "embeds": [
+      {
+        "key": "wd:02:c0",
+        "url": "https://youtu.be/IYLRX5dTQxo"
+      }
+    ]
+  },
+  "text": {
+    "arthod-proj:02:en": "Multimedia Installation",
+    "arthod-proj:02:clientorg": "이지위드",
+    "arthod-proj:02:ko": "Hyper Drive",
+    "arthod-proj:02:project": "코스믹 리조트 콘텐츠 제작",
+    "arthod-proj:02:year": "2025",
+    "arthod-proj:02:type": "Projection · LiDAR"
+  }
+}
