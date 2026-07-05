@@ -1,6 +1,6 @@
 {
   "work": "01",
-  "savedAt": "2026-07-05T05:41:33.562Z",
+  "savedAt": "2026-07-05T05:57:09.708Z",
   "media": {
     "images": [
       {
@@ -37,7 +37,8 @@
     ]
   },
   "text": {
-    "arthod-layout:wd:01:g5": "{\"pos\":\"50% 50%\",\"zoom\":1}",
+    "arthod-layout:wd:01:g3": "{\"ar\":1.7778}",
+    "arthod-layout:wd:01:g5": "{\"pos\":\"50% 50%\",\"zoom\":2.56,\"shiftX\":-0.46,\"shiftY\":1.02}",
     "arthod-proj:01:type": "인터렉티브 설치",
     "arthod-proj:01:clientorg": "고양산업진흥원",
     "arthod-proj:01:year": "2025",
