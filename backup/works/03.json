@@ -1,6 +1,6 @@
 {
   "work": "03",
-  "savedAt": "2026-07-05T10:06:45.621Z",
+  "savedAt": "2026-07-05T23:30:39.171Z",
   "media": {
     "images": [
       {
@@ -26,10 +26,19 @@
       {
         "key": "wd:03:g6",
         "file": "backup/media/03/wd_03_g6.jpg"
+      },
+      {
+        "key": "wd:03:next",
+        "file": "backup/media/03/wd_03_next.jpg"
       }
     ],
     "videos": [],
-    "embeds": [],
+    "embeds": [
+      {
+        "key": "wd:03:c0",
+        "url": "https://youtu.be/l08KpoO59Q4?list=PLqDKDmlKA6H7uJEEGP_2mXjgx_Va9pNhl"
+      }
+    ],
     "refs": []
   },
   "text": {
