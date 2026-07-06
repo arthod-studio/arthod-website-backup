@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-06T03:55:16.552Z",
+  "savedAt": "2026-07-06T04:00:09.099Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
@@ -540,12 +540,12 @@
       "file": "backup/media/01/wd_01_g4.mp4"
     },
     "wd:01:g5": {
-      "kind": "image",
-      "file": "backup/media/01/wd_01_g5.jpg"
+      "kind": "video",
+      "file": "backup/media/01/wd_01_g5.mov"
     },
     "wd:01:g6": {
-      "kind": "image",
-      "file": "backup/media/01/wd_01_g6.jpg"
+      "kind": "video",
+      "file": "backup/media/01/wd_01_g6.mov"
     },
     "wd:01:next": {
       "kind": "ref",
