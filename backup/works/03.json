@@ -1,6 +1,6 @@
 {
   "work": "03",
-  "savedAt": "2026-07-06T08:37:37.068Z",
+  "savedAt": "2026-07-06T15:07:11.836Z",
   "media": {
     "images": [
       {
@@ -43,9 +43,9 @@
   },
   "text": {
     "arthod-proj:03:type": "공공미술",
+    "arthod-proj:03:ko": "Infinity Book",
     "arthod-proj:03:project": "열린아트공모전 대상",
     "arthod-proj:03:year": "2025",
-    "arthod-proj:03:ko": "Infinity Book",
     "arthod-proj:03:en": "Public Installation",
     "arthod-proj:03:clientorg": "(주)신세계 프라버티"
   }
