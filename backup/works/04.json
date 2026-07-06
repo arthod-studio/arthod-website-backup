@@ -1,6 +1,6 @@
 {
   "work": "04",
-  "savedAt": "2026-07-06T08:37:38.039Z",
+  "savedAt": "2026-07-06T15:07:13.474Z",
   "media": {
     "images": [
       {
@@ -60,14 +60,19 @@
         "url": "https://www.youtube.com/embed/hTlkd_pxznQ?autoplay=0&mute=0&loop=1&playlist=hTlkd_pxznQ&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
-    "refs": []
+    "refs": [
+      {
+        "key": "wd:04:next",
+        "refKey": "wd:05:g1"
+      }
+    ]
   },
   "text": {
-    "arthod-proj:04:type": "Video · Urban Data",
     "arthod-proj:04:clientorg": "고양산업진흥원",
     "arthod-proj:04:en": "Interactive Light Installation",
     "arthod-proj:04:year": "2024",
     "arthod-proj:04:project": "고양콘텐츠사업화",
-    "arthod-proj:04:ko": "Luminous Melody"
+    "arthod-proj:04:ko": "Luminous Melody",
+    "arthod-proj:04:type": "Video · Urban Data"
   }
 }
