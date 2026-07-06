@@ -1,20 +1,8 @@
 {
   "work": "01",
-  "savedAt": "2026-07-05T23:30:36.423Z",
+  "savedAt": "2026-07-06T03:55:07.819Z",
   "media": {
     "images": [
-      {
-        "key": "wd:01:g2",
-        "file": "backup/media/01/wd_01_g2.jpg"
-      },
-      {
-        "key": "wd:01:g3",
-        "file": "backup/media/01/wd_01_g3.jpg"
-      },
-      {
-        "key": "wd:01:g4",
-        "file": "backup/media/01/wd_01_g4.jpg"
-      },
       {
         "key": "wd:01:g5",
         "file": "backup/media/01/wd_01_g5.jpg"
@@ -28,7 +16,24 @@
         "file": "backup/media/01/wd_01_s8.png"
       }
     ],
-    "videos": [],
+    "videos": [
+      {
+        "key": "wd:01:g1",
+        "file": "backup/media/01/wd_01_g1.mp4"
+      },
+      {
+        "key": "wd:01:g2",
+        "file": "backup/media/01/wd_01_g2.mp4"
+      },
+      {
+        "key": "wd:01:g3",
+        "file": "backup/media/01/wd_01_g3.mp4"
+      },
+      {
+        "key": "wd:01:g4",
+        "file": "backup/media/01/wd_01_g4.mp4"
+      }
+    ],
     "embeds": [
       {
         "key": "wd:01:c0",
@@ -36,10 +41,6 @@
       }
     ],
     "refs": [
-      {
-        "key": "wd:01:g1",
-        "refKey": "wd:01:s8"
-      },
       {
         "key": "wd:01:next",
         "refKey": "wd:02:g1"
