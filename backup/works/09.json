@@ -1,0 +1,23 @@
+{
+  "work": "09",
+  "savedAt": "2026-07-06T15:07:21.768Z",
+  "media": {
+    "images": [],
+    "videos": [],
+    "embeds": [],
+    "refs": [
+      {
+        "key": "wd:09:next",
+        "refKey": "svc:1"
+      }
+    ]
+  },
+  "text": {
+    "arthod-proj:09:type": "Audio Reactive",
+    "arthod-proj:09:en": "Kinetic Light Installation",
+    "arthod-proj:09:year": "2024",
+    "arthod-proj:09:project": "언제나 미래였던: 우주유영",
+    "arthod-proj:09:clientorg": "서울시립과학관",
+    "arthod-proj:09:ko": "Equniox"
+  }
+}
