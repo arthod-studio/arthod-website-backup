@@ -1,22 +1,57 @@
 {
   "work": "07",
-  "savedAt": "2026-07-06T08:37:39.116Z",
+  "savedAt": "2026-07-06T15:07:18.696Z",
   "media": {
-    "images": [],
-    "videos": [],
+    "images": [
+      {
+        "key": "wd:07:next",
+        "file": "backup/media/07/wd_07_next.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "key": "wd:07:g1",
+        "file": "backup/media/07/wd_07_g1.mp4"
+      },
+      {
+        "key": "wd:07:g2",
+        "file": "backup/media/07/wd_07_g2.mp4"
+      },
+      {
+        "key": "wd:07:g3",
+        "file": "backup/media/07/wd_07_g3.mp4"
+      },
+      {
+        "key": "wd:07:g4",
+        "file": "backup/media/07/wd_07_g4.mp4"
+      },
+      {
+        "key": "wd:07:g5",
+        "file": "backup/media/07/wd_07_g5.mp4"
+      },
+      {
+        "key": "wd:07:g6",
+        "file": "backup/media/07/wd_07_g6.mp4"
+      }
+    ],
     "embeds": [
       {
         "key": "wd:07:c0",
         "url": "https://www.youtube.com/embed/2s_EC2Yra2s?autoplay=0&mute=0&loop=1&playlist=2s_EC2Yra2s&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
-    "refs": []
+    "refs": [
+      {
+        "key": "wimg:07",
+        "refKey": "svc:1"
+      }
+    ]
   },
   "text": {
-    "arthod-proj:07:ko": "Emotion Particle",
     "arthod-proj:07:year": "2023",
     "arthod-proj:07:clientorg": "남원아트센터",
     "arthod-proj:07:type": "Brand · Interactive",
+    "arthod-proj:07:ko": "Emotion Particle",
     "arthod-proj:07:en": "Interactive Media Installation",
     "arthod-proj:07:project": "미디어아트ON"
   }
