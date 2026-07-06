@@ -1,38 +1,39 @@
 {
   "work": "02",
-  "savedAt": "2026-07-05T23:30:37.818Z",
+  "savedAt": "2026-07-06T03:55:09.252Z",
   "media": {
     "images": [
-      {
-        "key": "wd:02:g1",
-        "file": "backup/media/02/wd_02_g1.jpg"
-      },
-      {
-        "key": "wd:02:g2",
-        "file": "backup/media/02/wd_02_g2.jpg"
-      },
-      {
-        "key": "wd:02:g3",
-        "file": "backup/media/02/wd_02_g3.jpg"
-      },
-      {
-        "key": "wd:02:g4",
-        "file": "backup/media/02/wd_02_g4.jpg"
-      },
-      {
-        "key": "wd:02:g5",
-        "file": "backup/media/02/wd_02_g5.jpg"
-      },
-      {
-        "key": "wd:02:g6",
-        "file": "backup/media/02/wd_02_g6.jpg"
-      },
       {
         "key": "wimg:02",
         "file": "backup/media/02/wimg_02.jpg"
       }
     ],
-    "videos": [],
+    "videos": [
+      {
+        "key": "wd:02:g1",
+        "file": "backup/media/02/wd_02_g1.mp4"
+      },
+      {
+        "key": "wd:02:g2",
+        "file": "backup/media/02/wd_02_g2.mp4"
+      },
+      {
+        "key": "wd:02:g3",
+        "file": "backup/media/02/wd_02_g3.mp4"
+      },
+      {
+        "key": "wd:02:g4",
+        "file": "backup/media/02/wd_02_g4.mp4"
+      },
+      {
+        "key": "wd:02:g5",
+        "file": "backup/media/02/wd_02_g5.mp4"
+      },
+      {
+        "key": "wd:02:g6",
+        "file": "backup/media/02/wd_02_g6.mp4"
+      }
+    ],
     "embeds": [
       {
         "key": "wd:02:c0",
