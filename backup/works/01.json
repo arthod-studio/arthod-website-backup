@@ -1,16 +1,8 @@
 {
   "work": "01",
-  "savedAt": "2026-07-06T03:55:07.819Z",
+  "savedAt": "2026-07-06T04:00:00.887Z",
   "media": {
     "images": [
-      {
-        "key": "wd:01:g5",
-        "file": "backup/media/01/wd_01_g5.jpg"
-      },
-      {
-        "key": "wd:01:g6",
-        "file": "backup/media/01/wd_01_g6.jpg"
-      },
       {
         "key": "wd:01:s8",
         "file": "backup/media/01/wd_01_s8.png"
@@ -32,6 +24,14 @@
       {
         "key": "wd:01:g4",
         "file": "backup/media/01/wd_01_g4.mp4"
+      },
+      {
+        "key": "wd:01:g5",
+        "file": "backup/media/01/wd_01_g5.mov"
+      },
+      {
+        "key": "wd:01:g6",
+        "file": "backup/media/01/wd_01_g6.mov"
       }
     ],
     "embeds": [
