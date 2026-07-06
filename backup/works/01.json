@@ -1,11 +1,35 @@
 {
   "work": "01",
-  "savedAt": "2026-07-06T04:00:00.887Z",
+  "savedAt": "2026-07-06T04:13:33.783Z",
   "media": {
     "images": [
       {
         "key": "wd:01:s8",
         "file": "backup/media/01/wd_01_s8.png"
+      },
+      {
+        "key": "whover:01:1",
+        "file": "backup/media/01/whover_01_1.jpg"
+      },
+      {
+        "key": "whover:01:2",
+        "file": "backup/media/01/whover_01_2.jpg"
+      },
+      {
+        "key": "whover:01:3",
+        "file": "backup/media/01/whover_01_3.jpg"
+      },
+      {
+        "key": "whover:01:4",
+        "file": "backup/media/01/whover_01_4.jpg"
+      },
+      {
+        "key": "whover:01:5",
+        "file": "backup/media/01/whover_01_5.jpg"
+      },
+      {
+        "key": "whover:01:6",
+        "file": "backup/media/01/whover_01_6.jpg"
       }
     ],
     "videos": [
@@ -31,7 +55,7 @@
       },
       {
         "key": "wd:01:g6",
-        "file": "backup/media/01/wd_01_g6.mov"
+        "file": "backup/media/01/wd_01_g6.mp4"
       }
     ],
     "embeds": [
@@ -43,7 +67,7 @@
     "refs": [
       {
         "key": "wd:01:next",
-        "refKey": "wd:02:g1"
+        "refKey": "wimg:02"
       }
     ]
   },
