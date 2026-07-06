@@ -1,42 +1,41 @@
 {
   "work": "04",
-  "savedAt": "2026-07-06T04:13:37.172Z",
+  "savedAt": "2026-07-06T07:25:14.476Z",
   "media": {
-    "images": [
+    "images": [],
+    "videos": [
       {
         "key": "wd:04:g1",
-        "file": "backup/media/04/wd_04_g1.jpg"
+        "file": "backup/media/04/wd_04_g1.mp4"
       },
       {
         "key": "wd:04:g2",
-        "file": "backup/media/04/wd_04_g2.jpg"
+        "file": "backup/media/04/wd_04_g2.mp4"
+      },
+      {
+        "key": "wd:04:g3",
+        "file": "backup/media/04/wd_04_g3.mp4"
       },
       {
         "key": "wd:04:g4",
-        "file": "backup/media/04/wd_04_g4.jpg"
+        "file": "backup/media/04/wd_04_g4.mp4"
       },
       {
         "key": "wd:04:g5",
-        "file": "backup/media/04/wd_04_g5.jpg"
+        "file": "backup/media/04/wd_04_g5.mp4"
       },
       {
         "key": "wd:04:g6",
-        "file": "backup/media/04/wd_04_g6.jpg"
+        "file": "backup/media/04/wd_04_g6.mp4"
       }
     ],
-    "videos": [],
     "embeds": [
       {
         "key": "wd:04:c0",
         "url": "https://www.youtube.com/embed/hTlkd_pxznQ?autoplay=0&mute=0&loop=1&playlist=hTlkd_pxznQ&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
-    "refs": [
-      {
-        "key": "wd:04:g3",
-        "refKey": "wd:04:g2"
-      }
-    ]
+    "refs": []
   },
   "text": {
     "arthod-proj:04:type": "Video · Urban Data",
