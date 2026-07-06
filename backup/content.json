@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-06T04:00:09.099Z",
+  "savedAt": "2026-07-06T04:13:40.470Z",
   "text": {
     "arthod-edit:work04:aboutTitle": "작품에 대하여",
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
@@ -545,11 +545,11 @@
     },
     "wd:01:g6": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g6.mov"
+      "file": "backup/media/01/wd_01_g6.mp4"
     },
     "wd:01:next": {
       "kind": "ref",
-      "refKey": "wd:02:g1"
+      "refKey": "wimg:02"
     },
     "wd:01:s8": {
       "kind": "image",
@@ -654,6 +654,30 @@
     "wd:08:c0": {
       "kind": "embed",
       "embedUrl": "https://www.youtube.com/embed/EzlVSJqjMT4?autoplay=0&mute=0&loop=1&playlist=EzlVSJqjMT4&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
+    },
+    "whover:01:1": {
+      "kind": "image",
+      "file": "backup/media/01/whover_01_1.jpg"
+    },
+    "whover:01:2": {
+      "kind": "image",
+      "file": "backup/media/01/whover_01_2.jpg"
+    },
+    "whover:01:3": {
+      "kind": "image",
+      "file": "backup/media/01/whover_01_3.jpg"
+    },
+    "whover:01:4": {
+      "kind": "image",
+      "file": "backup/media/01/whover_01_4.jpg"
+    },
+    "whover:01:5": {
+      "kind": "image",
+      "file": "backup/media/01/whover_01_5.jpg"
+    },
+    "whover:01:6": {
+      "kind": "image",
+      "file": "backup/media/01/whover_01_6.jpg"
     },
     "wimg:02": {
       "kind": "image",
