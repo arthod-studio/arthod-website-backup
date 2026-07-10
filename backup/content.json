@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-10T06:31:24.338Z",
+  "savedAt": "2026-07-10T06:40:52.648Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -89,6 +89,7 @@
     "arthod-proj:02:en": "Multimedia Installation",
     "arthod-edit:contact:contactdesc:0": "\n            전시, 브랜드 협업, 공공 미술 — 어떤 규모의 이야기도 환영합니다.\n            먼저 어떤 프로젝트인지 간단히 알려주세요.\n          ",
     "arthod-edit:work07:speckey:0": "Role",
+    "arthod-about:history-items": "[{\"category\":\"Education\",\"items\":[{\"year\":\"2024\",\"name\":\"미디어아트 교육 프로그램\",\"desc\":\"프로젝션 매핑, 인터랙션 디자인, 공간 연출 워크숍 운영.\"},{\"year\":\"2023\",\"name\":\"크리에이티브 테크 세미나\",\"desc\":\"예술과 기술을 연결하는 제작 프로세스 강의 및 멘토링.\"}],\"note\":\"\"},{\"category\":\"Awards\",\"items\":[{\"year\":\"2024\",\"name\":\"Media Art Festival Award\",\"desc\":\"도시 데이터 기반 인터랙티브 설치 작품으로 수상.\"},{\"year\":\"2022\",\"name\":\"Interactive Experience Selection\",\"desc\":\"관람객 반응형 공간 경험 프로젝트 선정.\"}],\"note\":\"\"},{\"category\":\"Exhibitions\",\"items\":[{\"year\":\"2025\",\"name\":\"Stream Scape\",\"desc\":\"생성형 AI를 활용한 관객 맞춤형 비주얼 전시•미래감각•고양문화재단\"},{\"year\":\"2025\",\"name\":\"OS-1 : 우주광학전송장치\",\"desc\":\"인공위성의 통신 데이터를 시각화한 레이저 인스톨레이션 •미래감각•고양문화재단\"},{\"year\":\"Year\",\"name\":\"Infinity Books\",\"desc\":\"설명을 입력하세요.\"},{\"year\":\"Year\",\"name\":\"OS-1 : 우주광학전송장치\",\"desc\":\"인공위성의 통신 데이터를 시각화한 레이저 인스톨레이션\"}],\"note\":\"\"},{\"category\":\"Awards\",\"items\":[{\"year\":\"2025\",\"name\":\"별마당도서관 열린아트공모전 대상\",\"desc\":\"공공 건물 외벽 대규모 프로젝션 매핑 및 라이브 퍼포먼스.\"},{\"year\":\"2024\",\"name\":\"Asia Design Prize WINNER 수상\",\"desc\":\"Art + Method를 기반으로 서울에서 미디어아트 스튜디오 설립.\"}],\"note\":\"각 카테고리는 항목을 계속 추가하거나 제목을 바꿔서 사용할 수 있습니다.\"}]",
     "arthod-proj:09:type": "Audio Reactive",
     "arthod-edit:work:6": "Interactive LED Installation",
     "arthod-edit:work03:mobfootspan:0": "hello@arthod.kr",
@@ -482,6 +483,7 @@
     "arthod-proj:03:project": "열린아트공모전 대상",
     "arthod-edit:contact:cdilabel:0": "Email",
     "arthod-edit:contact:flogo:0": "ARTHOD",
+    "arthod-style:about-history-2-0-name": "{\"color\":\"#111111\"}",
     "arthod-edit:work02:tag0": "Projection",
     "arthod-edit:work:15": "Duration",
     "arthod-edit:about:heroInfo2": "예술과 기술이 교차하는 지점에서 새로운 감각적 경험을 설계합니다.",
@@ -541,6 +543,7 @@
     "arthod-edit:services:svc-generative-art-desc": "알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. 매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.",
     "arthod-edit:about:statementKeywords": "\n        'Immersive Media Contents',<br>\n        'Interactive Installation',<br>\n        <em>and 'AI Generated Experience'</em>\n      ",
     "arthod-edit:about:abphillistli:1": "시각 언어와 공간 경험",
+    "arthod-about:history-layout-version": "history-list-v2",
     "arthod-proj:03:year": "2025",
     "arthod-edit:contact:fcolula:6": "Behance",
     "arthod-edit:about:heroLead": "\n          아쏘드는 예술과 기술을 결합하여 <br>효과적으로 표현하는 방법을 연구하고 창작하는 <br>미디어아트 스튜디오입니다",
