@@ -1,15 +1,15 @@
 {
   "work": "services",
-  "savedAt": "2026-07-12T08:41:54.689Z",
+  "savedAt": "2026-07-12T09:51:56.077Z",
   "media": {
     "images": [
       {
         "key": "svc:0",
-        "file": "backup/media/services/svc_0.png"
+        "file": "backup/media/services/svc_0.jpg"
       },
       {
         "key": "svc:1",
-        "file": "backup/media/services/svc_1.jpg"
+        "file": "backup/media/services/svc_1.png"
       }
     ],
     "videos": [],
