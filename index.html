@@ -87,28 +87,14 @@
         <!-- CSS art fallback -->
         <div class="hero-art-bg"></div>
 
-        <!-- 영상 플레이스홀더 -->
-        <div class="hero-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="24" r="23" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
-            <polygon points="19,16 35,24 19,32" fill="rgba(255,255,255,.5)"/>
-          </svg>
-          <span>영상 준비 중</span>
-        </div>
-
-        <!--
-          ★ 영상 파일 교체 방법:
-          assets/hero.mp4 파일을 추가하고 아래 주석을 해제하세요.
-
-          <video class="hero-video" id="hero-video" autoplay muted loop playsinline>
-            <source src="assets/hero.mp4" type="video/mp4"/>
-          </video>
-        -->
+        <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="assets/video/arthod-art-method-logo-motion.mp4" type="video/mp4"/>
+        </video>
 
       </div>
     </div>
   </section>
 
-  <script src="main.js?v=history-scroll-20260710-1"></script>
+  <script src="main.js?v=home-video-autoplay-20260712-1"></script>
 </body>
 </html>

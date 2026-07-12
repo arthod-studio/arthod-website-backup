@@ -237,8 +237,14 @@ if (a4c) {
 const hv = document.getElementById('hero-video');
 if (hv) {
   const load = () => hv.classList.add('loaded');
+  hv.muted = true;
+  hv.defaultMuted = true;
+  hv.playsInline = true;
   hv.addEventListener('canplay', load);
   if (hv.readyState >= 3) load();
+  const tryPlay = () => hv.play().catch(() => {});
+  hv.addEventListener('canplay', tryPlay, { once: true });
+  tryPlay();
 }
 const fv = document.getElementById('feat-video');
 if (fv) {
