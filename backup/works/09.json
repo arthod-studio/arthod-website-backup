@@ -1,10 +1,15 @@
 {
   "work": "09",
-  "savedAt": "2026-07-12T07:38:10.070Z",
+  "savedAt": "2026-07-12T08:42:05.635Z",
   "media": {
     "images": [],
     "videos": [],
-    "embeds": [],
+    "embeds": [
+      {
+        "key": "wd:09:c0",
+        "url": "https://youtu.be/h01r-NInHM8"
+      }
+    ],
     "refs": [
       {
         "key": "wd:09:next",
