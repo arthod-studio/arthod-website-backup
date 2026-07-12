@@ -76,6 +76,28 @@
       position: relative;
       overflow: hidden;
     }
+    .svc-edit-actions {
+      display: none;
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      z-index: 5;
+      gap: 4px;
+    }
+    body.editing .svc-edit-actions { display: flex; }
+    .svc-edit-actions button {
+      height: 28px;
+      padding: 0 9px;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 5px;
+      background: rgba(8,8,8,.82);
+      color: #fff;
+      font: 700 11px/1 var(--font-mono,ui-monospace,monospace);
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,.22);
+    }
+    .svc-edit-actions button:hover { background: #111; }
+    .svc-edit-actions .svc-delete { border-color: rgba(220,40,30,.55); color: #ff6a5f; }
 
     /* 이미지: 좌 → 우 슬라이드 */
     .svc-img {
@@ -335,6 +357,7 @@
     <script>
       const SERVICE_COUNT = 'all'; // 숫자로 바꾸면 해당 개수까지만 표시됩니다. 예: 4
       const SERVICE_COUNT_KEY = 'arthod-service:count';
+      const SERVICE_ORDER_KEY = 'arthod-service:order';
       const SERVICE_ITEMS = [
         {
           key: 'interactive-installation',
@@ -394,6 +417,29 @@
         }
       ];
 
+      function configuredCount() {
+        const storedCount = parseInt(localStorage.getItem(SERVICE_COUNT_KEY) || '', 10);
+        const fallback = Number.isFinite(Number(SERVICE_COUNT)) ? Number(SERVICE_COUNT) : SERVICE_ITEMS.length;
+        return Math.max(1, Math.min(30, Number.isFinite(storedCount) ? storedCount : fallback));
+      }
+      function readServiceOrder() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(SERVICE_ORDER_KEY) || 'null');
+          if (Array.isArray(saved) && saved.length) return saved.map(Number).filter(Number.isFinite).slice(0, 30);
+        } catch (e) {}
+        return Array.from({ length: configuredCount() }, (_, index) => index);
+      }
+      function saveServiceOrder(order) {
+        localStorage.setItem(SERVICE_ORDER_KEY, JSON.stringify(order.slice(0, 30)));
+        localStorage.setItem(SERVICE_COUNT_KEY, String(order.length));
+      }
+      function nextServiceIndex(order) {
+        for (let i = 0; i < SERVICE_ITEMS.length; i++) {
+          if (!order.includes(i)) return i;
+        }
+        return order.length ? Math.max(...order) + 1 : 0;
+      }
+
       window.ARTHOD_RENDER_SERVICES = function renderServices() {
         const list = document.getElementById('service-list');
         if (!list) return;
@@ -404,9 +450,8 @@
           '"': '&quot;',
           "'": '&#39;'
         }[ch]));
-        const storedCount = parseInt(localStorage.getItem(SERVICE_COUNT_KEY) || '', 10);
-        const configuredCount = Number.isFinite(Number(SERVICE_COUNT)) ? Number(SERVICE_COUNT) : SERVICE_ITEMS.length;
-        const count = Math.max(0, Math.min(30, Number.isFinite(storedCount) ? storedCount : configuredCount));
+        const order = readServiceOrder();
+        const count = order.length;
         const serviceAt = index => SERVICE_ITEMS[index] || {
           key: `custom-${String(index + 1).padStart(2, '0')}`,
           ko: '새 서비스',
@@ -415,16 +460,17 @@
           image: `https://picsum.photos/seed/svc${String(index + 1).padStart(2, '0')}/1600/600`,
           tags: ['Tag']
         };
-        list.innerHTML = Array.from({ length: count }, (_, index) => {
-          const item = serviceAt(index);
+        list.innerHTML = order.map((serviceIndex, index) => {
+          const item = serviceAt(serviceIndex);
           const num = String(index + 1).padStart(2, '0');
-          const key = item.key || `service-${num}`;
+          const key = item.key || `service-${String(serviceIndex + 1).padStart(2, '0')}`;
           const tags = (item.tags || []).map((tag, tagIndex) =>
             `<span class="svc-tag" data-ek="svc-${key}-tag-${tagIndex + 1}">${escapeHtml(tag)}</span>`
           ).join('');
           return `
-            <div class="svc-entry r">
+            <div class="svc-entry r" data-service-index="${serviceIndex}">
               <div class="svc-img" style="background-image:url('${escapeHtml(item.image || '')}')"></div>
+              <span class="svc-edit-actions"><button type="button" class="svc-delete">삭제</button></span>
               <span class="svc-entry-num">${num}</span>
               <div class="svc-entry-body">
                 <h2 class="svc-entry-name" data-ek="svc-${key}-name">${escapeHtml(item.ko)}<em>${escapeHtml(item.en)}</em></h2>
@@ -434,16 +480,25 @@
             </div>
           `;
         }).join('');
+        list.querySelectorAll('.svc-delete').forEach(button => {
+          button.addEventListener('click', event => {
+            event.preventDefault();
+            event.stopPropagation();
+            const entry = button.closest('.svc-entry');
+            const serviceIndex = Number(entry?.dataset.serviceIndex);
+            const latest = readServiceOrder();
+            if (latest.length <= 1) return;
+            saveServiceOrder(latest.filter(index => index !== serviceIndex));
+            window.ARTHOD_RENDER_SERVICES();
+            window.ArthodEditor?.refreshEditable?.();
+          });
+        });
         document.dispatchEvent(new CustomEvent('arthod:services-rendered', { detail: { count } }));
       };
       window.ARTHOD_RENDER_SERVICES();
 
       (function installServiceCountEditor() {
-        function currentCount() {
-          const saved = parseInt(localStorage.getItem(SERVICE_COUNT_KEY) || '', 10);
-          const fallback = Number.isFinite(Number(SERVICE_COUNT)) ? Number(SERVICE_COUNT) : SERVICE_ITEMS.length;
-          return Math.max(1, Math.min(30, Number.isFinite(saved) ? saved : fallback));
-        }
+        function currentCount() { return readServiceOrder().length; }
         function updateLabel() {
           const value = document.querySelector('.service-count-current');
           const minus = document.querySelector('.service-count-minus');
@@ -454,7 +509,12 @@
           if (plus) plus.disabled = count >= 30;
         }
         function setCount(next) {
-          localStorage.setItem(SERVICE_COUNT_KEY, String(Math.max(1, Math.min(30, next))));
+          const current = readServiceOrder();
+          const target = Math.max(1, Math.min(30, next));
+          const nextOrder = current.slice();
+          while (nextOrder.length < target) nextOrder.push(nextServiceIndex(nextOrder));
+          while (nextOrder.length > target) nextOrder.pop();
+          saveServiceOrder(nextOrder);
           window.ARTHOD_RENDER_SERVICES();
           window.ArthodEditor?.refreshEditable?.();
           updateLabel();

@@ -239,6 +239,8 @@
       box-shadow: 0 3px 10px rgba(0,0,0,.25);
     }
     .card-reorder button:hover { background: rgba(0,70,190,.95); }
+    .card-reorder .cr-delete { background: rgba(200,30,20,.92); }
+    .card-reorder .cr-delete:hover { background: rgba(180,20,14,.96); }
     .works-count-tools {
       display: none;
       align-items: center;
@@ -713,10 +715,11 @@
           if (card.querySelector(':scope > .card-reorder')) return;
           const box = document.createElement('div');
           box.className = 'card-reorder';
-          box.innerHTML = '<button type="button" class="cr-up">▲</button><button type="button" class="cr-down">▼</button>';
+          box.innerHTML = '<button type="button" class="cr-up">▲</button><button type="button" class="cr-down">▼</button><button type="button" class="cr-delete">삭제</button>';
           card.appendChild(box);
           box.querySelector('.cr-up').addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); moveCard(card, -1); });
           box.querySelector('.cr-down').addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); moveCard(card, 1); });
+          box.querySelector('.cr-delete').addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); deleteCard(card); });
         });
       }
       function moveCard(card, dir) {
@@ -728,6 +731,13 @@
         else grid.insertBefore(cards[j], card);
         localStorage.setItem(CARD_ORDER_KEY, JSON.stringify(currentHrefOrder()));
         applyWorkCount();
+      }
+      function deleteCard(card) {
+        const count = savedCount();
+        if (count <= 1) return;
+        grid.appendChild(card);
+        localStorage.setItem(CARD_ORDER_KEY, JSON.stringify(currentHrefOrder()));
+        setCount(count - 1);
       }
       const mo = new MutationObserver(() => {
         if (document.body.classList.contains('editing')) {
