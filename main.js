@@ -2216,6 +2216,9 @@ if (fv) {
   }
 
   function onEditClick(e) {
+    if (e.target.closest('.svc-edit-actions, .service-count-tools, .works-count-tools, .works-add-post, .card-reorder, .history-group-controls, .history-move, .history-del, .history-add-item, .history-add-group, .connect-edit-controls, .connect-add')) {
+      return;
+    }
     const ce = e.target.closest('[contenteditable="true"]');
     if (ce) {
       const a = e.target.closest('a');
