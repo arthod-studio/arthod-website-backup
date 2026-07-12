@@ -1,11 +1,23 @@
 {
   "work": "07",
-  "savedAt": "2026-07-12T08:42:03.421Z",
+  "savedAt": "2026-07-12T09:52:06.728Z",
   "media": {
     "images": [
       {
         "key": "wd:07:next",
         "file": "backup/media/07/wd_07_next.jpg"
+      },
+      {
+        "key": "whover:07:2",
+        "file": "backup/media/07/whover_07_2.jpg"
+      },
+      {
+        "key": "whover:07:3",
+        "file": "backup/media/07/whover_07_3.jpg"
+      },
+      {
+        "key": "whover:07:4",
+        "file": "backup/media/07/whover_07_4.jpg"
       }
     ],
     "videos": [
@@ -41,6 +53,10 @@
       }
     ],
     "refs": [
+      {
+        "key": "whover:07:1",
+        "refKey": "svc:1"
+      },
       {
         "key": "wimg:07",
         "refKey": "svc:1"
