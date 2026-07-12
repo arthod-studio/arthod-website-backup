@@ -445,6 +445,9 @@
       window.ARTHOD_RENDER_SERVICES = function renderServices() {
         const list = document.getElementById('service-list');
         if (!list) return;
+        list.querySelectorAll('[data-edit-key]').forEach(el => {
+          localStorage.setItem('arthod-edit:' + el.dataset.editKey, el.innerHTML);
+        });
         const escapeHtml = value => String(value).replace(/[&<>"']/g, ch => ({
           '&': '&amp;',
           '<': '&lt;',
@@ -618,7 +621,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=edit-control-click-fix-20260712-1"></script>
+  <script src="main.js?v=services-tag-input-save-20260712-1"></script>
   <script>
     (function () {
       const CONNECT_KEY = 'arthod-connect:global';

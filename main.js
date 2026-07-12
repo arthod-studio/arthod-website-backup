@@ -1932,6 +1932,16 @@ if (fv) {
       hideTextToolbar();
     }, 120);
   }
+  function onEditInput(e) {
+    const el = e.target && e.target.closest && e.target.closest('[contenteditable="true"]');
+    if (!el) return;
+    if (el.dataset.shared) {
+      localStorage.setItem(SHARED_PREFIX + el.dataset.shared, el.textContent.trim());
+      applyMirrors();
+      return;
+    }
+    saveTextEl(el);
+  }
 
   function buildUI() {
     btn = document.createElement('button');
@@ -2203,12 +2213,14 @@ if (fv) {
     if (on) {
       document.addEventListener('click', onEditClick, true);
       document.addEventListener('keydown', onEditKeydown, true);
+      document.addEventListener('input', onEditInput, true);
       document.addEventListener('focusin', onEditFocusIn);
       document.addEventListener('focusout', onEditFocusOut);
       attachMediaHandles();
     } else {
       document.removeEventListener('click', onEditClick, true);
       document.removeEventListener('keydown', onEditKeydown, true);
+      document.removeEventListener('input', onEditInput, true);
       document.removeEventListener('focusin', onEditFocusIn);
       document.removeEventListener('focusout', onEditFocusOut);
       hideTextToolbar();
