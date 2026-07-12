@@ -1,6 +1,6 @@
 {
   "work": "10",
-  "savedAt": "2026-07-12T10:30:49.994Z",
+  "savedAt": "2026-07-12T10:55:53.897Z",
   "media": {
     "images": [
       {
@@ -49,7 +49,7 @@
     "embeds": [
       {
         "key": "wd:10:c0",
-        "url": "https://youtu.be/ofyDOgIEQSE"
+        "url": "https://www.youtube.com/embed/ofyDOgIEQSE?autoplay=0&mute=0&loop=1&playlist=ofyDOgIEQSE&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
     "refs": [
