@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-12T09:52:11.234Z",
+  "savedAt": "2026-07-12T10:31:05.907Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -62,7 +62,7 @@
     "arthod-edit:works:7": "Connect",
     "arthod-edit:work:caption": "작품 전경 · 서울 미디어아트 페스티벌",
     "arthod-edit:works:fcolula:2": "Contact",
-    "arthod-edit:works:wpcount:0": "12 Projects · 2019–2024",
+    "arthod-edit:works:wpcount:0": "10 Projects · 2019–2024",
     "arthod-edit:work01:specclient": "고양콘텐츠사업화 지원사업",
     "arthod-edit:work05:specclient": "국립현대미술관",
     "arthod-proj:12:year": "2019",
@@ -172,6 +172,7 @@
     "arthod-edit:work:9": "LED",
     "arthod-edit:services:svctag:11": "p5.js",
     "arthod-edit:works:5": "Art + Method<br data-om-id=\"456b18f7:196\">예술과 기술을 결합하여 효과적으로<br data-om-id=\"456b18f7:197\">표현하는 방법을 연구하고 창작하는<br data-om-id=\"456b18f7:198\">미디어아트 스튜디오. 서울.",
+    "arthod-layout:svc:1": "{\"ar\":3.4911}",
     "arthod-edit:work:desc": "<p data-start=\"86\" data-end=\"321\" class=\"PDq2pG_selectionAnchorContainer\"><strong data-start=\"86\" data-end=\"101\">StreamScape</strong>는 관람객의 음성, 움직임, 신체 제스처를 실시간 생성형 AI 이미지로 변환하는 인터랙티브 비주얼 설치 작품입니다. 관람객이 말한 단어와 문장은 이미지 생성을 위한 프롬프트가 되고, Kinect 기반 모션 트래킹 시스템은 관람객의 위치와 신체 동작을 감지하여 시각적 변화에 반영합니다. 동시에 LiDAR 센서는 벽면을 터치하는 위치와 움직임을 인식해 이미지가 생성되는 영역과 흐름을 조정합니다.<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span></p><p style=\"margin-bottom:1.4em\">\n</p><p data-start=\"323\" data-end=\"506\" data-is-last-node=\"\" data-is-only-node=\"\" class=\"\">관람객은 단순히 작품을 바라보는 감상자가 아니라, 자신의 말과 움직임으로 공간의 이미지를 함께 만들어가는 참여자가 됩니다. <strong data-start=\"392\" data-end=\"407\">StreamScape</strong>는 음성 입력, 신체 모션, LiDAR 기반 터치 인터랙션, 실시간 이미지 생성이 하나의 순환 구조로 연결되는 과정을 통해 매 순간 변화하는 개인화된 시각적 풍경을 만들어냅니다.</p>",
     "arthod-edit:work06:aboutBody": "<p style=\"margin-bottom:1.4em\">실시간 기상 데이터를 유체 시뮬레이션으로 변환하는 작품입니다. 기온, 습도, 풍향, 강수량이 화면 속 유체의 점도, 색상, 방향, 속도로 번역됩니다. 기상청 API와 연결되어 현재 이 순간의 날씨가 작품의 형태를 결정합니다.</p><p style=\"margin-bottom:1.4em\">자연은 이미 예술입니다. 우리는 그것을 볼 수 있는 언어를 만들었습니다.</p>",
     "arthod-proj:01:year": "2025",
@@ -195,7 +196,7 @@
     "arthod-edit:works:fcolh4:1": "Connect",
     "arthod-edit:services:svctag:1": "Depth Sensor",
     "arthod-edit:work02:wnlabel:0": "Next Project",
-    "arthod-edit:about:abstatementbodyp:0": "\n          우리는 단순히 아름다운 것을 만드는 데 그치지 않습니다.\n<br>왜 아름다운지, 어떻게 그 감각이 만들어지는지를 탐구합니다.&nbsp; <br>방법론(Method)은 우리의 창작을 구조화하고,\n          예술(Art)은 그 구조에 숨결을 불어넣습니다.\n        ",
+    "arthod-edit:about:abstatementbodyp:0": "\n          우리는 단순히 아름다운 것을 만드는 데 그치지 않습니다.\n<br>왜 아름다운지,&nbsp; 어떻게 그 감각이 만들어내는지 탐구합니다.&nbsp; <br>방법론(Method)은 우리의 창작을 구조화하고,\n          예술(Art)은 그 구조에 숨결을 불어넣습니다.\n        ",
     "arthod-edit:services:svctag:12": "WebGL",
     "arthod-edit:about:heroMeta": "Media Art Studio<br>Seoul · Est. 2018",
     "arthod-edit:work05:mobfootspan:0": "hello@arthod.kr",
@@ -364,7 +365,7 @@
     "arthod-edit:contact:fcolula:1": "Works",
     "arthod-edit:about:abphillistli:0": "직관 / 감각 / 감성",
     "arthod-edit:services:svc-sound-visual-tag-3": "OSC",
-    "arthod-edit:services:svc-sound-visual-desc": "음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. 소리가 형태를 만들고, 형태가 소리를 만듭니다.",
+    "arthod-edit:services:svc-sound-visual-desc": "음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. <br>소리가 형태를 만들고, 형태가 소리를 만듭니다.",
     "arthod-galleryitems:03": "[\"g1\",\"g2\",\"g4\",\"g5\",\"g3\",\"g6\"]",
     "arthod-edit:about:abtlyear:1": "2023",
     "arthod-layout:wd:01:g5": "{\"pos\":\"50% 50%\",\"zoom\":1.08,\"shiftX\":3.79,\"shiftY\":-2.45}",
@@ -420,7 +421,7 @@
     "arthod-edit:work:14": "Role",
     "arthod-proj:11:year": "2020",
     "arthod-edit:services:svctag:14": "Processing",
-    "arthod-cardorder:works": "[\"work.html?id=01&v=detail-next-order-20260706-1\",\"work.html?id=02&v=detail-next-order-20260706-1\",\"work.html?id=03&v=detail-next-order-20260706-1\",\"work.html?id=04&v=detail-next-order-20260706-1\",\"work.html?id=05&v=detail-next-order-20260706-1\",\"work.html?id=06&v=detail-next-order-20260706-1\",\"work.html?id=09&v=detail-next-order-20260706-1\",\"work.html?id=07&v=detail-next-order-20260706-1\",\"work.html?id=08&v=detail-next-order-20260706-1\",\"work.html?id=10&v=detail-next-order-20260706-1\",\"work.html?id=11&v=detail-next-order-20260706-1\",\"work.html?id=12&v=detail-next-order-20260706-1\"]",
+    "arthod-cardorder:works": "[\"work.html?id=01&v=detail-next-order-20260706-1\",\"work.html?id=02&v=detail-next-order-20260706-1\",\"work.html?id=03&v=detail-next-order-20260706-1\",\"work.html?id=04&v=detail-next-order-20260706-1\",\"work.html?id=05&v=detail-next-order-20260706-1\",\"work.html?id=06&v=detail-next-order-20260706-1\",\"work.html?id=09&v=detail-next-order-20260706-1\",\"work.html?id=07&v=detail-next-order-20260706-1\",\"work.html?id=08&v=detail-next-order-20260706-1\",\"work.html?id=10&v=detail-next-order-20260706-1\",\"work.html?id=12&v=detail-next-order-20260706-1\",\"work.html?id=11&v=detail-next-order-20260706-1\"]",
     "arthod-proj:04:type": "Video · Urban Data",
     "arthod-edit:work05:wnlabel:0": "Next Project",
     "arthod-edit:work06:tech": "Laser · Sound ·&nbsp;Installation",
@@ -547,7 +548,7 @@
     "arthod-edit:about:abheroinfop:1": "<br>",
     "arthod-edit:services:svc-projection-mapping-desc": "건물 외벽, 조형물, 무대 세트 등 불규칙한 3D 표면에 정확히 맞춰진 영상을 투영하는 몰입형 시각 경험을 구현합니다. 공간 자체가 스크린이 됩니다.",
     "arthod-edit:work:3": "Type",
-    "arthod-edit:services:svc-generative-art-desc": "알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. 매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.",
+    "arthod-edit:services:svc-generative-art-desc": "알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. <br>매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.",
     "arthod-edit:about:statementKeywords": "\n        'Immersive Media Contents',<br>\n        'Interactive Installation',<br>\n        <em>and 'AI Generated Experience'</em>\n      ",
     "arthod-about:history-layout-version": "history-list-v2",
     "arthod-edit:about:abphillistli:1": "시각 언어와 공간 경험",
@@ -615,7 +616,7 @@
     "arthod-proj:01:project": "고양콘텐츠사업화 지원사업",
     "arthod-edit:contact:formtitle:0": "프로젝트 문의",
     "arthod-edit:work04:runtime": "3분",
-    "arthod-edit:services:svc-motion-graphic-desc": "브랜드 캠페인, 전시 콘텐츠, 무대 영상 등을 위한 고품질 모션그래픽을 제작합니다. 정교한 타이포그래피 애니메이션부터 3D 오브젝트 비주얼까지 다양한 스타일로 구현합니다.",
+    "arthod-edit:services:svc-motion-graphic-desc": "브랜드 캠페인, 전시 콘텐츠, 무대 영상 등을 위한 고품질 모션그래픽을 제작합니다. <br>애니메이션부터 3D 오브젝트 비주얼까지 다양한 스타일로 구현합니다.",
     "arthod-edit:services:svctag:27": "Temporary",
     "arthod-edit:services:stepdesc:1": "감성적 경험을 구체화하는 <br>콘셉트를 수립합니다. <br>기술은 이 단계에서 선택됩니다.",
     "arthod-proj:12:en": "Origin Point",
@@ -627,7 +628,7 @@
     "arthod-edit:services:svctag:26": "Permanent",
     "arthod-edit:services:processtitle:0": "작업 방식<br><span style=\"font-weight: normal;\">Our Method</span>",
     "arthod-edit:work03:role": "기획 · 모션그래픽 영상 제작 · 구조물 설계 &amp; 설치&nbsp;",
-    "arthod-edit:services:svc-public-art-desc": "도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 제작합니다. 도시 자체가 갤러리가 됩니다.",
+    "arthod-edit:services:svc-public-art-desc": "도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 <br>제작합니다. 도시 자체가 갤러리가 됩니다.",
     "arthod-edit:work10:desc": "<p data-start=\"21\" data-end=\"133\"><strong data-start=\"21\" data-end=\"30\">&nbsp; Close &amp; Close</strong>는 사전적 의미로 ‘가까이 있다’와 ‘닫다’라는 두 가지 의미 있으며,&nbsp; <span style=\"font-size: clamp(16px, 1.6vw, 20px);\">가까이에 있지만 닫힌 시선 때문에 보지 못했던 존재를 다시 바라보게 하는 작품입니다</span><span style=\"font-size: clamp(16px, 1.6vw, 20px);\">&nbsp;오디오 비주얼 설치 작품입니다. 우리와 가장 가까운 곳에 있지만, 바쁜 일상 속에서 쉽게 지나쳐지는 존재들에 주목합니다.</span></p><p data-start=\"135\" data-end=\"295\">아쏘드는 그중에서도 <span data-start=\"146\" data-end=\"152\">신발</span>을 주요 오브제로 선택했습니다. 신발은 가장 낮은 위치에서 우리의 몸을 지탱하고, 문밖의 세계로부터 우리를 보호하는 존재입니다. 군화, 구두, 발레슈즈, 운동화, 안전화처럼 각기 다른 신발에는 그것을 신었던 사람의 삶과 시간, 노동의 흔적이 담겨 있습니다.</p><p style=\"margin-bottom:1.4em\">\n\n</p><p data-start=\"297\" data-end=\"442\">&nbsp; 매시간 25분마다 자동으로 오디오비주얼이 시작되도록 프로그래밍되어, 신발이라는 사적인 오브제가 빛과 소리의 흐름 속에서 하나의 기억으로 확장됩니다.</p>",
     "arthod-edit:work08:wbsectionlabel:1": "Details",
     "arthod-style:contact:cdilabel:1": "{\"color\":\"#ffffff\"}",
@@ -660,12 +661,28 @@
   },
   "mediaIndex": {
     "svc:0": {
-      "kind": "image",
-      "file": "backup/media/services/svc_0.jpg"
+      "kind": "ref",
+      "refKey": "wd:07:next"
     },
     "svc:1": {
+      "kind": "ref",
+      "refKey": "whover:07:2"
+    },
+    "svc:2": {
+      "kind": "ref",
+      "refKey": "wd:01:s8"
+    },
+    "svc:3": {
       "kind": "image",
-      "file": "backup/media/services/svc_1.png"
+      "file": "backup/media/services/svc_3.jpg"
+    },
+    "svc:5": {
+      "kind": "ref",
+      "refKey": "wd:03:g1"
+    },
+    "svc:6": {
+      "kind": "image",
+      "file": "backup/media/services/svc_6.jpg"
     },
     "wd:01:c0": {
       "kind": "embed",
@@ -901,7 +918,7 @@
     },
     "wd:09:g2": {
       "kind": "image",
-      "file": "backup/media/09/wd_09_g2.png"
+      "file": "backup/media/09/wd_09_g2.jpg"
     },
     "wd:09:g3": {
       "kind": "video",
@@ -922,6 +939,38 @@
     "wd:09:next": {
       "kind": "ref",
       "refKey": "svc:1"
+    },
+    "wd:10:c0": {
+      "kind": "embed",
+      "embedUrl": "https://www.youtube.com/embed/ofyDOgIEQSE?autoplay=0&mute=0&loop=1&playlist=ofyDOgIEQSE&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
+    },
+    "wd:10:g1": {
+      "kind": "video",
+      "file": "backup/media/10/wd_10_g1.mp4"
+    },
+    "wd:10:g2": {
+      "kind": "video",
+      "file": "backup/media/10/wd_10_g2.mp4"
+    },
+    "wd:10:g3": {
+      "kind": "video",
+      "file": "backup/media/10/wd_10_g3.mp4"
+    },
+    "wd:10:g4": {
+      "kind": "video",
+      "file": "backup/media/10/wd_10_g4.mp4"
+    },
+    "wd:10:g5": {
+      "kind": "video",
+      "file": "backup/media/10/wd_10_g5.mp4"
+    },
+    "wd:10:g6": {
+      "kind": "video",
+      "file": "backup/media/10/wd_10_g6.mp4"
+    },
+    "wd:10:next": {
+      "kind": "ref",
+      "refKey": "whover:01:1"
     },
     "whover:01:1": {
       "kind": "image",
@@ -1025,7 +1074,23 @@
     },
     "whover:09:4": {
       "kind": "image",
-      "file": "backup/media/09/whover_09_4.png"
+      "file": "backup/media/09/whover_09_4.jpg"
+    },
+    "whover:10:1": {
+      "kind": "image",
+      "file": "backup/media/10/whover_10_1.jpg"
+    },
+    "whover:10:2": {
+      "kind": "image",
+      "file": "backup/media/10/whover_10_2.jpg"
+    },
+    "whover:10:3": {
+      "kind": "image",
+      "file": "backup/media/10/whover_10_3.jpg"
+    },
+    "whover:10:4": {
+      "kind": "image",
+      "file": "backup/media/10/whover_10_4.jpg"
     },
     "wimg:02": {
       "kind": "image",
@@ -1041,6 +1106,7 @@
     }
   },
   "works": [
+    "10",
     "services",
     "01",
     "02",
