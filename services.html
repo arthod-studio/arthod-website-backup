@@ -87,12 +87,12 @@
     body.editing .svc-edit-actions { display: flex; }
     .svc-edit-actions button {
       height: 28px;
-      padding: 0 9px;
+      padding: 0 10px;
       border: 1px solid rgba(255,255,255,.4);
       border-radius: 5px;
       background: rgba(8,8,8,.82);
       color: #fff;
-      font: 700 11px/1 var(--font-mono,ui-monospace,monospace);
+      font: 700 10px/1 var(--font-mono,ui-monospace,monospace);
       cursor: pointer;
       box-shadow: 0 4px 14px rgba(0,0,0,.22);
     }
@@ -472,7 +472,7 @@
           return `
             <div class="svc-entry r" data-service-index="${serviceIndex}">
               <div class="svc-img" style="background-image:url('${escapeHtml(item.image || '')}')"></div>
-              <span class="svc-edit-actions"><button type="button" class="svc-delete">삭제</button></span>
+              <span class="svc-edit-actions"><button type="button" class="svc-delete" aria-label="이 서비스 항목 삭제" title="이 항목만 삭제">항목 삭제</button></span>
               <span class="svc-entry-num">${num}</span>
               <div class="svc-entry-body">
                 <h2 class="svc-entry-name" data-ek="svc-${key}-name">${escapeHtml(item.ko)}<em>${escapeHtml(item.en)}</em></h2>
