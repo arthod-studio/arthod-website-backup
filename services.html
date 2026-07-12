@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Arthod(아쏘드) Services — 인터랙티브 설치, 프로젝션 매핑, 제너러티브 아트, 사운드 비주얼, 브랜드 경험, 공공 미술."/>
+  <meta name="application-name" content="Arthod(아쏘드)"/>
+  <meta property="og:site_name" content="Arthod(아쏘드)"/>
+  <meta property="og:title" content="Services — Arthod(아쏘드)"/>
+  <link rel="canonical" href="https://www.arthod-studio.com/services.html"/>
+  <title>Services — Arthod(아쏘드)</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
+  <link rel="stylesheet" href="style.css?v=cursor-fast-20260706-1"/>
+  <style>
+    .page-wrap { padding-top: var(--nav-h); }
+
+    .page-hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(60px,10vh,120px) var(--px) clamp(40px,6vh,72px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .page-title {
+      font-family: var(--font-d);
+      font-size: clamp(52px,10vw,130px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .page-title-en {
+      font-size: clamp(14px,1.6vw,18px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-3);
+      display: block;
+      margin-top: 20px;
+      line-height: 1.4;
+      letter-spacing: 0;
+    }
+
+    .page-hero-right {
+      text-align: right;
+      padding-bottom: 8px;
+    }
+
+    .page-hero-right p {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink-3);
+      line-height: 1.7;
+      max-width: 280px;
+      text-align: right;
+    }
+
+    /* ── Service list (large editorial) ── */
+    .svc-list {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    .svc-entry {
+      display: grid;
+      grid-template-columns: clamp(100px,12vw,180px) 1fr;
+      align-items: start;
+      gap: clamp(32px,5vw,80px);
+      padding: clamp(40px,6vh,72px) 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 이미지: 좌 → 우 슬라이드 */
+    .svc-img {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path .65s cubic-bezier(.76,0,.24,1);
+      z-index: 0;
+    }
+    .svc-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+    }
+    .svc-entry:hover .svc-img { clip-path: inset(0 0% 0 0); }
+    .svc-entry:hover .svc-entry-num { color: #fff; }
+    .svc-entry:hover .svc-entry-name { color: #fff; }
+    .svc-entry:hover .svc-entry-name em { color: rgba(255,255,255,.9); }
+    .svc-entry:hover .svc-entry-desc { color: #fff; }
+    .svc-entry:hover .svc-tag { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.85); background: rgba(255,255,255,.1); }
+
+    .svc-entry-num,
+    .svc-entry-body { position: relative; z-index: 1; }
+
+    .svc-entry-name { transition: color .5s ease; }
+    .svc-entry-name em { transition: color .5s ease; }
+    .svc-entry-desc { transition: color .5s ease; }
+    .svc-tag { transition: color .5s ease, border-color .5s ease, background .5s ease; }
+
+    .svc-entry-num {
+      font-family: var(--font-d);
+      font-size: clamp(48px,7vw,96px);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: var(--ink);
+      line-height: 0.8;
+      margin-top: -0.05em;
+      transition: color .5s ease;
+      text-align: right;
+    }
+
+    .svc-entry-body {}
+
+    .svc-entry-name {
+      font-family: var(--font-d);
+      font-size: clamp(28px,4vw,56px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: 0.8;
+      color: var(--ink);
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .svc-entry-name em {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--ink-3);
+      display: block;
+      font-size: .5em;
+      letter-spacing: 0;
+      margin-top: 14px;
+    }
+
+    .svc-entry-desc {
+      font-size: clamp(15px,1.4vw,18px);
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--ink-2);
+      max-width: 620px;
+      margin-bottom: 20px;
+    }
+
+    .svc-entry-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .svc-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--bg);
+    }
+
+
+    /* ── Process section ── */
+    .process-section {
+      background: var(--ink);
+      padding: clamp(60px,8vh,100px) var(--px);
+      margin-top: 0;
+    }
+
+    .process-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .process-title {
+      font-family: var(--font-d);
+      font-size: clamp(28px,4vw,52px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      color: #fff;
+      margin-bottom: clamp(40px,5vh,64px);
+    }
+    .process-title em { font-style: italic; font-weight: 400; color: rgba(255,255,255,.4); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 2px;
+    }
+
+    .process-step {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+      padding: clamp(40px,5vw,72px) clamp(32px,4vw,56px);
+      transition: background .35s, border-color .35s;
+      cursor: default;
+    }
+    .process-step:hover {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .step-n {
+      font-family: var(--font-d);
+      font-size: clamp(48px,6vw,80px);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: rgba(255,255,255,.25);
+      margin-bottom: 32px;
+      display: block;
+      line-height: 1;
+      transition: color .35s;
+    }
+    .process-step:hover .step-n { color: rgba(255,255,255,.9); }
+
+    .step-name {
+      font-family: var(--font-d);
+      font-size: clamp(22px,2.4vw,32px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 16px;
+      transition: color .35s;
+    }
+    .process-step:hover .step-name { color: #fff; }
+
+    .step-desc {
+      font-size: clamp(14px,1.2vw,16px);
+      font-weight: 400;
+      line-height: 1.85;
+      color: rgba(255,255,255,.35);
+      transition: color .35s;
+    }
+    .process-step:hover .step-desc { color: rgba(255,255,255,.8); }
+
+    /* ── CTA band ── */
+    .cta-band {
+      padding: clamp(60px,8vh,100px) var(--px);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-band h2 {
+      font-family: var(--font-d);
+      font-size: clamp(28px,5vw,60px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    .cta-band-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media(max-width:900px){
+      .svc-entry { grid-template-columns: 72px minmax(0, 1fr); gap: 24px; }
+      .svc-entry-body { min-width: 0; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .page-hero { flex-direction: column; align-items: flex-start; }
+      .page-hero-right { text-align: left; }
+      .page-hero-right p { text-align: left; }
+    }
+    @media(max-width:600px){
+      .svc-entry {
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 16px;
+      }
+      .svc-entry-body { min-width: 0; }
+      .svc-entry-num {
+        font-size: 40px;
+        text-align: left;
+      }
+      .svc-entry-name { line-height: 1; }
+      .svc-tag {
+        font-size: 10px;
+        padding: 6px 10px;
+      }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav scrolled" id="site-nav">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo"><img src="logo.png?v=logo-arthod-20260706-1" alt="Arthod"></a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="works.html?v=works-hover-slots-20260706-1">Works</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobile-overlay">
+    <nav class="mobile-nav">
+      <a href="about.html"    class="mobile-link">About</a>
+      <a href="works.html?v=works-hover-slots-20260706-1"    class="mobile-link">Works</a>
+      <a href="services.html" class="mobile-link">Services</a>
+      <a href="contact.html"  class="mobile-link">Contact</a>
+    </nav>
+    <div class="mob-foot">
+      <span>hello@arthod.kr</span>
+      <div class="mob-soc"><a href="#">IG</a><a href="#">VM</a><a href="#">BE</a></div>
+    </div>
+  </div>
+
+  <main class="page-wrap">
+
+    <div class="page-hero">
+      <div>
+        <h1 class="page-title r">
+          Services
+          <span class="page-title-en">예술과 기술이 교차하는 지점에서,<br>새로운 감각적 경험을 설계합니다.</span>
+        </h1>
+      </div>
+      <div class="page-hero-right r d1">
+        <p>기획부터 제작, 설치, 운영까지<br/>미디어아트의 전 과정을<br/>원스톱으로 진행합니다.</p>
+      </div>
+    </div>
+
+    <!-- Service entries -->
+    <div class="svc-list" id="service-list"></div>
+
+    <script>
+      const SERVICE_COUNT = 'all'; // 숫자로 바꾸면 해당 개수까지만 표시됩니다. 예: 4
+      const SERVICE_COUNT_KEY = 'arthod-service:count';
+      const SERVICE_ITEMS = [
+        {
+          key: 'interactive-installation',
+          ko: '인터랙티브 설치',
+          en: 'Interactive Installation',
+          desc: '센서, 카메라, 모션 캡처 등 다양한 입력 장치를 활용해 관람객과 실시간으로 반응하는 공간 설치 작품을 기획하고 제작합니다. 관람객의 존재 자체가 작품의 일부가 됩니다.',
+          image: 'https://picsum.photos/seed/svc01/1600/600',
+          tags: ['OpenCV', 'Depth Sensor', 'TouchDesigner', 'Arduino', 'LED']
+        },
+        {
+          key: 'projection-mapping',
+          ko: '프로젝션 매핑',
+          en: 'Projection Mapping',
+          desc: '건물 외벽, 조형물, 무대 세트 등 불규칙한 3D 표면에 정확히 맞춰진 영상을 투영하는 몰입형 시각 경험을 구현합니다. 공간 자체가 스크린이 됩니다.',
+          image: 'https://picsum.photos/seed/svc02/1600/600',
+          tags: ['LiDAR', 'Resolume', 'Madmapper', 'Unreal Engine', '3D Scan']
+        },
+        {
+          key: 'generative-art',
+          ko: '제너러티브 아트',
+          en: 'Generative Art',
+          desc: '알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. 매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.',
+          image: 'https://picsum.photos/seed/svc03/1600/600',
+          tags: ['GLSL', 'p5.js', 'WebGL', 'Max/MSP', 'Processing']
+        },
+        {
+          key: 'sound-visual',
+          ko: '사운드 비주얼',
+          en: 'Sound Visual',
+          desc: '음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. 소리가 형태를 만들고, 형태가 소리를 만듭니다.',
+          image: 'https://picsum.photos/seed/svc04/1600/600',
+          tags: ['Max/MSP', 'Ableton', 'OSC', 'MIDI', 'Spatial Audio']
+        },
+        {
+          key: 'brand-experience',
+          ko: '브랜드 경험 설계',
+          en: 'Brand Experience',
+          desc: '브랜드 아이덴티티를 미디어아트로 해석한 팝업 스토어, 전시 부스, 쇼룸, 오프닝 세레모니를 기획하고 제작합니다. 브랜드의 가치를 감각으로 전달합니다.',
+          image: 'https://picsum.photos/seed/svc05/1600/600',
+          tags: ['Concept', 'Production', 'Installation', 'Brand Storytelling']
+        },
+        {
+          key: 'public-art',
+          ko: '공공 미술',
+          en: 'Public Art',
+          desc: '도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 제작합니다. 도시 자체가 갤러리가 됩니다.',
+          image: 'https://picsum.photos/seed/svc06/1600/600',
+          tags: ['Media Facade', 'Outdoor LED', 'Permanent', 'Temporary']
+        },
+        {
+          key: 'motion-graphic',
+          ko: '모션그래픽',
+          en: 'Motion Graphic',
+          desc: '브랜드 캠페인, 전시 콘텐츠, 무대 영상 등을 위한 고품질 모션그래픽을 제작합니다. 정교한 타이포그래피 애니메이션부터 3D 오브젝트 비주얼까지 다양한 스타일로 구현합니다.',
+          image: 'https://picsum.photos/seed/svc07/1600/600',
+          tags: ['After Effects', 'Cinema 4D', 'Houdini', 'Blender', 'Lottie']
+        }
+      ];
+
+      window.ARTHOD_RENDER_SERVICES = function renderServices() {
+        const list = document.getElementById('service-list');
+        if (!list) return;
+        const escapeHtml = value => String(value).replace(/[&<>"']/g, ch => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[ch]));
+        const storedCount = parseInt(localStorage.getItem(SERVICE_COUNT_KEY) || '', 10);
+        const configuredCount = Number.isFinite(Number(SERVICE_COUNT)) ? Number(SERVICE_COUNT) : SERVICE_ITEMS.length;
+        const count = Math.max(0, Math.min(30, Number.isFinite(storedCount) ? storedCount : configuredCount));
+        const serviceAt = index => SERVICE_ITEMS[index] || {
+          key: `custom-${String(index + 1).padStart(2, '0')}`,
+          ko: '새 서비스',
+          en: 'New Service',
+          desc: '새 서비스 설명을 입력하세요.',
+          image: `https://picsum.photos/seed/svc${String(index + 1).padStart(2, '0')}/1600/600`,
+          tags: ['Tag']
+        };
+        list.innerHTML = Array.from({ length: count }, (_, index) => {
+          const item = serviceAt(index);
+          const num = String(index + 1).padStart(2, '0');
+          const key = item.key || `service-${num}`;
+          const tags = (item.tags || []).map((tag, tagIndex) =>
+            `<span class="svc-tag" data-ek="svc-${key}-tag-${tagIndex + 1}">${escapeHtml(tag)}</span>`
+          ).join('');
+          return `
+            <div class="svc-entry r">
+              <div class="svc-img" style="background-image:url('${escapeHtml(item.image || '')}')"></div>
+              <span class="svc-entry-num">${num}</span>
+              <div class="svc-entry-body">
+                <h2 class="svc-entry-name" data-ek="svc-${key}-name">${escapeHtml(item.ko)}<em>${escapeHtml(item.en)}</em></h2>
+                <p class="svc-entry-desc" data-ek="svc-${key}-desc">${escapeHtml(item.desc)}</p>
+                <div class="svc-entry-tags">${tags}</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+        document.dispatchEvent(new CustomEvent('arthod:services-rendered', { detail: { count } }));
+      };
+      window.ARTHOD_RENDER_SERVICES();
+
+      (function installServiceCountEditor() {
+        function currentCount() {
+          const saved = parseInt(localStorage.getItem(SERVICE_COUNT_KEY) || '', 10);
+          const fallback = Number.isFinite(Number(SERVICE_COUNT)) ? Number(SERVICE_COUNT) : SERVICE_ITEMS.length;
+          return Math.max(1, Math.min(30, Number.isFinite(saved) ? saved : fallback));
+        }
+        function updateLabel() {
+          const value = document.querySelector('.service-count-current');
+          const minus = document.querySelector('.service-count-minus');
+          const plus = document.querySelector('.service-count-plus');
+          const count = currentCount();
+          if (value) value.textContent = String(count);
+          if (minus) minus.disabled = count <= 1;
+          if (plus) plus.disabled = count >= 30;
+        }
+        function setCount(next) {
+          localStorage.setItem(SERVICE_COUNT_KEY, String(Math.max(1, Math.min(30, next))));
+          window.ARTHOD_RENDER_SERVICES();
+          window.ArthodEditor?.refreshEditable?.();
+          updateLabel();
+        }
+        function install() {
+          const bar = document.querySelector('.edit-bar');
+          if (!bar || bar.querySelector('.service-count-tools')) return;
+          const tools = document.createElement('span');
+          tools.className = 'service-count-tools';
+          tools.innerHTML = '<span class="service-count-title">Services</span><button type="button" class="service-count-minus" aria-label="서비스 줄이기">−</button><span class="service-count-current"></span><button type="button" class="service-count-plus" aria-label="서비스 늘리기">+</button>';
+          bar.insertBefore(tools, bar.querySelector('.edit-bake'));
+          tools.querySelector('.service-count-minus').addEventListener('click', () => setCount(currentCount() - 1));
+          tools.querySelector('.service-count-plus').addEventListener('click', () => setCount(currentCount() + 1));
+          updateLabel();
+        }
+        const style = document.createElement('style');
+        style.textContent = `
+          .service-count-tools{display:inline-flex;align-items:center;gap:5px;padding:3px 5px;border:1px solid var(--border,#e8e6e2);border-radius:4px}
+          .service-count-title{font-size:11px;font-weight:600;color:var(--ink-3,#777);margin:0 2px}
+          .service-count-tools button{width:24px;height:24px;padding:0;border:0;border-radius:3px;background:var(--bg-warm,#f4f3ef);color:var(--ink,#111);font-size:16px;line-height:1;cursor:pointer}
+          .service-count-tools button:disabled{opacity:.3;cursor:default}
+          .service-count-current{min-width:18px;text-align:center;font-size:12px;font-weight:700;color:var(--ink,#111)}
+        `;
+        document.head.appendChild(style);
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', install);
+        else install();
+        window.addEventListener('load', install);
+        window.addEventListener('arthod:editor-ready', install);
+      })();
+    </script>
+
+    <!-- Process -->
+    <div class="process-section">
+      <div class="process-inner">
+        <h2 class="process-title r">작업 방식<br/><em>Our Method</em></h2>
+        <div class="process-steps">
+          <div class="process-step r">
+            <span class="step-n">01</span>
+            <h3 class="step-name">Research</h3>
+            <p class="step-desc">공간, 맥락, 목적에 대한 깊은 이해를 바탕으로 개념을 탐구합니다. Art와 Method의 교차점을 찾습니다.</p>
+          </div>
+          <div class="process-step r d1">
+            <span class="step-n">02</span>
+            <h3 class="step-name">Concept</h3>
+            <p class="step-desc">감성적 경험을 구체화하는 콘셉트와 시각 언어를 수립합니다. 기술은 이 단계에서 선택됩니다.</p>
+          </div>
+          <div class="process-step r d2">
+            <span class="step-n">03</span>
+            <h3 class="step-name">Develop</h3>
+            <p class="step-desc">프로토타입부터 완성까지 체계적인 개발 과정을 거칩니다. 정밀하고 재현 가능한 제작을 추구합니다.</p>
+          </div>
+          <div class="process-step r d3">
+            <span class="step-n">04</span>
+            <h3 class="step-name">Install & Run</h3>
+            <p class="step-desc">현장 설치, 시험, 운영까지 전 과정을 직접 진행합니다. 완벽한 경험이 관람객에게 전달될 때까지.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-band">
+      <h2 class="r">프로젝트를<br/>시작할 준비가 됐나요?</h2>
+      <div class="cta-band-btns r d1">
+        <a href="contact.html" class="btn btn-dark">Contact</a>
+        <a href="works.html?v=works-hover-slots-20260706-1"   class="btn btn-outline">Works 보기</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-in">
+      <div>
+        <p class="f-logo">ARTHOD</p>
+        <p class="f-tag">Art + Method<br/>예술과 기술을 결합하여 효과적으로<br/>표현하는 방법을 연구하고 창작하는<br/>미디어아트 스튜디오. 서울.</p>
+      </div>
+      <div class="f-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="works.html?v=works-hover-slots-20260706-1">Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <ul id="services-connect-list">
+          <li><a href="#" data-ek="connect-01-name">Instagram</a></li>
+          <li><a href="#" data-ek="connect-02-name">Vimeo</a></li>
+          <li><a href="#" data-ek="connect-03-name">Behance</a></li>
+          <li><a href="#" data-ek="connect-04-name">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p class="f-copy">© 2024 Arthod (아쏘드). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js?v=history-scroll-20260710-1"></script>
+  <script>
+    (function () {
+      const CONNECT_KEY = 'arthod-connect:global';
+      const defaults = [
+        { name: 'Instagram', url: '#' },
+        { name: 'Vimeo', url: '#' },
+        { name: 'Behance', url: '#' },
+        { name: 'LinkedIn', url: '#' }
+      ];
+      const list = document.getElementById('services-connect-list');
+      if (!list) return;
+
+      function readItems() {
+        try {
+          const saved = JSON.parse(
+            localStorage.getItem(CONNECT_KEY) ||
+            localStorage.getItem('arthod-connect:services')
+          );
+          if (Array.isArray(saved)) {
+            localStorage.setItem(CONNECT_KEY, JSON.stringify(saved));
+            return saved.slice(0, 30).map((item, index) => ({
+              name: String(item && item.name || `Connect ${index + 1}`),
+              url: String(item && item.url || '#')
+            }));
+          }
+        } catch (e) {}
+        return defaults.map(item => ({ ...item }));
+      }
+
+      let items = readItems();
+      function safeUrl(value) {
+        const url = String(value || '').trim();
+        if (!url || /^javascript:/i.test(url)) return '#';
+        return url;
+      }
+      function save() {
+        localStorage.setItem(CONNECT_KEY, JSON.stringify(items));
+      }
+      function render() {
+        const editing = document.body.classList.contains('editing');
+        list.innerHTML = '';
+        items.forEach((item, index) => {
+          const li = document.createElement('li');
+          li.className = 'connect-edit-item';
+          const link = document.createElement('a');
+          link.href = safeUrl(item.url);
+          link.textContent = item.name;
+          link.dataset.connectIndex = String(index);
+          link.contentEditable = editing ? 'true' : 'false';
+          link.spellcheck = false;
+          link.addEventListener('input', () => {
+            items[index].name = link.textContent.trim() || `Connect ${index + 1}`;
+            save();
+          });
+          link.addEventListener('click', event => {
+            if (document.body.classList.contains('editing')) event.preventDefault();
+          });
+          li.appendChild(link);
+
+          const controls = document.createElement('span');
+          controls.className = 'connect-edit-controls';
+          const url = document.createElement('input');
+          url.type = 'url';
+          url.value = item.url === '#' ? '' : item.url;
+          url.placeholder = 'https://';
+          url.setAttribute('aria-label', `${item.name} 링크`);
+          url.addEventListener('change', () => {
+            items[index].url = safeUrl(url.value);
+            link.href = items[index].url;
+            save();
+          });
+          const remove = document.createElement('button');
+          remove.type = 'button';
+          remove.textContent = '−';
+          remove.title = 'Connect 항목 삭제';
+          remove.addEventListener('click', () => {
+            items.splice(index, 1);
+            save();
+            render();
+          });
+          controls.append(url, remove);
+          li.appendChild(controls);
+          list.appendChild(li);
+        });
+        updateCount();
+      }
+      function updateCount() {
+        const count = document.querySelector('.connect-count');
+        if (count) count.textContent = String(items.length);
+      }
+      function installToolbarButton() {
+        const bar = document.querySelector('.edit-bar');
+        if (!bar || bar.querySelector('.connect-add')) return;
+        const add = document.createElement('button');
+        add.type = 'button';
+        add.className = 'connect-add';
+        add.innerHTML = 'Connect + <span class="connect-count"></span>';
+        add.addEventListener('click', () => {
+          items.push({ name: `Connect ${items.length + 1}`, url: '#' });
+          save();
+          render();
+          list.lastElementChild?.querySelector('a')?.focus();
+        });
+        bar.insertBefore(add, bar.querySelector('.edit-bake'));
+        updateCount();
+      }
+
+      const style = document.createElement('style');
+      style.textContent = `
+        .connect-edit-controls{display:none}
+        body.editing .connect-edit-item{display:grid;grid-template-columns:minmax(86px,auto) minmax(130px,220px);align-items:center;gap:10px;margin-bottom:7px}
+        body.editing .connect-edit-controls{display:flex;align-items:center;gap:5px}
+        body.editing .connect-edit-controls input{width:100%;min-width:0;padding:5px 7px;border:1px solid rgba(255,255,255,.28);border-radius:3px;background:rgba(255,255,255,.08);color:inherit;font:11px/1.2 inherit;outline:none}
+        body.editing .connect-edit-controls input:focus{border-color:rgba(255,255,255,.72)}
+        body.editing .connect-edit-controls button{width:24px;height:24px;flex:0 0 24px;border:1px solid rgba(255,255,255,.28);border-radius:3px;background:transparent;color:inherit;cursor:pointer}
+        .connect-add{font-size:12px;font-weight:600;color:var(--ink-2,#333);background:none;border:1px solid var(--border,#e8e6e2);padding:6px 10px;border-radius:4px;cursor:pointer}
+        .connect-add:hover{border-color:var(--ink,#111)}
+        .connect-count{display:inline-block;min-width:14px;margin-left:3px;color:var(--ink-3,#777)}
+      `;
+      document.head.appendChild(style);
+
+      render();
+      installToolbarButton();
+      window.addEventListener('arthod:editor-ready', installToolbarButton);
+      new MutationObserver(() => {
+        const editing = document.body.classList.contains('editing');
+        list.querySelectorAll('[data-connect-index]').forEach(link => {
+          link.contentEditable = editing ? 'true' : 'false';
+        });
+        if (editing) installToolbarButton();
+      }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Arthod(아쏘드) — Art와 Method의 합성어. 예술과 기술을 결합하여 효과적으로 표현하는 방법을 연구하고 창작하는 미디어아트 스튜디오."/>
+  <meta name="application-name" content="Arthod(아쏘드)"/>
+  <meta name="apple-mobile-web-app-title" content="Arthod(아쏘드)"/>
+  <meta property="og:site_name" content="Arthod(아쏘드)"/>
+  <meta property="og:title" content="Arthod(아쏘드) — Art + Method"/>
+  <meta property="og:description" content="예술과 기술을 결합하여 효과적으로 표현하는 방법을 연구하고 창작하는 미디어아트 스튜디오."/>
+  <meta property="og:url" content="https://www.arthod-studio.com/"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:title" content="Arthod(아쏘드) — Art + Method"/>
+  <link rel="canonical" href="https://www.arthod-studio.com/"/>
+  <title>Arthod(아쏘드) — Art + Method</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Arthod(아쏘드)",
+      "alternateName": ["Arthod", "아쏘드", "ARTHOD"],
+      "url": "https://www.arthod-studio.com/"
+    }
+  </script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
+  <link rel="stylesheet" href="style.css?v=cursor-fast-20260706-1"/>
+  <style>
+    /* Home: hero fills entire viewport, no scroll */
+    html, body { overflow: hidden; height: 100%; }
+    .hero-wrap { height: 100svh; }
+    .hero-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: rgba(255,255,255,.3);
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="hero-visible">
+
+  <!-- ══ NAV ══════════════════════════════════════════════════ -->
+  <header class="site-nav" id="site-nav">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo"><img src="logo.png?v=logo-arthod-20260706-1" alt="Arthod"></a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="works.html?v=works-hover-slots-20260706-1">Works</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="메뉴">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-overlay" id="mobile-overlay">
+    <nav class="mobile-nav">
+      <a href="about.html"    class="mobile-link">About</a>
+      <a href="works.html?v=works-hover-slots-20260706-1"    class="mobile-link">Works</a>
+      <a href="services.html" class="mobile-link">Services</a>
+      <a href="contact.html"  class="mobile-link">Contact</a>
+    </nav>
+    <div class="mob-foot">
+      <span>hello@arthod.kr</span>
+      <div class="mob-soc">
+        <a href="#">IG</a><a href="#">VM</a><a href="#">BE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HERO — full-screen video, rounded rect ════════════════ -->
+  <section id="top">
+    <div class="hero-wrap">
+      <div class="hero-card">
+
+        <!-- CSS art fallback -->
+        <div class="hero-art-bg"></div>
+
+        <!-- 영상 플레이스홀더 -->
+        <div class="hero-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="23" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+            <polygon points="19,16 35,24 19,32" fill="rgba(255,255,255,.5)"/>
+          </svg>
+          <span>영상 준비 중</span>
+        </div>
+
+        <!--
+          ★ 영상 파일 교체 방법:
+          assets/hero.mp4 파일을 추가하고 아래 주석을 해제하세요.
+
+          <video class="hero-video" id="hero-video" autoplay muted loop playsinline>
+            <source src="assets/hero.mp4" type="video/mp4"/>
+          </video>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <script src="main.js?v=history-scroll-20260710-1"></script>
+</body>
+</html>
