@@ -1,6 +1,6 @@
 {
   "work": "09",
-  "savedAt": "2026-07-12T09:52:09.697Z",
+  "savedAt": "2026-07-12T10:31:04.842Z",
   "media": {
     "images": [
       {
@@ -9,7 +9,7 @@
       },
       {
         "key": "wd:09:g2",
-        "file": "backup/media/09/wd_09_g2.png"
+        "file": "backup/media/09/wd_09_g2.jpg"
       },
       {
         "key": "whover:09:1",
@@ -25,7 +25,7 @@
       },
       {
         "key": "whover:09:4",
-        "file": "backup/media/09/whover_09_4.png"
+        "file": "backup/media/09/whover_09_4.jpg"
       }
     ],
     "videos": [
@@ -49,7 +49,7 @@
     "embeds": [
       {
         "key": "wd:09:c0",
-        "url": "https://youtu.be/h01r-NInHM8"
+        "url": "https://www.youtube.com/embed/h01r-NInHM8?autoplay=0&mute=0&loop=1&playlist=h01r-NInHM8&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
     "refs": [
