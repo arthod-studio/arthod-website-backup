@@ -270,6 +270,21 @@
       font-weight: 700;
       color: var(--ink,#111);
     }
+    .works-add-post {
+      display: none;
+      align-items: center;
+      height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--border,#e8e6e2);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink,#111);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    body.editing .works-add-post { display: inline-flex; }
+    .works-add-post:hover { border-color: var(--ink,#111); }
     .card-project {
       font-size: 11px;
       letter-spacing: .04em;
@@ -596,7 +611,7 @@
   <script src="main.js?v=history-scroll-20260710-1"></script>
   <script>
     // ── Works-only dissolve image slots ──────────────────────
-    (function installWorksHoverSlots() {
+    window.installWorksHoverSlots = function installWorksHoverSlots() {
       document.querySelectorAll('.port-card').forEach(card => {
         const inner = card.querySelector('.card-inner');
         const id = (card.getAttribute('href') || '').match(/id=(\w+)/)?.[1];
@@ -610,7 +625,8 @@
         }).join('');
         inner.appendChild(box);
       });
-    })();
+    };
+    window.installWorksHoverSlots();
 
     // ── Quiet reactive light field ───────────────────────────
     (function () {
@@ -642,10 +658,50 @@
     (function () {
       const CARD_ORDER_KEY = 'arthod-cardorder:works';
       const WORK_COUNT_KEY = 'arthod-workcount:works';
+      const CUSTOM_WORKS_KEY = 'arthod-works:custom-posts';
       const grid = document.getElementById('port-grid');
       const countLabel = document.querySelector('.wp-count');
       const yearText = '2019–2024';
       let activeFilter = 'all';
+      function readCustomWorks() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(CUSTOM_WORKS_KEY) || '[]');
+          if (Array.isArray(saved)) return saved.slice(0, 60);
+        } catch (e) {}
+        return [];
+      }
+      function saveCustomWorks(items) {
+        localStorage.setItem(CUSTOM_WORKS_KEY, JSON.stringify(items.slice(0, 60)));
+      }
+      function nextCustomId() {
+        const ids = allCards().map(card => {
+          const m = (card.getAttribute('href') || '').match(/id=(\d+)/);
+          return m ? parseInt(m[1], 10) : 0;
+        });
+        return String(Math.max(12, ...ids) + 1).padStart(2, '0');
+      }
+      function cardHtml(item) {
+        const id = String(item.id || nextCustomId()).padStart(2, '0');
+        const href = item.href || `work.html?id=${id}&v=detail-next-order-20260706-1`;
+        const cats = item.cats || 'interactive';
+        const key = `custom-${id}`;
+        return `
+          <a class="port-card r" href="${href}" data-cats="${cats}" data-custom-work="1" data-custom-id="${id}">
+            <div class="card-head">
+              <div class="card-head-left"><span class="card-title"><span class="card-ko" data-ek="work-${key}-ko">${item.ko || '새 작품'}</span><span class="card-en" data-ek="work-${key}-en">${item.en || 'New Project'}</span></span></div>
+              <div class="card-head-right"><span class="card-yr" data-ek="work-${key}-year">${item.year || new Date().getFullYear()}</span><span class="card-type" data-ek="work-${key}-type">${item.type || 'Project Type'}</span></div>
+            </div>
+            <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+          </a>
+        `;
+      }
+      function renderCustomWorks() {
+        readCustomWorks().forEach(item => {
+          const id = String(item.id || '').padStart(2, '0');
+          if (!id || grid.querySelector(`.port-card[data-custom-id="${id}"]`)) return;
+          grid.insertAdjacentHTML('beforeend', cardHtml(item));
+        });
+      }
       function currentHrefOrder() {
         return [...grid.querySelectorAll('.port-card')].map(c => c.getAttribute('href'));
       }
@@ -697,6 +753,17 @@
         box.querySelector('.wct-plus').addEventListener('click', () => setCount(savedCount() + 1));
         applyWorkCount();
       }
+      function installAddPostTool() {
+        const bar = document.querySelector('.edit-bar');
+        if (!bar || bar.querySelector('.works-add-post')) return;
+        const add = document.createElement('button');
+        add.type = 'button';
+        add.className = 'works-add-post';
+        add.textContent = '게시물 +';
+        const bake = bar.querySelector('.edit-bake');
+        bar.insertBefore(add, bake || bar.querySelector('.edit-reset'));
+        add.addEventListener('click', () => addPost());
+      }
       function applyCardOrder() {
         let saved;
         try { saved = JSON.parse(localStorage.getItem(CARD_ORDER_KEY)); } catch (e) {}
@@ -708,6 +775,31 @@
         }
         applyWorkCount();
       }
+      function addPost() {
+        const beforeCount = savedCount();
+        const id = nextCustomId();
+        const item = {
+          id,
+          href: `work.html?id=${id}&v=detail-next-order-20260706-1`,
+          cats: 'interactive',
+          ko: '새 작품',
+          en: 'New Project',
+          year: String(new Date().getFullYear()),
+          type: 'Project Type'
+        };
+        const custom = readCustomWorks();
+        custom.push(item);
+        saveCustomWorks(custom);
+        grid.insertAdjacentHTML('beforeend', cardHtml(item));
+        localStorage.setItem(CARD_ORDER_KEY, JSON.stringify(currentHrefOrder()));
+        setCount(beforeCount + 1);
+        attachReorderHandles();
+        window.installWorksHoverSlots?.();
+        window.ArthodEditor?.refreshEditable?.();
+        applyDetailHoverImages?.();
+        grid.querySelector(`.port-card[data-custom-id="${id}"] .card-ko`)?.focus();
+      }
+      renderCustomWorks();
       applyCardOrder();
 
       function attachReorderHandles() {
@@ -743,14 +835,17 @@
         if (document.body.classList.contains('editing')) {
           attachReorderHandles();
           installCountTools();
+          installAddPostTool();
         }
       });
       mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
       if (document.body.classList.contains('editing')) {
         attachReorderHandles();
         installCountTools();
+        installAddPostTool();
       }
       window.addEventListener('load', installCountTools);
+      window.addEventListener('load', installAddPostTool);
       applyWorkCount();
 
       window.arthodApplyWorksCount = applyWorkCount;
