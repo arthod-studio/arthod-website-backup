@@ -1,20 +1,37 @@
 {
   "work": "services",
-  "savedAt": "2026-07-12T09:51:56.077Z",
+  "savedAt": "2026-07-12T10:30:53.028Z",
   "media": {
     "images": [
       {
-        "key": "svc:0",
-        "file": "backup/media/services/svc_0.jpg"
+        "key": "svc:3",
+        "file": "backup/media/services/svc_3.jpg"
       },
       {
-        "key": "svc:1",
-        "file": "backup/media/services/svc_1.png"
+        "key": "svc:6",
+        "file": "backup/media/services/svc_6.jpg"
       }
     ],
     "videos": [],
     "embeds": [],
-    "refs": []
+    "refs": [
+      {
+        "key": "svc:0",
+        "refKey": "wd:07:next"
+      },
+      {
+        "key": "svc:1",
+        "refKey": "whover:07:2"
+      },
+      {
+        "key": "svc:2",
+        "refKey": "wd:01:s8"
+      },
+      {
+        "key": "svc:5",
+        "refKey": "wd:03:g1"
+      }
+    ]
   },
   "text": {
     "arthod-edit:services:fcolula:6": "<br>",
@@ -85,7 +102,7 @@
     "arthod-edit:services:svctag:2": "TouchDesigner",
     "arthod-edit:services:svc-brand-experience-name": "브랜드 경험 설계<em>Brand Experience</em>",
     "arthod-edit:services:svc-sound-visual-tag-3": "OSC",
-    "arthod-edit:services:svc-sound-visual-desc": "음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. 소리가 형태를 만들고, 형태가 소리를 만듭니다.",
+    "arthod-edit:services:svc-sound-visual-desc": "음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. <br>소리가 형태를 만들고, 형태가 소리를 만듭니다.",
     "arthod-edit:services:pagetitle:0": "\n          Services\n          <span class=\"page-title-en\"><span style=\"font-style: normal;\">예술과 기술이 교차하는 지점에서,<br>새로운 감각적 경험을 설계합니다.</span></span>\n        ",
     "arthod-edit:services:svctag:8": "Unreal Engine",
     "arthod-edit:services:svc-generative-art-name": "제너러티브 아트<em>Generative Art</em>",
@@ -116,7 +133,7 @@
     "arthod-edit:services:svc-generative-art-tag-4": "Max/MSP",
     "arthod-edit:services:svc-motion-graphic-tag-3": "Houdini",
     "arthod-edit:services:svc-projection-mapping-desc": "건물 외벽, 조형물, 무대 세트 등 불규칙한 3D 표면에 정확히 맞춰진 영상을 투영하는 몰입형 시각 경험을 구현합니다. 공간 자체가 스크린이 됩니다.",
-    "arthod-edit:services:svc-generative-art-desc": "알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. 매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.",
+    "arthod-edit:services:svc-generative-art-desc": "알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. <br>매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.",
     "arthod-edit:services:svc-projection-mapping-tag-4": "Unreal Engine",
     "arthod-edit:services:svctag:9": "3D Scan",
     "arthod-edit:services:svc-public-art-tag-4": "Temporary",
@@ -126,12 +143,12 @@
     "arthod-style:services:fcolh4:1": "{\"color\":\"#ffffff\"}",
     "arthod-edit:services:svcentryname:4": "브랜드 경험 설계<em>Brand Experience</em>",
     "arthod-edit:services:svcentrydesc:1": "건물 외벽, 조형물, 무대 세트 등 불규칙한 3D 표면에 정확히 맞춰진 영상을 투영하는 몰입형 시각 경험을 구현합니다. 공간 자체가 스크린이 됩니다.",
-    "arthod-edit:services:svc-motion-graphic-desc": "브랜드 캠페인, 전시 콘텐츠, 무대 영상 등을 위한 고품질 모션그래픽을 제작합니다. 정교한 타이포그래피 애니메이션부터 3D 오브젝트 비주얼까지 다양한 스타일로 구현합니다.",
+    "arthod-edit:services:svc-motion-graphic-desc": "브랜드 캠페인, 전시 콘텐츠, 무대 영상 등을 위한 고품질 모션그래픽을 제작합니다. <br>애니메이션부터 3D 오브젝트 비주얼까지 다양한 스타일로 구현합니다.",
     "arthod-edit:services:svctag:27": "Temporary",
     "arthod-edit:services:stepdesc:1": "감성적 경험을 구체화하는 <br>콘셉트를 수립합니다. <br>기술은 이 단계에서 선택됩니다.",
     "arthod-edit:services:svctag:26": "Permanent",
     "arthod-edit:services:processtitle:0": "작업 방식<br><span style=\"font-weight: normal;\">Our Method</span>",
-    "arthod-edit:services:svc-public-art-desc": "도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 제작합니다. 도시 자체가 갤러리가 됩니다.",
+    "arthod-edit:services:svc-public-art-desc": "도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 <br>제작합니다. 도시 자체가 갤러리가 됩니다.",
     "arthod-edit:services:svc-brand-experience-tag-3": "Installation",
     "arthod-edit:services:svcentrydesc:3": "음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. 소리가 형태를 만들고, 형태가 소리를 만듭니다.",
     "arthod-edit:services:svc-sound-visual-tag-2": "Ableton",
