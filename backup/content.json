@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-12T08:42:06.636Z",
+  "savedAt": "2026-07-12T09:52:11.234Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -10,6 +10,7 @@
     "arthod-edit:work08:caption": "작품 전경 · 서울시 도시재생사업단",
     "arthod-edit:work08:location": "부천아트벙커B39",
     "arthod-proj:11:en": "Boundary",
+    "arthod-style:contact:cdilabel:0": "{\"color\":\"#ffffff\"}",
     "arthod-edit:work08:specclient": "서울시 도시재생사업단",
     "arthod-style:contact:ftag:0": "{\"color\":\"#ffffff\",\"size\":16}",
     "arthod-edit:about:statementOperate": "\n          갤러리, 도시 공간, 브랜드 캠페인, 공공 프로젝트까지 맥락에 맞는 기술과 예술 언어를 조합합니다.\n          기획, 그래픽, 인터랙션, 하드웨어, 현장 설치와 운영까지 하나의 완성된 경험으로 연결합니다.\n        ",
@@ -129,10 +130,11 @@
     "arthod-edit:work08:speckey:2": "Project",
     "arthod-proj:09:en": "Kinetic Light Installation",
     "arthod-edit:about:abtlcat:0": "<h3 class=\"ab-tl-cat\" data-edit-key=\"about:abtlcat:2\" spellcheck=\"false\" style=\"font-family: &quot;Pretendard Variable&quot;, Pretendard, system-ui, sans-serif; color: rgb(15, 14, 12); outline: rgba(0, 100, 255, 0.7) solid 2px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\">Exhibitions</h3>",
+    "arthod-style:about:fcopy:0": "{\"color\":\"#ffffff\"}",
     "arthod-proj:12:type": "Projection · Event",
     "arthod-style:work:location": "{\"align\":\"left\"}",
     "arthod-edit:works:wpsubtitle:0": "빛과 소리, 공간으로 완성한 감각의 기록들",
-    "arthod-edit:work10:location": "장소 미입력",
+    "arthod-edit:work10:location": "서울예술대학교",
     "arthod-edit:work05:wbsectionlabel:0": "Project Overview",
     "arthod-edit:services:fcolula:4": "Instagram",
     "arthod-edit:work04:location": "일산문화광장",
@@ -156,7 +158,7 @@
     "arthod-edit:services:svc-motion-graphic-tag-1": "After Effects",
     "arthod-proj:09:year": "2024",
     "arthod-proj:07:clientorg": "남원아트센터",
-    "arthod-edit:contact:faqa:0": "프로젝트의 규모와 복잡도에 따라 크게 달라집니다. 소규모 갤러리 설치부터 대형 미디어 파사드까지 다양한 예산 범위에서 작업합니다. 먼저 프로젝트 내용을 공유해주시면 적합한 제안을 드리겠습니다.",
+    "arthod-edit:contact:faqa:0": "프로젝트의 규모와 복잡도에 따라 크게 달라집니다. <br>소규모 갤러리 설치부터 대형 미디어 파사드까지 다양한 예산 범위에서 작업합니다. <br>먼저 프로젝트 내용을 공유해주시면 적합한 제안을 드리겠습니다.",
     "arthod-edit:about:abtldesc:4": "국내 주요 브랜드 전시 부스 및 팝업 경험 디자인 다수 진행. 기업 오프닝 세레모니 프로젝션 매핑.",
     "arthod-edit:services:svctag:22": "Installation",
     "arthod-proj:06:project": "국가유산 미디어아트 수원화성",
@@ -249,7 +251,7 @@
     "arthod-edit:services:svctag:15": "Max/MSP",
     "arthod-edit:work04:desc": "<p data-start=\"21\" data-end=\"182\"><strong data-start=\"21\" data-end=\"40\">&nbsp; Luminous Melody</strong>는 관람객의 표정과 음성을 인공지능으로 분석하고, 그 감정에 반응하는 빛과 소리를 통해 감정 치유의 경험을 제안하는 인터랙티브 라이트 설치 작품입니다. 관람객은 빛의 동굴 안으로 들어가 자신의 감정 상태가 조명과 사운드로 변환되는 과정을 경험하게 됩니다.</p><p style=\"margin-bottom:1.4em\">\n</p><p data-start=\"184\" data-end=\"392\">&nbsp; 작품의 콘셉트는 <span data-start=\"193\" data-end=\"214\">Lightcave, 빛의 동굴</span>입니다. 동굴이 초기 인류에게 보호와 회복의 공간이었던 것처럼, <strong data-start=\"250\" data-end=\"269\">Luminous Melody</strong>는 디지털 기술과 빛을 통해 현대인의 감정을 감싸는 치유의 공간을 구현합니다. 빛은 단순한 조명이 아니라 감정을 마주하고 회복하는 매개체가 되며, 관람객은 공간 안에서 자신의 감정과 부드럽게 연결되는 경험을 하게 됩니다.</p>",
     "arthod-proj:01:ko": "Stream Scape",
-    "arthod-edit:contact:faqa:1": "프로젝트 성격에 따라 다르지만, 일반적으로 행사 또는 전시 오픈 기준 최소 2-3개월 전에 문의주시는 것이 좋습니다. 대형 미디어 파사드나 상설 설치의 경우 6개월 이상의 여유가 필요합니다.",
+    "arthod-edit:contact:faqa:1": "프로젝트 성격에 따라 다르지만, 일반적으로 행사 또는 전시 오픈 기준 최소 2-3개월 전에 문의주시는 것이 좋습니다. <br>대형 미디어 파사드나 상설 설치의 경우 4개월 이상의 여유가 필요합니다.",
     "arthod-edit:works:fcolh4:0": "Studio",
     "arthod-layout:wimg:01": "{}",
     "arthod-edit:work08:speckey:0": "Role",
@@ -292,7 +294,7 @@
     "arthod-edit:work:wctextblockp:0": "<strong data-start=\"401\" data-end=\"416\">Hyper Drive</strong>는 시간과 공간의 경계를 넘어 미지의 우주를 통과하는 몰입형 미디어아트 콘텐츠입니다. <br>관람객은 끝없이 변화하는 차원의 문을 지나며 낯선 도시, 새로운 존재, 신비로운 우주 물질을 마주하게 됩니다.",
     "arthod-edit:work06:mobfootspan:0": "hello@arthod.kr",
     "arthod-edit:work:speckey:3": "Tech Stack",
-    "arthod-edit:work09:desc": "<p data-start=\"21\" data-end=\"182\" class=\"PDq2pG_selectionAnchorContainer\"><strong data-start=\"21\" data-end=\"32\">&nbsp; Equinox</strong>는 지구의 낮과 밤의 길이가 같아지는 특별한 순간, 춘분과 추분의 현상에서 출발한 미디어아트 작품입니다. 지구의 자전과 공전, 그리고 태양과의 관계가 복합적으로 작동해 1년에 단 두 번만 나타나는 이 현상은, 우주적 질서와 시간의 흐름을 감각적으로 사유하게 합니다.<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span></p><p style=\"margin-bottom:1.4em\">\n</p><p data-start=\"184\" data-end=\"387\">&nbsp; 작품은 이러한 천체의 관계가 만들어내는 순간을 공간 안에 시각적으로 구현합니다. 중앙에 설치된 구체의 움직임은 행성의 자전을 연상시키고, 이를 둘러싼 영상은 장면을 서서히 변화시키며 낮과 밤, 계절과 시간의 흐름을 암시합니다. <strong data-start=\"311\" data-end=\"322\">Equinox</strong>는 관람객이 지구와 우주의 관계, 그리고 우리가 살아가는 일상적 세계를 다시 바라보게 하는 사유의 시간을 제안합니다</p>",
+    "arthod-edit:work09:desc": "<p data-start=\"21\" data-end=\"182\" class=\"PDq2pG_selectionAnchorContainer\"><strong data-start=\"21\" data-end=\"32\">&nbsp; Equinox</strong>는 지구의 낮과 밤의 길이가 같아지는 특별한 순간, 춘분과 추분의 현상에서 출발한 미디어아트 작품입니다. 지구의 자전과 공전, 그리고 태양과의 관계가 복합적으로 작동해 1년에 단 두 번만 나타나는 이 현상은, 우주적 질서와 시간의 흐름을 감각적으로 사유하게 합니다.<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span></p><p style=\"margin-bottom:1.4em\">\n</p><p data-start=\"184\" data-end=\"387\">&nbsp; 작품은 이러한 천체의 관계가 만들어내는 순간을 공간 안에 시각적으로 구현합니다. 중앙에 설치된 구체의 움직임은 행성의 자전을 연상시키고, 이를 둘러싼 영상은 장면을 서서히 변화시키며 낮과 밤, 계절과 시간의 흐름을 암시합니다. <strong data-start=\"311\" data-end=\"322\">Equinox</strong>는 관람객이 지구와 우주의 관계, 그리고 우리가 살아가는 일상적 세계를 다시 바라보게 하는 사유의 시간을 제안합니다.<br><br>*본 작품은 2022년에 제작되었으며, 서울시립과학관 특별전에 참여</p>",
     "arthod-edit:contact:fcolula:2": "Services",
     "arthod-edit:services:svc-projection-mapping-tag-5": "3D Scan",
     "arthod-edit:about:abtldesc:0": "인터랙티브 LED 설치와 LiDAR 기반 프로젝션 매핑 2개 작품 발표. 서울 문화예술센터 그룹전 참여.",
@@ -312,7 +314,7 @@
     "arthod-edit:work05:speckey:0": "Role",
     "arthod-edit:contact:formfieldlabel:1": "소속 / Organization",
     "arthod-edit:works:flogo:0": "ARTHOD",
-    "arthod-edit:about:fcopy:0": "© 2024 Arthod (아쏘드). All rights reserved.",
+    "arthod-edit:about:fcopy:0": "© 2026 Arthod (아쏘드). All rights reserved.",
     "arthod-edit:services:svctag:29": "Cinema 4D",
     "arthod-edit:contact:faqtitle:0": "자주 묻는 질문",
     "arthod-edit:services:svcentryname:1": "프로젝션 매핑<em>Projection Mapping</em>",
@@ -358,7 +360,7 @@
     "arthod-edit:about:recentMeta3B": "Public Installation",
     "arthod-edit:work04:wbsectionlabel:1": "Details",
     "arthod-edit:about:recentMeta1B": "Interactive Media Art",
-    "arthod-edit:work10:role": "전시 기획 · 공간 설계 · 미디어 제작",
+    "arthod-edit:work10:role": "기획 · 연출 · 조명 &amp; 사운드 디자인, 인터렉션 시스템 설계, 설치&nbsp;",
     "arthod-edit:contact:fcolula:1": "Works",
     "arthod-edit:about:abphillistli:0": "직관 / 감각 / 감성",
     "arthod-edit:services:svc-sound-visual-tag-3": "OSC",
@@ -423,7 +425,7 @@
     "arthod-edit:work05:wnlabel:0": "Next Project",
     "arthod-edit:work06:tech": "Laser · Sound ·&nbsp;Installation",
     "arthod-edit:about:recentMeta2B": "Multimedia Installation",
-    "arthod-proj:10:year": "2020",
+    "arthod-proj:10:year": "2019",
     "arthod-edit:contact:cdivalue:0": "contact.arthod@gmail.com",
     "arthod-style:about:abherodesc:0": "{\"color\":\"#ffffff\"}",
     "arthod-edit:work:tech": "OpenCV · Arduino · TouchDesigner · DMX · LED Matrix",
@@ -451,7 +453,7 @@
     "arthod-style:works:wpsubtitle:0": "{\"align\":\"left\",\"weight\":\"700\",\"size\":24,\"color\":\"#ffffff\"}",
     "arthod-edit:contact:contactbigtitle:0": "새로운<br>이야기를<br>시작해요",
     "arthod-edit:work03:speckey:2": "Project",
-    "arthod-edit:work10:duration": "5개월",
+    "arthod-edit:work10:duration": "3개월",
     "arthod-edit:works:2": "12 Projects · 2019–2024",
     "arthod-proj:01:clientorg": "고양산업진흥원",
     "arthod-galleryitems:09": "[\"g1\",\"g2\",\"g3\",\"g4\",\"g5\",\"g6\"]",
@@ -465,7 +467,7 @@
     "arthod-edit:work:specclient": "서울 미디어아트 페스티벌",
     "arthod-edit:work:specval:3": "Motion Graphic · Light &amp; Laser Design · Timecode<br>TouchDesigner · Resolume Arena · Reaper · Beyond · GrandMA&nbsp;",
     "arthod-edit:services:svctag:18": "MIDI",
-    "arthod-proj:10:clientorg": "클라이언트명을 입력하세요",
+    "arthod-proj:10:clientorg": "아트센터나비",
     "arthod-edit:work:speckey:1": "Duration",
     "arthod-gallerylayout:04": "wide-strip",
     "arthod-edit:contact:cdilabel:1": "Phone",
@@ -474,7 +476,7 @@
     "arthod-proj:10:ko": "Close & Close",
     "arthod-edit:work01:tag2": "OpenCV",
     "arthod-edit:work05:aboutTitle": "작품에 대하여",
-    "arthod-proj:10:project": "삼성물산 패션부문",
+    "arthod-proj:10:project": "창의인재 동반사업",
     "arthod-edit:work01:wbsectionlabel:1": "Details",
     "arthod-edit:work08:aboutBody": "<p style=\"margin-bottom:1.4em\">도심 고층 건물의 외벽 전체를 캔버스로 삼은 미디어 파사드 프로젝트입니다. 도시를 살아있는 유기체로 바라보며, 건물의 피부 위에 도시의 호흡을 시각화합니다. 계절과 시간에 따라 변하는 도시의 리듬이 건물 외벽을 통해 표현됩니다.</p><p style=\"margin-bottom:1.4em\">건물은 숨을 쉽니다. 도시의 피부가 빛을 발합니다.</p>",
     "arthod-edit:work02:aboutTitle": "작품에 대하여",
@@ -521,7 +523,8 @@
     "arthod-edit:work:wccaption:0": "작품 전경 · 서울 미디어아트 페스티벌",
     "arthod-edit:services:svcentrydesc:5": "도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 제작합니다. 도시 자체가 갤러리가 됩니다.",
     "arthod-edit:work:wmtag:0": "Interactive",
-    "arthod-edit:contact:faqa:2": "네, 가능합니다. 현재까지 국내외 다양한 장소에서 작업한 경험이 있습니다. 해외 프로젝트의 경우 출장 및 현지 설치 비용이 추가로 발생합니다.",
+    "arthod-edit:contact:faqa:2": "네, 가능합니다. 현재까지 국내외 다양한 장소에서 r가능합니다.<br>해외 프로젝트의 경우 출장 및 현지 설치 비용이 추가로 발생합니다.",
+    "arthod-style:contact:cdilabel:2": "{\"color\":\"#ffffff\"}",
     "arthod-edit:contact:faqqh3:1": "얼마나 미리 연락해야 하나요?",
     "arthod-edit:services:svc-generative-art-tag-1": "GLSL",
     "arthod-proj:07:en": "Interactive Media Installation",
@@ -530,7 +533,7 @@
     "arthod-edit:work08:speckey:1": "Duration",
     "arthod-edit:services:svctag:4": "LED",
     "arthod-edit:work:28": "hello@arthod.kr",
-    "arthod-edit:contact:faqa:3": "물론입니다. 목적과 공간, 예산만 알려주시면 콘셉트 기획부터 함께 시작할 수 있습니다. 오히려 초기 단계부터 함께할 때 더 좋은 결과가 나오는 경우가 많습니다.",
+    "arthod-edit:contact:faqa:3": "물론입니다. 목적과 공간, 예산만 알려주시면 콘셉트 기획부터 함께 시작할 수 있습니다. <br>오히려 초기 단계부터 함께할 때 더 좋은 결과가 나오는 경우가 많습니다.",
     "arthod-edit:work02:caption": "작품 전경 · 현대 아트 파운데이션",
     "arthod-edit:about:recentMeta5A": "05 / Media Output",
     "arthod-proj:02:project": "코스믹 리조트 콘텐츠 제작",
@@ -560,7 +563,7 @@
     "arthod-edit:work01:caption": "작품 전경 · 서울 미디어아트 페스티벌",
     "arthod-edit:services:svc-public-art-tag-4": "Temporary",
     "arthod-edit:works:mobfootspan:0": "hello@arthod.kr",
-    "arthod-edit:work10:tech": "Video Installation · Archival Research · After Effects · 4K Display Wall",
+    "arthod-edit:work10:tech": "Interactive · Light · Sound · System · Installation&nbsp;",
     "arthod-proj:09:clientorg": "서울시립과학관",
     "arthod-edit:work10:wbsectionlabel:1": "Details",
     "arthod-edit:work06:aboutTitle": "작품에 대하여",
@@ -606,7 +609,7 @@
     "arthod-edit:services:svcentrydesc:1": "건물 외벽, 조형물, 무대 세트 등 불규칙한 3D 표면에 정확히 맞춰진 영상을 투영하는 몰입형 시각 경험을 구현합니다. 공간 자체가 스크린이 됩니다.",
     "arthod-proj:07:project": "미디어아트ON",
     "arthod-edit:work02:tag1": "LiDAR",
-    "arthod-edit:about:abtlsub:0": "2018 — Present",
+    "arthod-edit:about:abtlsub:0": "<br>",
     "arthod-edit:work:0": "Stream Scape",
     "arthod-proj:01:en": "Interactive Media Art · Generative AI",
     "arthod-proj:01:project": "고양콘텐츠사업화 지원사업",
@@ -625,8 +628,9 @@
     "arthod-edit:services:processtitle:0": "작업 방식<br><span style=\"font-weight: normal;\">Our Method</span>",
     "arthod-edit:work03:role": "기획 · 모션그래픽 영상 제작 · 구조물 설계 &amp; 설치&nbsp;",
     "arthod-edit:services:svc-public-art-desc": "도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 제작합니다. 도시 자체가 갤러리가 됩니다.",
-    "arthod-edit:work10:desc": "<p style=\"margin-bottom:1.4em\">100년의 역사를 가진 브랜드의 아카이브를 공간 경험으로 재해석한 전시 프로젝트입니다. 시간의 층위를 물리적 공간의 층위로 번역하여, 관람객이 역사를 걸어 다닐 수 있는 경험을 만들었습니다. 과거, 현재, 미래가 하나의 공간 안에서 공존합니다.</p><p style=\"margin-bottom:1.4em\">기억은 쌓입니다. 그 층 사이를 걷는 것이 역사입니다.</p>",
+    "arthod-edit:work10:desc": "<p data-start=\"21\" data-end=\"133\"><strong data-start=\"21\" data-end=\"30\">&nbsp; Close &amp; Close</strong>는 사전적 의미로 ‘가까이 있다’와 ‘닫다’라는 두 가지 의미 있으며,&nbsp; <span style=\"font-size: clamp(16px, 1.6vw, 20px);\">가까이에 있지만 닫힌 시선 때문에 보지 못했던 존재를 다시 바라보게 하는 작품입니다</span><span style=\"font-size: clamp(16px, 1.6vw, 20px);\">&nbsp;오디오 비주얼 설치 작품입니다. 우리와 가장 가까운 곳에 있지만, 바쁜 일상 속에서 쉽게 지나쳐지는 존재들에 주목합니다.</span></p><p data-start=\"135\" data-end=\"295\">아쏘드는 그중에서도 <span data-start=\"146\" data-end=\"152\">신발</span>을 주요 오브제로 선택했습니다. 신발은 가장 낮은 위치에서 우리의 몸을 지탱하고, 문밖의 세계로부터 우리를 보호하는 존재입니다. 군화, 구두, 발레슈즈, 운동화, 안전화처럼 각기 다른 신발에는 그것을 신었던 사람의 삶과 시간, 노동의 흔적이 담겨 있습니다.</p><p style=\"margin-bottom:1.4em\">\n\n</p><p data-start=\"297\" data-end=\"442\">&nbsp; 매시간 25분마다 자동으로 오디오비주얼이 시작되도록 프로그래밍되어, 신발이라는 사적인 오브제가 빛과 소리의 흐름 속에서 하나의 기억으로 확장됩니다.</p>",
     "arthod-edit:work08:wbsectionlabel:1": "Details",
+    "arthod-style:contact:cdilabel:1": "{\"color\":\"#ffffff\"}",
     "arthod-edit:services:svc-brand-experience-tag-3": "Installation",
     "arthod-edit:services:svcentrydesc:3": "음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. 소리가 형태를 만들고, 형태가 소리를 만듭니다.",
     "arthod-edit:contact:fcolula:4": "Instagram",
@@ -657,11 +661,11 @@
   "mediaIndex": {
     "svc:0": {
       "kind": "image",
-      "file": "backup/media/services/svc_0.png"
+      "file": "backup/media/services/svc_0.jpg"
     },
     "svc:1": {
       "kind": "image",
-      "file": "backup/media/services/svc_1.jpg"
+      "file": "backup/media/services/svc_1.png"
     },
     "wd:01:c0": {
       "kind": "embed",
@@ -847,6 +851,10 @@
       "kind": "image",
       "file": "backup/media/06/wd_06_g5.jpg"
     },
+    "wd:06:next": {
+      "kind": "image",
+      "file": "backup/media/06/wd_06_next.jpg"
+    },
     "wd:07:c0": {
       "kind": "embed",
       "embedUrl": "https://www.youtube.com/embed/ZIHOlZ7eZdI?autoplay=0&mute=0&loop=1&playlist=ZIHOlZ7eZdI&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
@@ -886,6 +894,30 @@
     "wd:09:c0": {
       "kind": "embed",
       "embedUrl": "https://www.youtube.com/embed/h01r-NInHM8?autoplay=0&mute=0&loop=1&playlist=h01r-NInHM8&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
+    },
+    "wd:09:g1": {
+      "kind": "image",
+      "file": "backup/media/09/wd_09_g1.png"
+    },
+    "wd:09:g2": {
+      "kind": "image",
+      "file": "backup/media/09/wd_09_g2.png"
+    },
+    "wd:09:g3": {
+      "kind": "video",
+      "file": "backup/media/09/wd_09_g3.mp4"
+    },
+    "wd:09:g4": {
+      "kind": "video",
+      "file": "backup/media/09/wd_09_g4.mp4"
+    },
+    "wd:09:g5": {
+      "kind": "video",
+      "file": "backup/media/09/wd_09_g5.mp4"
+    },
+    "wd:09:g6": {
+      "kind": "video",
+      "file": "backup/media/09/wd_09_g6.mp4"
     },
     "wd:09:next": {
       "kind": "ref",
@@ -962,6 +994,38 @@
     "whover:04:6": {
       "kind": "image",
       "file": "backup/media/04/whover_04_6.jpg"
+    },
+    "whover:07:1": {
+      "kind": "ref",
+      "refKey": "svc:1"
+    },
+    "whover:07:2": {
+      "kind": "image",
+      "file": "backup/media/07/whover_07_2.jpg"
+    },
+    "whover:07:3": {
+      "kind": "image",
+      "file": "backup/media/07/whover_07_3.jpg"
+    },
+    "whover:07:4": {
+      "kind": "image",
+      "file": "backup/media/07/whover_07_4.jpg"
+    },
+    "whover:09:1": {
+      "kind": "image",
+      "file": "backup/media/09/whover_09_1.jpg"
+    },
+    "whover:09:2": {
+      "kind": "image",
+      "file": "backup/media/09/whover_09_2.jpg"
+    },
+    "whover:09:3": {
+      "kind": "image",
+      "file": "backup/media/09/whover_09_3.png"
+    },
+    "whover:09:4": {
+      "kind": "image",
+      "file": "backup/media/09/whover_09_4.png"
     },
     "wimg:02": {
       "kind": "image",
