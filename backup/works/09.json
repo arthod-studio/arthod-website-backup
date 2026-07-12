@@ -1,9 +1,51 @@
 {
   "work": "09",
-  "savedAt": "2026-07-12T08:42:05.635Z",
+  "savedAt": "2026-07-12T09:52:09.697Z",
   "media": {
-    "images": [],
-    "videos": [],
+    "images": [
+      {
+        "key": "wd:09:g1",
+        "file": "backup/media/09/wd_09_g1.png"
+      },
+      {
+        "key": "wd:09:g2",
+        "file": "backup/media/09/wd_09_g2.png"
+      },
+      {
+        "key": "whover:09:1",
+        "file": "backup/media/09/whover_09_1.jpg"
+      },
+      {
+        "key": "whover:09:2",
+        "file": "backup/media/09/whover_09_2.jpg"
+      },
+      {
+        "key": "whover:09:3",
+        "file": "backup/media/09/whover_09_3.png"
+      },
+      {
+        "key": "whover:09:4",
+        "file": "backup/media/09/whover_09_4.png"
+      }
+    ],
+    "videos": [
+      {
+        "key": "wd:09:g3",
+        "file": "backup/media/09/wd_09_g3.mp4"
+      },
+      {
+        "key": "wd:09:g4",
+        "file": "backup/media/09/wd_09_g4.mp4"
+      },
+      {
+        "key": "wd:09:g5",
+        "file": "backup/media/09/wd_09_g5.mp4"
+      },
+      {
+        "key": "wd:09:g6",
+        "file": "backup/media/09/wd_09_g6.mp4"
+      }
+    ],
     "embeds": [
       {
         "key": "wd:09:c0",
