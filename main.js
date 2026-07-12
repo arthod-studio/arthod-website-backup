@@ -720,6 +720,8 @@ if (fv) {
     items.forEach((group, groupIndex) => {
       const section = document.createElement('section');
       section.className = 'ab-tl-group r' + (groupIndex % 3 ? ` d${groupIndex % 3}` : '');
+      const hasHistoryContent = (group.items || []).length > 0 || !!plainAboutHistoryText(group.note);
+      if (!hasHistoryContent) section.classList.add('is-empty');
       const cat = document.createElement('h3');
       cat.className = 'ab-tl-cat';
       cat.dataset.ek = `history-cat-${groupIndex}`;

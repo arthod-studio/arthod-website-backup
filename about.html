@@ -334,6 +334,12 @@
       border-bottom: 1px solid var(--border);
       min-height: 0;
     }
+    body:not(.editing) .ab-tl-group.is-empty {
+      display: none;
+    }
+    body.editing .ab-tl-group.is-empty {
+      padding: 18px 0;
+    }
     .ab-tl-cat {
       font-family: var(--font-d);
       font-size: clamp(28px,4vw,52px);
@@ -790,6 +796,6 @@
       requestAnimationFrame(tick);
     })();
   </script>
-  <script src="main.js?v=history-scroll-20260710-1"></script>
+  <script src="main.js?v=history-empty-ui-20260712-1"></script>
 </body>
 </html>
