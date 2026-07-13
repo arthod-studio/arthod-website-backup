@@ -326,7 +326,7 @@ if (fv) {
       org: { label: '소속 / Organization', placeholder: '회사명 또는 개인' },
       email: { label: '이메일 / Email', placeholder: 'hello@example.com' },
       phone: { label: '연락처 / Phone', placeholder: '010-0000-0000' },
-      type: { label: '프로젝트 유형' },
+      type: { label: '프로젝트 유형 / Project Type' },
       message: { label: '내용 / Message', placeholder: '프로젝트에 대해 간단히 설명해주세요. 규모, 일정, 예산 범위 등을 알려주시면 더 정확한 안내가 가능합니다.' }
     };
     Object.entries(fixed).forEach(([id, cfg]) => {
