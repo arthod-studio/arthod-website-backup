@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-12T11:25:26.986206+00:00",
+  "savedAt": "2026-07-13T03:30:31.432118+00:00",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -657,7 +657,8 @@
     "arthod-style:contact:contactdesc:0": "{\"color\":\"#ffffff\"}",
     "arthod-edit:services:fcolula:1": "Works",
     "arthod-edit:services:svc-interactive-installation-tag-2": "Depth Sensor",
-    "arthod-edit:work:specval:2": "경주 코스믹 리조트 콘텐츠 제작"
+    "arthod-edit:work:specval:2": "경주 코스믹 리조트 콘텐츠 제작",
+    "arthod-workcount:works": "10"
   },
   "mediaIndex": {
     "svc:0": {
@@ -1122,5 +1123,6 @@
     "08",
     "09"
   ],
-  "servicesBackupAt": "2026-07-12T11:25:19.943Z"
+  "servicesBackupAt": "2026-07-12T11:25:19.943Z",
+  "note": "Updated works count and project 01 title for next project wraparound"
 }
