@@ -1,8 +1,8 @@
 {
-  "savedAt": "2026-07-13T04:06:21.162315+00:00",
+  "savedAt": "2026-07-13T04:23:55.777483+00:00",
   "source": "/Users/chankim2max/Downloads/deploy 3",
-  "commit": "9b3db8e51da18646eccb01f63e05b13a818c57e7",
-  "note": "Backup after hiding public about services contact edit controls",
+  "commit": "712d407e3f36c7909691306b11be7e7836d96279",
+  "note": "Backup after fixing footer social links and adding contact phone field",
   "files": [
     ".gitignore",
     "CNAME",

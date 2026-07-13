@@ -403,6 +403,7 @@ if (fv) {
   function restoreShared() {
     sharedEls.forEach(el => {
       const v = localStorage.getItem(SHARED_PREFIX + el.dataset.shared);
+      if (el.dataset.shared && el.dataset.shared.indexOf('footer-connect-') === 0 && (!v || !v.trim())) return;
       if (v !== null) el.textContent = v;
     });
   }
@@ -431,22 +432,30 @@ if (fv) {
   /* Footer Connect는 모든 페이지에서 같은 목록과 편집 UI를 사용한다. */
   const FOOTER_CONNECT_KEY = 'arthod-connect:global';
   const FOOTER_CONNECT_DEFAULTS = [
-    { name: 'Instagram', url: '#' },
-    { name: 'Vimeo', url: '#' },
-    { name: 'Behance', url: '#' },
-    { name: 'LinkedIn', url: '#' },
+    { name: 'Instagram', url: 'https://www.instagram.com/arthod_studio/' },
+    { name: 'Youtube', url: 'https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C' },
   ];
   let footerConnectItems = [];
   function readFooterConnect() {
+    const defaultUrlForConnectName = (name) => {
+      const normalized = String(name || '').trim().toLowerCase();
+      if (normalized === 'instagram') return 'https://www.instagram.com/arthod_studio/';
+      if (normalized === 'youtube' || normalized === 'youTube'.toLowerCase()) return 'https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C';
+      return '#';
+    };
     try {
       const saved = JSON.parse(
         localStorage.getItem(FOOTER_CONNECT_KEY) ||
         localStorage.getItem('arthod-connect:services')
       );
-      if (Array.isArray(saved)) return saved.slice(0, 30).map((item, index) => ({
-        name: String(item?.name || `Connect ${index + 1}`),
-        url: String(item?.url || '#'),
-      }));
+      if (Array.isArray(saved)) return saved.slice(0, 30)
+        .map((item, index) => ({
+          name: String(item?.name || '').trim(),
+          url: String(item?.url && item.url !== '#' ? item.url : defaultUrlForConnectName(item?.name)),
+          fallbackName: `Connect ${index + 1}`,
+        }))
+        .filter(item => item.name && !(item.url === '#' && /^Connect\s+\d+$/i.test(item.name)))
+        .map(item => ({ name: item.name || item.fallbackName, url: item.url }));
     } catch (e) {}
     return FOOTER_CONNECT_DEFAULTS.map(item => ({ ...item }));
   }
@@ -1643,7 +1652,7 @@ if (fv) {
     const text = {};
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k === 'arthod-about-recent-count' || k === 'arthod-workcount:works' || k === 'arthod-works:custom-posts'
+      if (k === 'arthod-about-recent-count' || k === 'arthod-workcount:works' || k === 'arthod-works:custom-posts' || k === FOOTER_CONNECT_KEY
         || k === ABOUT_HISTORY_KEY || k === ABOUT_HISTORY_LAYOUT_VERSION_KEY || k === ABOUT_HISTORY_LEGACY_MIGRATION_KEY || k === ABOUT_HISTORY_RECOVERY_KEY
         || k.indexOf('arthod-edit:') === 0 || k.indexOf('arthod-proj:') === 0 || k.indexOf('arthod-style:') === 0
         || k.indexOf('arthod-layout:') === 0 || k.indexOf('arthod-gallerylayout:') === 0 || k.indexOf('arthod-galleryitems:') === 0
@@ -1776,7 +1785,7 @@ if (fv) {
       const text = {};
       for (let i = 0; i < localStorage.length; i++) {
         const k = localStorage.key(i);
-        if (k === 'arthod-about-recent-count' || k === 'arthod-workcount:works' || k === 'arthod-works:custom-posts' || k === ABOUT_HISTORY_KEY || k === ABOUT_HISTORY_LAYOUT_VERSION_KEY || k === ABOUT_HISTORY_LEGACY_MIGRATION_KEY || k === ABOUT_HISTORY_RECOVERY_KEY || k.indexOf('arthod-edit:') === 0 || k.indexOf('arthod-proj:') === 0 || k.indexOf('arthod-style:') === 0 || k.indexOf('arthod-layout:') === 0 || k.indexOf('arthod-gallerylayout:') === 0 || k.indexOf('arthod-galleryitems:') === 0 || k.indexOf('arthod-sliderorder:') === 0 || k.indexOf('arthod-cardorder:') === 0) {
+        if (k === 'arthod-about-recent-count' || k === 'arthod-workcount:works' || k === 'arthod-works:custom-posts' || k === FOOTER_CONNECT_KEY || k === ABOUT_HISTORY_KEY || k === ABOUT_HISTORY_LAYOUT_VERSION_KEY || k === ABOUT_HISTORY_LEGACY_MIGRATION_KEY || k === ABOUT_HISTORY_RECOVERY_KEY || k.indexOf('arthod-edit:') === 0 || k.indexOf('arthod-proj:') === 0 || k.indexOf('arthod-style:') === 0 || k.indexOf('arthod-layout:') === 0 || k.indexOf('arthod-gallerylayout:') === 0 || k.indexOf('arthod-galleryitems:') === 0 || k.indexOf('arthod-sliderorder:') === 0 || k.indexOf('arthod-cardorder:') === 0) {
           text[k] = localStorage.getItem(k);
         }
       }

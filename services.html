@@ -626,18 +626,22 @@
     </div>
   </footer>
 
-  <script src="main.js?v=public-footer-clean-20260713-1"></script>
+  <script src="main.js?v=contact-phone-links-20260713-4"></script>
   <script>
     (function () {
       const CONNECT_KEY = 'arthod-connect:global';
       const defaults = [
-        { name: 'Instagram', url: '#' },
-        { name: 'Vimeo', url: '#' },
-        { name: 'Behance', url: '#' },
-        { name: 'LinkedIn', url: '#' }
+        { name: 'Instagram', url: 'https://www.instagram.com/arthod_studio/' },
+        { name: 'Youtube', url: 'https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C' }
       ];
       const list = document.getElementById('services-connect-list');
       if (!list) return;
+      const defaultUrlForConnectName = (name) => {
+        const normalized = String(name || '').trim().toLowerCase();
+        if (normalized === 'instagram') return 'https://www.instagram.com/arthod_studio/';
+        if (normalized === 'youtube') return 'https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C';
+        return '#';
+      };
 
       function readItems() {
         try {
@@ -647,10 +651,14 @@
           );
           if (Array.isArray(saved)) {
             localStorage.setItem(CONNECT_KEY, JSON.stringify(saved));
-            return saved.slice(0, 30).map((item, index) => ({
-              name: String(item && item.name || `Connect ${index + 1}`),
-              url: String(item && item.url || '#')
-            }));
+            return saved.slice(0, 30)
+              .map((item, index) => ({
+                name: String(item && item.name || '').trim(),
+                url: String(item && item.url && item.url !== '#' ? item.url : defaultUrlForConnectName(item && item.name)),
+                fallbackName: `Connect ${index + 1}`
+              }))
+              .filter(item => item.name && !(item.url === '#' && /^Connect\s+\d+$/i.test(item.name)))
+              .map(item => ({ name: item.name || item.fallbackName, url: item.url }));
           }
         } catch (e) {}
         return defaults.map(item => ({ ...item }));
