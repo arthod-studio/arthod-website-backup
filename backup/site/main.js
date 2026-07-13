@@ -406,6 +406,12 @@ if (fv) {
       if (v !== null) el.textContent = v;
     });
   }
+  function migrateLegacyProjectTitles() {
+    const legacyTitle = localStorage.getItem(SHARED_PREFIX + '01:ko');
+    if (legacyTitle === '빛의 파동') localStorage.setItem(SHARED_PREFIX + '01:ko', 'Stream Scape');
+    const legacyEn = localStorage.getItem(SHARED_PREFIX + '01:en');
+    if (legacyEn === 'Wave of Light') localStorage.setItem(SHARED_PREFIX + '01:en', 'Interactive Media Art · Generative AI');
+  }
   function applyMirrors() {
     document.querySelectorAll('[data-mirror]').forEach(el => {
       const v = localStorage.getItem(SHARED_PREFIX + el.dataset.mirror);
@@ -1617,7 +1623,8 @@ if (fv) {
     const text = {};
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k === 'arthod-about-recent-count' || k === ABOUT_HISTORY_KEY || k === ABOUT_HISTORY_LAYOUT_VERSION_KEY || k === ABOUT_HISTORY_LEGACY_MIGRATION_KEY || k === ABOUT_HISTORY_RECOVERY_KEY
+      if (k === 'arthod-about-recent-count' || k === 'arthod-workcount:works' || k === 'arthod-works:custom-posts'
+        || k === ABOUT_HISTORY_KEY || k === ABOUT_HISTORY_LAYOUT_VERSION_KEY || k === ABOUT_HISTORY_LEGACY_MIGRATION_KEY || k === ABOUT_HISTORY_RECOVERY_KEY
         || k.indexOf('arthod-edit:') === 0 || k.indexOf('arthod-proj:') === 0 || k.indexOf('arthod-style:') === 0
         || k.indexOf('arthod-layout:') === 0 || k.indexOf('arthod-gallerylayout:') === 0 || k.indexOf('arthod-galleryitems:') === 0
         || k.indexOf('arthod-sliderorder:') === 0 || k.indexOf('arthod-cardorder:') === 0) {
@@ -1749,7 +1756,7 @@ if (fv) {
       const text = {};
       for (let i = 0; i < localStorage.length; i++) {
         const k = localStorage.key(i);
-        if (k === 'arthod-about-recent-count' || k === ABOUT_HISTORY_KEY || k === ABOUT_HISTORY_LAYOUT_VERSION_KEY || k === ABOUT_HISTORY_LEGACY_MIGRATION_KEY || k === ABOUT_HISTORY_RECOVERY_KEY || k.indexOf('arthod-edit:') === 0 || k.indexOf('arthod-proj:') === 0 || k.indexOf('arthod-style:') === 0 || k.indexOf('arthod-layout:') === 0 || k.indexOf('arthod-gallerylayout:') === 0 || k.indexOf('arthod-galleryitems:') === 0 || k.indexOf('arthod-sliderorder:') === 0 || k.indexOf('arthod-cardorder:') === 0) {
+        if (k === 'arthod-about-recent-count' || k === 'arthod-workcount:works' || k === 'arthod-works:custom-posts' || k === ABOUT_HISTORY_KEY || k === ABOUT_HISTORY_LAYOUT_VERSION_KEY || k === ABOUT_HISTORY_LEGACY_MIGRATION_KEY || k === ABOUT_HISTORY_RECOVERY_KEY || k.indexOf('arthod-edit:') === 0 || k.indexOf('arthod-proj:') === 0 || k.indexOf('arthod-style:') === 0 || k.indexOf('arthod-layout:') === 0 || k.indexOf('arthod-gallerylayout:') === 0 || k.indexOf('arthod-galleryitems:') === 0 || k.indexOf('arthod-sliderorder:') === 0 || k.indexOf('arthod-cardorder:') === 0) {
           text[k] = localStorage.getItem(k);
         }
       }
@@ -2458,6 +2465,7 @@ if (fv) {
     const publicSyncChanged = await syncFromPublicSource(); // 방문자마다 최신 게시본을 먼저 반영
     restoreFooterConnect();
     restoreAboutHistory();
+    migrateLegacyProjectTitles();
     tagShared();
     assignKeys();
     restoreText();

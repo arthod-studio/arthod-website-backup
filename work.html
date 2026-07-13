@@ -489,14 +489,14 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=public-view-no-editor-20260713-1"></script>
+  <script src="main.js?v=next-project-streamscape-20260713-1"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [
     {
       id: '01',
-      ko: '빛의 파동',
-      en: 'Wave of Light',
+      ko: 'Stream Scape',
+      en: 'Interactive Media Art · Generative AI',
       year: '2024',
       type: 'Interactive LED Installation',
       cats: 'Interactive · LED · OpenCV',
@@ -718,6 +718,7 @@
     return m ? m[1].padStart(2, '0') : '';
   }
   function worksOrderedProjects() {
+    const DEFAULT_WORK_COUNT = 10;
     const fallback = PROJECTS.slice();
     let orderedIds = [];
     try {
@@ -729,7 +730,7 @@
     fallback.forEach(project => {
       if (!seen.has(project.id)) ordered.push(project);
     });
-    let count = ordered.length;
+    let count = Math.min(DEFAULT_WORK_COUNT, ordered.length);
     try {
       const raw = parseInt(localStorage.getItem('arthod-workcount:works'), 10);
       if (Number.isFinite(raw)) count = Math.max(1, Math.min(ordered.length, raw));
