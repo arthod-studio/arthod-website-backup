@@ -403,7 +403,13 @@ if (fv) {
   function restoreShared() {
     sharedEls.forEach(el => {
       const v = localStorage.getItem(SHARED_PREFIX + el.dataset.shared);
-      if (el.dataset.shared && el.dataset.shared.indexOf('footer-connect-') === 0 && (!v || !v.trim())) return;
+      if (el.dataset.shared && el.dataset.shared.indexOf('footer-connect-') === 0) {
+        if (!v || !v.trim()) return;
+        el.textContent = v;
+        const normalizedUrl = defaultUrlForConnectName(v);
+        if (normalizedUrl !== '#') el.href = normalizedUrl;
+        return;
+      }
       if (v !== null) el.textContent = v;
     });
   }
@@ -436,13 +442,13 @@ if (fv) {
     { name: 'Youtube', url: 'https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C' },
   ];
   let footerConnectItems = [];
+  function defaultUrlForConnectName(name) {
+    const normalized = String(name || '').trim().toLowerCase();
+    if (normalized === 'instagram') return 'https://www.instagram.com/arthod_studio/';
+    if (normalized === 'youtube') return 'https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C';
+    return '#';
+  }
   function readFooterConnect() {
-    const defaultUrlForConnectName = (name) => {
-      const normalized = String(name || '').trim().toLowerCase();
-      if (normalized === 'instagram') return 'https://www.instagram.com/arthod_studio/';
-      if (normalized === 'youtube' || normalized === 'youTube'.toLowerCase()) return 'https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C';
-      return '#';
-    };
     try {
       const saved = JSON.parse(
         localStorage.getItem(FOOTER_CONNECT_KEY) ||
@@ -454,7 +460,7 @@ if (fv) {
           url: String(item?.url && item.url !== '#' ? item.url : defaultUrlForConnectName(item?.name)),
           fallbackName: `Connect ${index + 1}`,
         }))
-        .filter(item => item.name && !(item.url === '#' && /^Connect\s+\d+$/i.test(item.name)))
+        .filter(item => item.name && item.url !== '#')
         .map(item => ({ name: item.name || item.fallbackName, url: item.url }));
     } catch (e) {}
     return FOOTER_CONNECT_DEFAULTS.map(item => ({ ...item }));

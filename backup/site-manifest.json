@@ -1,8 +1,8 @@
 {
-  "savedAt": "2026-07-13T04:23:55.777483+00:00",
+  "savedAt": "2026-07-13T04:28:37.247163+00:00",
   "source": "/Users/chankim2max/Downloads/deploy 3",
-  "commit": "712d407e3f36c7909691306b11be7e7836d96279",
-  "note": "Backup after fixing footer social links and adding contact phone field",
+  "commit": "b227458d1a9078725efa0ad2960c34cd99372e45",
+  "note": "Backup after normalizing footer social links and contact phone field",
   "files": [
     ".gitignore",
     "CNAME",
