@@ -11,7 +11,23 @@
   <title>Services — Arthod(아쏘드)</title>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
   <link rel="stylesheet" href="style.css?v=cursor-fast-20260706-1"/>
+  <script>
+    (function () {
+      var hosts = ['localhost', '127.0.0.1', '0.0.0.0', '::1'];
+      var editable = location.protocol === 'file:' || hosts.indexOf(location.hostname) >= 0 || location.hostname.endsWith('.local');
+      if (!editable) document.documentElement.classList.add('public-view');
+    })();
+  </script>
   <style>
+    .public-view .media-revert,
+    .public-view .size-handle,
+    .public-view .pan-handle,
+    .public-view .zoom-handle,
+    .public-view .svc-edit-actions,
+    .public-view .service-count-tools,
+    .public-view .connect-edit-controls,
+    .public-view .connect-add { display: none !important; }
+
     .page-wrap { padding-top: var(--nav-h); }
 
     .page-hero {
@@ -359,7 +375,7 @@
     <script>
       const SERVICE_EDITOR_HOSTS = new Set(['localhost', '127.0.0.1', '0.0.0.0', '::1']);
       const SERVICE_EDITOR_ALLOWED = location.protocol === 'file:' || SERVICE_EDITOR_HOSTS.has(location.hostname) || location.hostname.endsWith('.local');
-      const SERVICE_COUNT = 'all'; // 숫자로 바꾸면 해당 개수까지만 표시됩니다. 예: 4
+      const SERVICE_COUNT = 6; // 숫자로 바꾸면 해당 개수까지만 표시됩니다. 예: 4
       const SERVICE_COUNT_KEY = 'arthod-service:count';
       const SERVICE_ORDER_KEY = 'arthod-service:order';
       const SERVICE_ITEMS = [
@@ -369,7 +385,7 @@
           en: 'Interactive Installation',
           desc: '센서, 카메라, 모션 캡처 등 다양한 입력 장치를 활용해 관람객과 실시간으로 반응하는 공간 설치 작품을 기획하고 제작합니다. 관람객의 존재 자체가 작품의 일부가 됩니다.',
           image: 'https://picsum.photos/seed/svc01/1600/600',
-          tags: ['OpenCV', 'Depth Sensor', 'TouchDesigner', 'Arduino', 'LED']
+          tags: ['MEDIAPIPE', 'Depth Sensor', 'TouchDesigner', 'PYTHON', 'LIGHT']
         },
         {
           key: 'projection-mapping',
@@ -377,47 +393,39 @@
           en: 'Projection Mapping',
           desc: '건물 외벽, 조형물, 무대 세트 등 불규칙한 3D 표면에 정확히 맞춰진 영상을 투영하는 몰입형 시각 경험을 구현합니다. 공간 자체가 스크린이 됩니다.',
           image: 'https://picsum.photos/seed/svc02/1600/600',
-          tags: ['LiDAR', 'Resolume', 'Madmapper', 'Unreal Engine', '3D Scan']
+          tags: ['RESOLUME ARENA', 'Mad mapper', 'Millumin', 'INMMERSIVE', '3D Scan']
         },
         {
           key: 'generative-art',
           ko: '제너러티브 아트',
           en: 'Generative Art',
-          desc: '알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. 매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.',
+          desc: '알고리즘, 데이터, 노이즈 함수로 구동되는 실시간 비주얼 시스템을 개발합니다. <br>매 순간 다른 모습을 보여주는 살아있는 영상 작품을 만듭니다.',
           image: 'https://picsum.photos/seed/svc03/1600/600',
-          tags: ['GLSL', 'p5.js', 'WebGL', 'Max/MSP', 'Processing']
+          tags: ['GLSL', 'p5.js', 'DIFFUSION', 'TOUCHDESIGNER', 'UNREAL ENGINE']
         },
         {
           key: 'sound-visual',
           ko: '사운드 비주얼',
           en: 'Sound Visual',
-          desc: '음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. 소리가 형태를 만들고, 형태가 소리를 만듭니다.',
+          desc: '음향과 시각의 경계를 넘나드는 AV 퍼포먼스와 오디오-리액티브 설치를 기획합니다. <br>소리가 형태를 만들고, 형태가 소리를 만듭니다.',
           image: 'https://picsum.photos/seed/svc04/1600/600',
-          tags: ['Max/MSP', 'Ableton', 'OSC', 'MIDI', 'Spatial Audio']
-        },
-        {
-          key: 'brand-experience',
-          ko: '브랜드 경험 설계',
-          en: 'Brand Experience',
-          desc: '브랜드 아이덴티티를 미디어아트로 해석한 팝업 스토어, 전시 부스, 쇼룸, 오프닝 세레모니를 기획하고 제작합니다. 브랜드의 가치를 감각으로 전달합니다.',
-          image: 'https://picsum.photos/seed/svc05/1600/600',
-          tags: ['Concept', 'Production', 'Installation', 'Brand Storytelling']
+          tags: ['ABLETON LIVE', 'Max/MSP', 'LOGIC', 'OSC', 'Spatial Audio']
         },
         {
           key: 'public-art',
           ko: '공공 미술',
           en: 'Public Art',
-          desc: '도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 제작합니다. 도시 자체가 갤러리가 됩니다.',
-          image: 'https://picsum.photos/seed/svc06/1600/600',
+          desc: '도시 공간과 공공 건축에 영구 또는 임시 설치되는 미디어 파사드 및 퍼블릭 아트워크를 <br>제작합니다. 도시 자체가 갤러리가 됩니다.',
+          image: 'https://picsum.photos/seed/svc05/1600/600',
           tags: ['Media Facade', 'Outdoor LED', 'Permanent', 'Temporary']
         },
         {
           key: 'motion-graphic',
           ko: '모션그래픽',
           en: 'Motion Graphic',
-          desc: '브랜드 캠페인, 전시 콘텐츠, 무대 영상 등을 위한 고품질 모션그래픽을 제작합니다. 정교한 타이포그래피 애니메이션부터 3D 오브젝트 비주얼까지 다양한 스타일로 구현합니다.',
-          image: 'https://picsum.photos/seed/svc07/1600/600',
-          tags: ['After Effects', 'Cinema 4D', 'Houdini', 'Blender', 'Lottie']
+          desc: '브랜드 캠페인, 전시 콘텐츠, 무대 영상 등을 위한 고품질 모션그래픽을 제작합니다. <br>애니메이션부터 3D 오브젝트 비주얼까지 다양한 스타일로 구현합니다.',
+          image: 'https://picsum.photos/seed/svc06/1600/600',
+          tags: ['After Effects', 'Cinema 4D', 'UNREAL ENGINE', 'PHOTOSHOP', 'TOUCHDESIGNER']
         }
       ];
 
@@ -429,7 +437,16 @@
       function readServiceOrder() {
         try {
           const saved = JSON.parse(localStorage.getItem(SERVICE_ORDER_KEY) || 'null');
-          if (Array.isArray(saved) && saved.length) return saved.map(Number).filter(Number.isFinite).slice(0, 30);
+          if (Array.isArray(saved) && saved.length) {
+            const normalized = saved.map(Number).filter(index => Number.isFinite(index) && index >= 0 && index < SERVICE_ITEMS.length);
+            const hasRemovedIndex = normalized.length !== saved.length;
+            const hasDuplicate = new Set(normalized).size !== normalized.length;
+            if (hasRemovedIndex || hasDuplicate) return Array.from({ length: configuredCount() }, (_, index) => index);
+            for (let index = 0; normalized.length < configuredCount() && index < SERVICE_ITEMS.length; index++) {
+              if (!normalized.includes(index)) normalized.push(index);
+            }
+            return normalized.slice(0, 30);
+          }
         } catch (e) {}
         return Array.from({ length: configuredCount() }, (_, index) => index);
       }
@@ -457,6 +474,7 @@
           '"': '&quot;',
           "'": '&#39;'
         }[ch]));
+        const formatServiceDesc = value => escapeHtml(value).replaceAll('&lt;br&gt;', '<br>').replaceAll('&lt;br/&gt;', '<br>').replaceAll('&lt;br /&gt;', '<br>');
         const order = readServiceOrder();
         const count = order.length;
         const serviceAt = index => SERVICE_ITEMS[index] || {
@@ -481,7 +499,7 @@
               <span class="svc-entry-num">${num}</span>
               <div class="svc-entry-body">
                 <h2 class="svc-entry-name" data-ek="svc-${key}-name">${escapeHtml(item.ko)}<em>${escapeHtml(item.en)}</em></h2>
-                <p class="svc-entry-desc" data-ek="svc-${key}-desc">${escapeHtml(item.desc)}</p>
+                <p class="svc-entry-desc" data-ek="svc-${key}-desc">${formatServiceDesc(item.desc)}</p>
                 <div class="svc-entry-tags">${tags}</div>
               </div>
             </div>
