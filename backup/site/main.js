@@ -302,6 +302,7 @@ if (fv) {
       const slug = sel.replace(/[^a-z0-9]+/gi, '').toLowerCase(); // 선택자별 안정 키(폴백용)
       document.querySelectorAll(sel).forEach((el, n) => {
         if (el.dataset.editKey) return;
+        if (el.dataset.noEdit === '1') return;
         if (el.dataset.shared || el.dataset.mirror) return; // 공유 필드는 별도 관리
         if (el.dataset.historyManaged === '1') return; // About history는 항목 추가/삭제와 함께 별도 JSON으로 저장
         if (el.parentElement && el.parentElement.closest('[data-edit-key]')) return; // 중첩 방지
@@ -316,6 +317,28 @@ if (fv) {
     keyed.forEach(el => {
       const v = localStorage.getItem(TXT_PREFIX + el.dataset.editKey);
       if (v !== null) el.innerHTML = v;
+    });
+  }
+  function normalizeContactFormFields() {
+    if (PAGE !== 'contact') return;
+    const fixed = {
+      name: { label: '이름 / Name', placeholder: '홍길동' },
+      org: { label: '소속 / Organization', placeholder: '회사명 또는 개인' },
+      email: { label: '이메일 / Email', placeholder: 'hello@example.com' },
+      phone: { label: '연락처 / Phone', placeholder: '010-0000-0000' },
+      type: { label: '프로젝트 유형' },
+      message: { label: '내용 / Message', placeholder: '프로젝트에 대해 간단히 설명해주세요. 규모, 일정, 예산 범위 등을 알려주시면 더 정확한 안내가 가능합니다.' }
+    };
+    Object.entries(fixed).forEach(([id, cfg]) => {
+      const label = document.querySelector(`label[for="${id}"]`);
+      const field = document.getElementById(id);
+      if (label) {
+        label.textContent = cfg.label;
+        label.dataset.noEdit = '1';
+        label.removeAttribute('contenteditable');
+        delete label.dataset.editKey;
+      }
+      if (field && cfg.placeholder) field.setAttribute('placeholder', cfg.placeholder);
     });
   }
   function saveText() {
@@ -1351,6 +1374,7 @@ if (fv) {
 
   /* ── 5b. 커스텀 표시 · 되돌리기 · 미디어 관리 ── */
   function markCustom(el) {
+    if (!isEditorAllowed()) return;
     if (!el) return;
     el.dataset.hasCustom = '1';
     if (el.querySelector(':scope > .media-revert')) return;
@@ -1487,7 +1511,14 @@ if (fv) {
     h.addEventListener('touchstart', onDown, { passive: false });
   }
   function attachMediaHandles() {
+    if (!isEditorAllowed()) return;
     document.querySelectorAll('[data-media]').forEach(el => { attachSizeHandle(el); attachPanHandle(el); attachZoomHandle(el); });
+  }
+  function stripPublicEditChrome() {
+    document.querySelectorAll('.media-revert,.size-handle,.pan-handle,.zoom-handle,.svc-edit-actions,.service-count-tools,.connect-edit-controls,.connect-add').forEach(el => el.remove());
+    document.querySelectorAll('[data-has-custom]').forEach(el => el.removeAttribute('data-has-custom'));
+    document.body.classList.remove('editing');
+    document.documentElement.classList.add('public-view');
   }
   async function revertSlot(key) {
     await mediaDelete(key);
@@ -2035,12 +2066,26 @@ if (fv) {
 
   function buildUI() {
     if (!isEditorAllowed()) {
-      document.documentElement.classList.add('public-view');
-      document.body.classList.remove('editing');
+      stripPublicEditChrome();
       document.querySelectorAll('[contenteditable="true"]').forEach(el => {
         el.contentEditable = 'false';
         el.removeAttribute('spellcheck');
       });
+      if (!document.getElementById('public-edit-chrome-guard')) {
+        const guard = document.createElement('style');
+        guard.id = 'public-edit-chrome-guard';
+        guard.textContent = `
+          .public-view .media-revert,
+          .public-view .size-handle,
+          .public-view .pan-handle,
+          .public-view .zoom-handle,
+          .public-view .svc-edit-actions,
+          .public-view .service-count-tools,
+          .public-view .connect-edit-controls,
+          .public-view .connect-add{display:none!important}
+        `;
+        document.head.appendChild(guard);
+      }
       return;
     }
     btn = document.createElement('button');
@@ -2504,6 +2549,7 @@ if (fv) {
     tagShared();
     assignKeys();
     restoreText();
+    normalizeContactFormFields();
     restoreShared();
     restoreStyles();
     applyMirrors();
@@ -2531,6 +2577,7 @@ if (fv) {
         restoreAboutHistory();
         assignKeys();
         restoreText();
+        normalizeContactFormFields();
         restoreStyles();
         tagMedia();
         attachMediaHandles();
