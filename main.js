@@ -1351,6 +1351,7 @@ if (fv) {
 
   /* ── 5b. 커스텀 표시 · 되돌리기 · 미디어 관리 ── */
   function markCustom(el) {
+    if (!isEditorAllowed()) return;
     if (!el) return;
     el.dataset.hasCustom = '1';
     if (el.querySelector(':scope > .media-revert')) return;
@@ -1487,7 +1488,14 @@ if (fv) {
     h.addEventListener('touchstart', onDown, { passive: false });
   }
   function attachMediaHandles() {
+    if (!isEditorAllowed()) return;
     document.querySelectorAll('[data-media]').forEach(el => { attachSizeHandle(el); attachPanHandle(el); attachZoomHandle(el); });
+  }
+  function stripPublicEditChrome() {
+    document.querySelectorAll('.media-revert,.size-handle,.pan-handle,.zoom-handle,.svc-edit-actions,.service-count-tools,.connect-edit-controls,.connect-add').forEach(el => el.remove());
+    document.querySelectorAll('[data-has-custom]').forEach(el => el.removeAttribute('data-has-custom'));
+    document.body.classList.remove('editing');
+    document.documentElement.classList.add('public-view');
   }
   async function revertSlot(key) {
     await mediaDelete(key);
@@ -2035,12 +2043,26 @@ if (fv) {
 
   function buildUI() {
     if (!isEditorAllowed()) {
-      document.documentElement.classList.add('public-view');
-      document.body.classList.remove('editing');
+      stripPublicEditChrome();
       document.querySelectorAll('[contenteditable="true"]').forEach(el => {
         el.contentEditable = 'false';
         el.removeAttribute('spellcheck');
       });
+      if (!document.getElementById('public-edit-chrome-guard')) {
+        const guard = document.createElement('style');
+        guard.id = 'public-edit-chrome-guard';
+        guard.textContent = `
+          .public-view .media-revert,
+          .public-view .size-handle,
+          .public-view .pan-handle,
+          .public-view .zoom-handle,
+          .public-view .svc-edit-actions,
+          .public-view .service-count-tools,
+          .public-view .connect-edit-controls,
+          .public-view .connect-add{display:none!important}
+        `;
+        document.head.appendChild(guard);
+      }
       return;
     }
     btn = document.createElement('button');
