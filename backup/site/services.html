@@ -357,6 +357,8 @@
     <div class="svc-list" id="service-list"></div>
 
     <script>
+      const SERVICE_EDITOR_HOSTS = new Set(['localhost', '127.0.0.1', '0.0.0.0', '::1']);
+      const SERVICE_EDITOR_ALLOWED = location.protocol === 'file:' || SERVICE_EDITOR_HOSTS.has(location.hostname) || location.hostname.endsWith('.local');
       const SERVICE_COUNT = 'all'; // 숫자로 바꾸면 해당 개수까지만 표시됩니다. 예: 4
       const SERVICE_COUNT_KEY = 'arthod-service:count';
       const SERVICE_ORDER_KEY = 'arthod-service:order';
@@ -475,7 +477,7 @@
           return `
             <div class="svc-entry r" data-service-index="${serviceIndex}">
               <div class="svc-img" style="background-image:url('${escapeHtml(item.image || '')}')"></div>
-              <span class="svc-edit-actions"><button type="button" class="svc-delete" aria-label="이 서비스 항목 삭제" title="이 항목만 삭제">항목 삭제</button></span>
+              ${SERVICE_EDITOR_ALLOWED ? `<span class="svc-edit-actions"><button type="button" class="svc-delete" aria-label="이 서비스 항목 삭제" title="이 항목만 삭제">항목 삭제</button></span>` : ''}
               <span class="svc-entry-num">${num}</span>
               <div class="svc-entry-body">
                 <h2 class="svc-entry-name" data-ek="svc-${key}-name">${escapeHtml(item.ko)}<em>${escapeHtml(item.en)}</em></h2>
@@ -485,19 +487,21 @@
             </div>
           `;
         }).join('');
-        list.querySelectorAll('.svc-delete').forEach(button => {
-          button.addEventListener('click', event => {
-            event.preventDefault();
-            event.stopPropagation();
-            const entry = button.closest('.svc-entry');
-            const serviceIndex = Number(entry?.dataset.serviceIndex);
-            const latest = readServiceOrder();
-            if (latest.length <= 1) return;
-            saveServiceOrder(latest.filter(index => index !== serviceIndex));
-            window.ARTHOD_RENDER_SERVICES();
-            window.ArthodEditor?.refreshEditable?.();
+        if (SERVICE_EDITOR_ALLOWED) {
+          list.querySelectorAll('.svc-delete').forEach(button => {
+            button.addEventListener('click', event => {
+              event.preventDefault();
+              event.stopPropagation();
+              const entry = button.closest('.svc-entry');
+              const serviceIndex = Number(entry?.dataset.serviceIndex);
+              const latest = readServiceOrder();
+              if (latest.length <= 1) return;
+              saveServiceOrder(latest.filter(index => index !== serviceIndex));
+              window.ARTHOD_RENDER_SERVICES();
+              window.ArthodEditor?.refreshEditable?.();
+            });
           });
-        });
+        }
         document.dispatchEvent(new CustomEvent('arthod:services-rendered', { detail: { count } }));
       };
       window.ARTHOD_RENDER_SERVICES();
@@ -525,6 +529,7 @@
           updateLabel();
         }
         function install() {
+          if (!SERVICE_EDITOR_ALLOWED) return;
           const bar = document.querySelector('.edit-bar');
           if (!bar || bar.querySelector('.service-count-tools')) return;
           const tools = document.createElement('span');
@@ -621,7 +626,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=next-project-streamscape-20260713-1"></script>
+  <script src="main.js?v=public-footer-clean-20260713-1"></script>
   <script>
     (function () {
       const CONNECT_KEY = 'arthod-connect:global';
@@ -661,7 +666,7 @@
         localStorage.setItem(CONNECT_KEY, JSON.stringify(items));
       }
       function render() {
-        const editing = document.body.classList.contains('editing');
+        const editing = SERVICE_EDITOR_ALLOWED && document.body.classList.contains('editing');
         list.innerHTML = '';
         items.forEach((item, index) => {
           const li = document.createElement('li');
@@ -681,29 +686,31 @@
           });
           li.appendChild(link);
 
-          const controls = document.createElement('span');
-          controls.className = 'connect-edit-controls';
-          const url = document.createElement('input');
-          url.type = 'url';
-          url.value = item.url === '#' ? '' : item.url;
-          url.placeholder = 'https://';
-          url.setAttribute('aria-label', `${item.name} 링크`);
-          url.addEventListener('change', () => {
-            items[index].url = safeUrl(url.value);
-            link.href = items[index].url;
-            save();
-          });
-          const remove = document.createElement('button');
-          remove.type = 'button';
-          remove.textContent = '−';
-          remove.title = 'Connect 항목 삭제';
-          remove.addEventListener('click', () => {
-            items.splice(index, 1);
-            save();
-            render();
-          });
-          controls.append(url, remove);
-          li.appendChild(controls);
+          if (SERVICE_EDITOR_ALLOWED) {
+            const controls = document.createElement('span');
+            controls.className = 'connect-edit-controls';
+            const url = document.createElement('input');
+            url.type = 'url';
+            url.value = item.url === '#' ? '' : item.url;
+            url.placeholder = 'https://';
+            url.setAttribute('aria-label', `${item.name} 링크`);
+            url.addEventListener('change', () => {
+              items[index].url = safeUrl(url.value);
+              link.href = items[index].url;
+              save();
+            });
+            const remove = document.createElement('button');
+            remove.type = 'button';
+            remove.textContent = '−';
+            remove.title = 'Connect 항목 삭제';
+            remove.addEventListener('click', () => {
+              items.splice(index, 1);
+              save();
+              render();
+            });
+            controls.append(url, remove);
+            li.appendChild(controls);
+          }
           list.appendChild(li);
         });
         updateCount();
@@ -713,6 +720,7 @@
         if (count) count.textContent = String(items.length);
       }
       function installToolbarButton() {
+        if (!SERVICE_EDITOR_ALLOWED) return;
         const bar = document.querySelector('.edit-bar');
         if (!bar || bar.querySelector('.connect-add')) return;
         const add = document.createElement('button');
@@ -747,7 +755,7 @@
       installToolbarButton();
       window.addEventListener('arthod:editor-ready', installToolbarButton);
       new MutationObserver(() => {
-        const editing = document.body.classList.contains('editing');
+        const editing = SERVICE_EDITOR_ALLOWED && document.body.classList.contains('editing');
         list.querySelectorAll('[data-connect-index]').forEach(link => {
           link.contentEditable = editing ? 'true' : 'false';
         });
