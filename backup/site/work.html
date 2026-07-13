@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <script>
+    (function () {
+      if (location.hostname === 'arthod-studio.com' || (location.hostname === 'www.arthod-studio.com' && location.protocol !== 'https:')) {
+        location.replace('https://www.arthod-studio.com' + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
@@ -489,7 +496,7 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=contact-phone-links-20260713-5"></script>
+  <script src="main.js?v=public-service-editor-guard-20260713-1"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [

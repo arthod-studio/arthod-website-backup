@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <script>
+    (function () {
+      if (location.hostname === 'arthod-studio.com' || (location.hostname === 'www.arthod-studio.com' && location.protocol !== 'https:')) {
+        location.replace('https://www.arthod-studio.com' + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Arthod(아쏘드) Services — 인터랙티브 설치, 프로젝션 매핑, 제너러티브 아트, 사운드 비주얼, 브랜드 경험, 공공 미술."/>
