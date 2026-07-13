@@ -1,0 +1,28 @@
+{
+  "savedAt": "2026-07-13T04:28:37.247163+00:00",
+  "source": "/Users/chankim2max/Downloads/deploy 3",
+  "commit": "b227458d1a9078725efa0ad2960c34cd99372e45",
+  "note": "Backup after normalizing footer social links and contact phone field",
+  "files": [
+    ".gitignore",
+    "CNAME",
+    "about.html",
+    "assets/about-logo.mp4",
+    "assets/fonts/Adam-Bold.ttf",
+    "assets/fonts/Adam-Light.ttf",
+    "assets/fonts/Adam-Medium.ttf",
+    "assets/img/arthod-logo-original-black.png",
+    "assets/video/arthod-art-method-logo-motion.mp4",
+    "contact.html",
+    "index.html",
+    "logo.png",
+    "main.js",
+    "robots.txt",
+    "services.html",
+    "sitemap.xml",
+    "style.css",
+    "support.js",
+    "work.html",
+    "works.html"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "work": "09",
+  "savedAt": "2026-07-12T10:56:13.491Z",
+  "media": {
+    "images": [
+      {
+        "key": "wd:09:g1",
+        "file": "backup/media/09/wd_09_g1.png"
+      },
+      {
+        "key": "wd:09:g2",
+        "file": "backup/media/09/wd_09_g2.jpg"
+      },
+      {
+        "key": "whover:09:1",
+        "file": "backup/media/09/whover_09_1.jpg"
+      },
+      {
+        "key": "whover:09:2",
+        "file": "backup/media/09/whover_09_2.jpg"
+      },
+      {
+        "key": "whover:09:3",
+        "file": "backup/media/09/whover_09_3.png"
+      },
+      {
+        "key": "whover:09:4",
+        "file": "backup/media/09/whover_09_4.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "key": "wd:09:g3",
+        "file": "backup/media/09/wd_09_g3.mp4"
+      },
+      {
+        "key": "wd:09:g4",
+        "file": "backup/media/09/wd_09_g4.mp4"
+      },
+      {
+        "key": "wd:09:g5",
+        "file": "backup/media/09/wd_09_g5.mp4"
+      },
+      {
+        "key": "wd:09:g6",
+        "file": "backup/media/09/wd_09_g6.mp4"
+      }
+    ],
+    "embeds": [
+      {
+        "key": "wd:09:c0",
+        "url": "https://www.youtube.com/embed/h01r-NInHM8?autoplay=0&mute=0&loop=1&playlist=h01r-NInHM8&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
+      }
+    ],
+    "refs": [
+      {
+        "key": "wd:09:next",
+        "refKey": "svc:1"
+      }
+    ]
+  },
+  "text": {
+    "arthod-proj:09:type": "Audio Reactive",
+    "arthod-proj:09:en": "Kinetic Light Installation",
+    "arthod-proj:09:year": "2024",
+    "arthod-proj:09:project": "언제나 미래였던: 우주유영",
+    "arthod-proj:09:clientorg": "서울시립과학관",
+    "arthod-proj:09:ko": "Equniox"
+  }
+}

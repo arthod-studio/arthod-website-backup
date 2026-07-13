@@ -1,0 +1,48 @@
+{
+  "work": "06",
+  "savedAt": "2026-07-12T10:56:06.697Z",
+  "media": {
+    "images": [
+      {
+        "key": "wd:06:c0",
+        "file": "backup/media/06/wd_06_c0.jpg"
+      },
+      {
+        "key": "wd:06:g1",
+        "file": "backup/media/06/wd_06_g1.jpg"
+      },
+      {
+        "key": "wd:06:g2",
+        "file": "backup/media/06/wd_06_g2.jpg"
+      },
+      {
+        "key": "wd:06:g3",
+        "file": "backup/media/06/wd_06_g3.jpg"
+      },
+      {
+        "key": "wd:06:g4",
+        "file": "backup/media/06/wd_06_g4.jpg"
+      },
+      {
+        "key": "wd:06:g5",
+        "file": "backup/media/06/wd_06_g5.jpg"
+      },
+      {
+        "key": "wd:06:next",
+        "file": "backup/media/06/wd_06_next.jpg"
+      }
+    ],
+    "videos": [],
+    "embeds": [],
+    "refs": []
+  },
+  "text": {
+    "arthod-layout:wd:06:c0": "{\"zoom\":1}",
+    "arthod-proj:06:project": "국가유산 미디어아트 수원화성",
+    "arthod-proj:06:year": "2024",
+    "arthod-proj:06:clientorg": "수원문화재단",
+    "arthod-proj:06:en": "Laser Reflection Installation",
+    "arthod-proj:06:type": "Fluid Simulation",
+    "arthod-proj:06:ko": "Transmission"
+  }
+}

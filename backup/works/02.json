@@ -1,0 +1,82 @@
+{
+  "work": "02",
+  "savedAt": "2026-07-12T10:56:00.756Z",
+  "media": {
+    "images": [
+      {
+        "key": "whover:02:1",
+        "file": "backup/media/02/whover_02_1.jpg"
+      },
+      {
+        "key": "whover:02:2",
+        "file": "backup/media/02/whover_02_2.jpg"
+      },
+      {
+        "key": "whover:02:3",
+        "file": "backup/media/02/whover_02_3.jpg"
+      },
+      {
+        "key": "whover:02:4",
+        "file": "backup/media/02/whover_02_4.jpg"
+      },
+      {
+        "key": "whover:02:5",
+        "file": "backup/media/02/whover_02_5.jpg"
+      },
+      {
+        "key": "whover:02:6",
+        "file": "backup/media/02/whover_02_6.jpg"
+      },
+      {
+        "key": "wimg:02",
+        "file": "backup/media/02/wimg_02.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "key": "wd:02:g1",
+        "file": "backup/media/02/wd_02_g1.mp4"
+      },
+      {
+        "key": "wd:02:g2",
+        "file": "backup/media/02/wd_02_g2.mp4"
+      },
+      {
+        "key": "wd:02:g3",
+        "file": "backup/media/02/wd_02_g3.mp4"
+      },
+      {
+        "key": "wd:02:g4",
+        "file": "backup/media/02/wd_02_g4.mp4"
+      },
+      {
+        "key": "wd:02:g5",
+        "file": "backup/media/02/wd_02_g5.mp4"
+      },
+      {
+        "key": "wd:02:g6",
+        "file": "backup/media/02/wd_02_g6.mp4"
+      }
+    ],
+    "embeds": [
+      {
+        "key": "wd:02:c0",
+        "url": "https://www.youtube.com/embed/IYLRX5dTQxo?autoplay=0&mute=0&loop=1&playlist=IYLRX5dTQxo&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
+      }
+    ],
+    "refs": [
+      {
+        "key": "wd:02:next",
+        "refKey": "wd:03:g1"
+      }
+    ]
+  },
+  "text": {
+    "arthod-proj:02:en": "Multimedia Installation",
+    "arthod-proj:02:year": "2025",
+    "arthod-proj:02:type": "Projection · LiDAR",
+    "arthod-proj:02:clientorg": "이지위드",
+    "arthod-proj:02:ko": "Hyper Drive",
+    "arthod-proj:02:project": "코스믹 리조트 콘텐츠 제작"
+  }
+}

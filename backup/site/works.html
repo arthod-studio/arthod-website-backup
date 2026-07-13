@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Arthod(아쏘드) — 전체 포트폴리오"/>
+  <meta name="application-name" content="Arthod(아쏘드)"/>
+  <meta property="og:site_name" content="Arthod(아쏘드)"/>
+  <meta property="og:title" content="Works — Arthod(아쏘드)"/>
+  <link rel="canonical" href="https://www.arthod-studio.com/works.html"/>
+  <title>Works — Arthod(아쏘드)</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
+  <link rel="stylesheet" href="style.css?v=cursor-fast-20260706-1"/>
+  <style>
+    body { background: #080808; color: #fff; }
+    .nav-logo img { filter: none !important; }
+    .nav-links a { color: rgba(255,255,255,.55); background: linear-gradient(#fff,#fff) no-repeat left center / 0% 100%; }
+    .nav-links a:hover { background-size: 100% 100%; color: #080808 !important; }
+    .site-nav.scrolled { background: rgba(8,8,8,.88); backdrop-filter: blur(16px); }
+    .site-nav.scrolled .nav-links a { color: rgba(255,255,255,.55); }
+    .nav-links a.active,
+    .site-nav.scrolled .nav-links a.active {
+      background-size: 100% 100%;
+      color: #080808 !important;
+      font-weight: 600;
+    }
+    .site-nav.scrolled .nav-links a:hover { color: #080808 !important; }
+
+    .works-page {
+      position: relative;
+      isolation: isolate;
+      z-index: 0;
+      min-height: 100vh;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+      --mx: 52%;
+      --my: 18%;
+      --grid-step: 160px;
+      --cell-x: 480px;
+      --cell-y: 160px;
+    }
+    .works-page::before,
+    .works-page::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .works-page::before {
+      background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,.09), transparent 24rem),
+        radial-gradient(ellipse 70% 48% at 78% 18%, rgba(41,151,255,.045), transparent 72%),
+        linear-gradient(rgba(255,255,255,.068) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(255,255,255,.068) 1.5px, transparent 1.5px),
+        linear-gradient(rgba(255,255,255,.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.026) 1px, transparent 1px),
+        #080808;
+      background-size:
+        100% 100%,
+        100% 100%,
+        var(--grid-step) var(--grid-step),
+        var(--grid-step) var(--grid-step),
+        40px 40px,
+        40px 40px,
+        100% 100%;
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+    }
+    .works-page::after {
+      opacity: .64;
+      background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,.18) 0 1px, transparent 2px),
+        radial-gradient(circle at var(--mx) var(--my), rgba(41,151,255,.11), transparent 18rem);
+      mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.78) 38%, transparent 100%);
+    }
+    .works-cell-highlight {
+      position: fixed;
+      left: var(--cell-x);
+      top: var(--cell-y);
+      z-index: 0;
+      width: var(--grid-step);
+      height: var(--grid-step);
+      pointer-events: none;
+      opacity: .56;
+      background: linear-gradient(135deg, rgba(255,255,255,.105), rgba(41,151,255,.035));
+      border: 1px solid rgba(255,255,255,.11);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.025),
+        0 0 18px rgba(41,151,255,.035);
+      transition: left .12s ease-out, top .12s ease-out, opacity .18s ease-out;
+    }
+    .wp-header,
+    .works-filter,
+    .port-grid {
+      position: relative;
+      z-index: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .works-page { --mx: 50%; --my: 18%; }
+    }
+
+    /* ── Header ── */
+    .wp-header {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(40px,6vh,80px) var(--px) clamp(24px,3vh,40px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .wp-title {
+      font-size: clamp(56px, 11vw, 160px);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: .85;
+      color: #fff;
+    }
+    .wp-right { padding-bottom: 8px; text-align: right; flex-shrink: 0; }
+    .wp-count { display: block; font-size: 10px; letter-spacing: .18em; color: rgba(255,255,255,.25); text-transform: uppercase; margin-bottom: 8px; }
+    .wp-right p { font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.7; }
+
+    /* ── Filter ── */
+    .works-filter {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px var(--px) 24px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      padding: 6px 16px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 40px;
+      background: none;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover { color: #fff; border-color: rgba(255,255,255,.3); }
+    .filter-btn.active { background: #fff; color: #080808; border-color: #fff; }
+
+    /* ── Grid ── */
+    .port-grid {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(48px, 7vh, 88px);
+      padding: clamp(32px,4vh,56px) var(--px) clamp(80px,12vh,140px);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .port-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+    .port-card.hidden,
+    .port-card.count-hidden { display: none; }
+
+    /* Text header — always visible, above image */
+    .card-head {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      margin-bottom: 0;
+      border-radius: 12px;
+    }
+
+    /* White bar: slides left → right on hover */
+    .card-head::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      border-radius: 12px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform .5s cubic-bezier(.76, 0, .24, 1);
+      z-index: 0;
+    }
+    .port-card:hover .card-head::before { transform: scaleX(1); }
+
+    /* Text above the bar — inverts via mix-blend-mode */
+    .card-head-left,
+    .card-head-right {
+      position: relative;
+      z-index: 1;
+      mix-blend-mode: difference;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .card-head-left { flex: 1; }
+
+    .card-title {
+      font-size: clamp(20px, 2.8vw, 38px);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1;
+      color: #fff;
+    }
+    .card-en {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: rgba(255,255,255,.45);
+      margin-left: 12px;
+      display: inline-block;
+      vertical-align: baseline;
+    }
+    .card-head-right { flex-shrink: 0; flex-direction: row; align-items: baseline; gap: 8px; }
+    .card-reorder {
+      display: none;
+      position: absolute; top: 10px; right: 10px; z-index: 64;
+      flex-direction: column; gap: 3px;
+    }
+    body.editing .card-reorder { display: flex; }
+    .card-reorder button {
+      width: 26px; height: 22px; border-radius: 5px; border: none;
+      background: rgba(0,90,220,.92); color: #fff; font-size: 10px; cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,.25);
+    }
+    .card-reorder button:hover { background: rgba(0,70,190,.95); }
+    .card-reorder .cr-delete { background: rgba(200,30,20,.92); }
+    .card-reorder .cr-delete:hover { background: rgba(180,20,14,.96); }
+    .works-count-tools {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid var(--border,#e8e6e2);
+      border-radius: 7px;
+      background: #fff;
+    }
+    body.editing .works-count-tools { display: inline-flex; }
+    .works-count-tools button {
+      width: 26px;
+      height: 24px;
+      border-radius: 5px;
+      border: 1px solid var(--border,#e0ded9);
+      background: #fff;
+      color: var(--ink,#111);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .works-count-tools button:hover { border-color: var(--ink,#111); }
+    .works-count-tools span {
+      min-width: 44px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink,#111);
+    }
+    .works-add-post {
+      display: none;
+      align-items: center;
+      height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--border,#e8e6e2);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink,#111);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    body.editing .works-add-post { display: inline-flex; }
+    .works-add-post:hover { border-color: var(--ink,#111); }
+    .card-project {
+      font-size: 11px;
+      letter-spacing: .04em;
+      color: rgba(255,255,255,.42);
+      white-space: nowrap;
+    }
+    .card-type {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    .card-yr {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.55);
+    }
+    /* Image area */
+    .card-inner {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .works-hover-slots {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 70;
+      display: none;
+      grid-template-columns: repeat(6, 34px);
+      gap: 6px;
+    }
+    body.editing .works-hover-slots { display: grid; }
+    .works-hover-slot {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 6px;
+      background: rgba(0,0,0,.58) center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      box-shadow: 0 5px 18px rgba(0,0,0,.28);
+    }
+    .works-hover-slot[data-has-custom] {
+      color: transparent;
+      border-color: rgba(41,151,255,.86);
+    }
+    .works-hover-slot::before {
+      content: attr(data-slot-label);
+      position: relative;
+      z-index: 1;
+      color: rgba(255,255,255,.86);
+      text-shadow: 0 1px 4px rgba(0,0,0,.7);
+    }
+    .works-hover-slot[data-has-custom]::before {
+      color: rgba(255,255,255,.92);
+    }
+    body.editing .works-hover-slot[data-media] {
+      outline: 1px solid rgba(41,151,255,.7);
+      outline-offset: -1px;
+    }
+    body.editing .works-hover-slot[data-media]::after {
+      content: none !important;
+    }
+    .works-hover-slot .media-revert {
+      right: -6px;
+      bottom: -6px;
+      padding: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      font-size: 0;
+    }
+    .works-hover-slot .media-revert::before {
+      content: '×';
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .card-bg, .card-bg-ov {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+    .card-bg { transition: none; }
+    .card-bg-ov {
+      opacity: 0;
+      transition: opacity .9s ease;
+    }
+
+    /* ── Footer ── */
+    .footer { background: #040404; }
+
+    /* ── Scroll reveal override for cards ── */
+    .port-card { opacity: 0; transform: translateY(40px); transition: opacity .8s var(--ease-o), transform .8s var(--ease-o); }
+    .port-card.v { opacity: 1; transform: none; }
+    .port-card .card-head { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease-o), transform .6s var(--ease-o); }
+    .port-card.v .card-head { opacity: 1; transform: none; }
+    .port-card .card-inner { opacity: 0; transform: translateY(20px); transition: opacity .7s .12s var(--ease-o), transform .7s .12s var(--ease-o); }
+    .port-card.v .card-inner { opacity: 1; transform: none; }
+
+    .wp-subtitle {
+      font-size: clamp(14px, 1.5vw, 18px);
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+      margin-top: 20px;
+      letter-spacing: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .card-inner { aspect-ratio: 16/9; }
+      .card-type { display: none; }
+      .wp-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .card-inner { aspect-ratio: 16/9; border-radius: 8px; }
+      .card-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 14px 0;
+      }
+      .card-head-left,
+      .card-head-right {
+        width: 100%;
+        min-width: 0;
+      }
+      .card-head-right {
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .card-title { line-height: 1.08; }
+      .card-en {
+        display: block;
+        margin: 6px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════════════════ -->
+  <header class="site-nav scrolled" id="site-nav">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo"><img src="logo.png?v=logo-arthod-20260706-1" alt="Arthod"></a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="works.html?v=works-hover-slots-20260706-1">Works</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobile-overlay">
+    <nav class="mobile-nav">
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="works.html?v=works-hover-slots-20260706-1" class="mobile-link">Works</a>
+      <a href="services.html" class="mobile-link">Services</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </nav>
+    <div class="mob-foot">
+      <span>hello@arthod.kr</span>
+      <div class="mob-soc"><a href="#">IG</a><a href="#">VM</a><a href="#">BE</a></div>
+    </div>
+  </div>
+
+  <main class="works-page">
+    <div class="works-cell-highlight" aria-hidden="true"></div>
+
+    <div class="wp-header r">
+      <div>
+        <h1 class="wp-title">Works</h1>
+        <p class="wp-subtitle">빛과 소리, 공간으로 완성한<br>감각의 기록들.</p>
+      </div>
+      <div class="wp-right r d1">
+        <span class="wp-count">12 Projects · 2019–2024</span>
+        <p>미디어아트 설치 · 제너러티브 비주얼<br/>퍼포먼스 등 다양한 형태로 전개됩니다.</p>
+      </div>
+    </div>
+
+
+    <!-- ── Grid ── -->
+    <div class="port-grid" id="port-grid">
+
+      <!-- 01 -->
+      <a class="port-card r" href="work.html?id=01&v=detail-next-order-20260706-1" data-cats="interactive">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Stream Scape</span><span class="card-en">Interactive Media Art · Generative AI</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2025</span><span class="card-type">고양콘텐츠사업화 지원사업</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 02 -->
+      <a class="port-card r" href="work.html?id=02&v=detail-next-order-20260706-1" data-cats="projection">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Hyper Drive</span><span class="card-en">Multimedia Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2025</span><span class="card-type">코스믹 리조트 콘텐츠 제작</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 03 -->
+      <a class="port-card r" href="work.html?id=03&v=detail-next-order-20260706-1" data-cats="av">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Infinity Book</span><span class="card-en">Public Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2025</span><span class="card-type">열린아트공모전 대상</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 04 -->
+      <a class="port-card r" href="work.html?id=04&v=detail-next-order-20260706-1" data-cats="interactive">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Luminous Melody</span><span class="card-en">Interactive Light Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2024</span><span class="card-type">고양콘텐츠사업화</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 05 -->
+      <a class="port-card r" href="work.html?id=05&v=detail-next-order-20260706-1" data-cats="generative">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">OS-1</span><span class="card-en">Laser Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2024</span><span class="card-type">다원예술 창작산실</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 06 -->
+      <a class="port-card r" href="work.html?id=06&v=detail-next-order-20260706-1" data-cats="generative">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Transmission</span><span class="card-en">Laser Reflection Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2024</span><span class="card-type">국가유산 미디어아트 수원화성</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 07 -->
+      <a class="port-card r" href="work.html?id=07&v=detail-next-order-20260706-1" data-cats="brand">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Emotion Particle</span><span class="card-en">Interactive Media Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2023</span><span class="card-type">미디어아트ON</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 08 -->
+      <a class="port-card r" href="work.html?id=08&v=detail-next-order-20260706-1" data-cats="projection">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Emotion Cloud</span><span class="card-en">Interactive Light Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2023</span><span class="card-type">모든예술31</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 09 -->
+      <a class="port-card r" href="work.html?id=09&v=detail-next-order-20260706-1" data-cats="av">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">Equniox</span><span class="card-en">Kinetic Light Installation</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2024</span><span class="card-type">언제나 미래였던: 우주유영</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 10 -->
+      <a class="port-card r" href="work.html?id=10&v=detail-next-order-20260706-1" data-cats="brand">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">기억의 층</span><span class="card-en">Layers of Memory</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2020</span><span class="card-type">삼성물산 패션부문</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 11 -->
+      <a class="port-card r" href="work.html?id=11&v=detail-next-order-20260706-1" data-cats="generative interactive">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">경계</span><span class="card-en">Boundary</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2020</span><span class="card-type">아르코미술관</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+      <!-- 12 -->
+      <a class="port-card r" href="work.html?id=12&v=detail-next-order-20260706-1" data-cats="projection brand">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-title"><span class="card-ko">시작점</span><span class="card-en">Origin Point</span></span></div>
+          <div class="card-head-right"><span class="card-yr">2019</span><span class="card-type">DDP 동대문디자인플라자</span></div>
+        </div>
+        <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-in" style="grid-template-columns:2fr 1fr 1fr">
+      <div>
+        <p class="f-logo">ARTHOD</p>
+        <p class="f-tag">Art + Method<br/>예술과 기술을 결합하여 효과적으로<br/>표현하는 방법을 연구하고 창작하는<br/>미디어아트 스튜디오. 서울.</p>
+      </div>
+      <div class="f-col"><h4>Studio</h4><ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Connect</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Vimeo</a></li><li><a href="#">Behance</a></li></ul></div>
+    </div>
+    <div class="footer-bot">
+      <p class="f-copy">© 2024 Arthod (아쏘드). All rights reserved.</p>
+      <div class="f-soc"><a href="#">Instagram</a><a href="#">Vimeo</a><a href="#">Behance</a></div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=contact-phone-links-20260713-5"></script>
+  <script>
+    // ── Works-only dissolve image slots ──────────────────────
+    window.installWorksHoverSlots = function installWorksHoverSlots() {
+      document.querySelectorAll('.port-card').forEach(card => {
+        const inner = card.querySelector('.card-inner');
+        const id = (card.getAttribute('href') || '').match(/id=(\w+)/)?.[1];
+        if (!inner || !id || inner.querySelector('.works-hover-slots')) return;
+        const box = document.createElement('div');
+        box.className = 'works-hover-slots';
+        box.setAttribute('aria-label', 'Works hover dissolve images');
+        box.innerHTML = Array.from({ length: 6 }, (_, i) => {
+          const n = i + 1;
+          return `<span class="works-hover-slot" role="button" tabindex="0" data-slot-label="${n}" data-media="image" data-media-key="whover:${id}:${n}"></span>`;
+        }).join('');
+        inner.appendChild(box);
+      });
+    };
+    window.installWorksHoverSlots();
+
+    // ── Quiet reactive light field ───────────────────────────
+    (function () {
+      const page = document.querySelector('.works-page');
+      if (!page || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      let raf = 0;
+      let mx = 52;
+      let my = 18;
+      const step = 160;
+      let cellX = Math.floor(window.innerWidth * .52 / step) * step;
+      let cellY = Math.floor(window.innerHeight * .18 / step) * step;
+      function apply() {
+        raf = 0;
+        page.style.setProperty('--mx', mx + '%');
+        page.style.setProperty('--my', my + '%');
+        page.style.setProperty('--cell-x', cellX + 'px');
+        page.style.setProperty('--cell-y', cellY + 'px');
+      }
+      window.addEventListener('pointermove', e => {
+        mx = Math.max(8, Math.min(92, (e.clientX / window.innerWidth) * 100));
+        my = Math.max(6, Math.min(70, (e.clientY / window.innerHeight) * 100));
+        cellX = Math.floor(e.clientX / step) * step;
+        cellY = Math.floor(e.clientY / step) * step;
+        if (!raf) raf = requestAnimationFrame(apply);
+      }, { passive: true });
+    })();
+
+    // ── 카드 순서·개수 편집 (편집 모드 전용) ───────────────────
+    (function () {
+      const CARD_ORDER_KEY = 'arthod-cardorder:works';
+      const WORK_COUNT_KEY = 'arthod-workcount:works';
+      const CUSTOM_WORKS_KEY = 'arthod-works:custom-posts';
+      const grid = document.getElementById('port-grid');
+      const countLabel = document.querySelector('.wp-count');
+      const yearText = '2019–2024';
+      let activeFilter = 'all';
+      function readCustomWorks() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(CUSTOM_WORKS_KEY) || '[]');
+          if (Array.isArray(saved)) return saved.slice(0, 60);
+        } catch (e) {}
+        return [];
+      }
+      function saveCustomWorks(items) {
+        localStorage.setItem(CUSTOM_WORKS_KEY, JSON.stringify(items.slice(0, 60)));
+      }
+      function nextCustomId() {
+        const ids = allCards().map(card => {
+          const m = (card.getAttribute('href') || '').match(/id=(\d+)/);
+          return m ? parseInt(m[1], 10) : 0;
+        });
+        return String(Math.max(12, ...ids) + 1).padStart(2, '0');
+      }
+      function cardHtml(item) {
+        const id = String(item.id || nextCustomId()).padStart(2, '0');
+        const href = item.href || `work.html?id=${id}&v=detail-next-order-20260706-1`;
+        const cats = item.cats || 'interactive';
+        const key = `custom-${id}`;
+        return `
+          <a class="port-card r" href="${href}" data-cats="${cats}" data-custom-work="1" data-custom-id="${id}">
+            <div class="card-head">
+              <div class="card-head-left"><span class="card-title"><span class="card-ko" data-ek="work-${key}-ko">${item.ko || '새 작품'}</span><span class="card-en" data-ek="work-${key}-en">${item.en || 'New Project'}</span></span></div>
+              <div class="card-head-right"><span class="card-yr" data-ek="work-${key}-year">${item.year || new Date().getFullYear()}</span><span class="card-type" data-ek="work-${key}-type">${item.type || 'Project Type'}</span></div>
+            </div>
+            <div class="card-inner"><div class="card-bg" style="background-size:cover;background-position:center"></div><div class="card-bg-ov"></div></div>
+          </a>
+        `;
+      }
+      function renderCustomWorks() {
+        readCustomWorks().forEach(item => {
+          const id = String(item.id || '').padStart(2, '0');
+          if (!id || grid.querySelector(`.port-card[data-custom-id="${id}"]`)) return;
+          grid.insertAdjacentHTML('beforeend', cardHtml(item));
+        });
+      }
+      function currentHrefOrder() {
+        return [...grid.querySelectorAll('.port-card')].map(c => c.getAttribute('href'));
+      }
+      function allCards() {
+        return [...grid.querySelectorAll('.port-card')];
+      }
+      function savedCount() {
+        const cards = allCards();
+        const raw = parseInt(localStorage.getItem(WORK_COUNT_KEY), 10);
+        return Number.isFinite(raw) ? Math.max(1, Math.min(cards.length, raw)) : cards.length;
+      }
+      function setCount(next) {
+        const cards = allCards();
+        const count = Math.max(1, Math.min(cards.length, next));
+        localStorage.setItem(WORK_COUNT_KEY, String(count));
+        applyWorkCount();
+      }
+      function updateCountTools(count, total) {
+        document.querySelectorAll('.works-count-tools').forEach(box => {
+          const text = box.querySelector('.wct-current');
+          if (text) text.textContent = count + '/' + total;
+          const minus = box.querySelector('.wct-minus');
+          const plus = box.querySelector('.wct-plus');
+          if (minus) minus.disabled = count <= 1;
+          if (plus) plus.disabled = count >= total;
+        });
+      }
+      function applyWorkCount() {
+        const cards = allCards();
+        const count = savedCount();
+        cards.forEach((card, i) => {
+          const inCount = i < count;
+          const inFilter = activeFilter === 'all' || card.dataset.cats.includes(activeFilter);
+          card.classList.toggle('count-hidden', !inCount);
+          card.classList.toggle('hidden', inCount && !inFilter);
+        });
+        if (countLabel) countLabel.textContent = count + ' Projects · ' + yearText;
+        updateCountTools(count, cards.length);
+      }
+      function installCountTools() {
+        const bar = document.querySelector('.edit-bar');
+        if (!bar || bar.querySelector('.works-count-tools')) return;
+        const box = document.createElement('span');
+        box.className = 'works-count-tools';
+        box.innerHTML = '<button type="button" class="wct-minus" aria-label="작품 줄이기">−</button><span class="wct-current"></span><button type="button" class="wct-plus" aria-label="작품 늘리기">+</button>';
+        const bake = bar.querySelector('.edit-bake');
+        bar.insertBefore(box, bake || bar.querySelector('.edit-reset'));
+        box.querySelector('.wct-minus').addEventListener('click', () => setCount(savedCount() - 1));
+        box.querySelector('.wct-plus').addEventListener('click', () => setCount(savedCount() + 1));
+        applyWorkCount();
+      }
+      function installAddPostTool() {
+        const bar = document.querySelector('.edit-bar');
+        if (!bar || bar.querySelector('.works-add-post')) return;
+        const add = document.createElement('button');
+        add.type = 'button';
+        add.className = 'works-add-post';
+        add.textContent = '게시물 +';
+        const bake = bar.querySelector('.edit-bake');
+        bar.insertBefore(add, bake || bar.querySelector('.edit-reset'));
+        add.addEventListener('click', () => addPost());
+      }
+      function applyCardOrder() {
+        let saved;
+        try { saved = JSON.parse(localStorage.getItem(CARD_ORDER_KEY)); } catch (e) {}
+        const cards = allCards();
+        const byHref = Object.fromEntries(cards.map(c => [c.getAttribute('href'), c]));
+        if (Array.isArray(saved) && saved.every(h => byHref[h])) {
+          const rest = cards.map(c => c.getAttribute('href')).filter(h => !saved.includes(h));
+          [...saved, ...rest].forEach(href => grid.appendChild(byHref[href]));
+        }
+        applyWorkCount();
+      }
+      function addPost() {
+        const beforeCount = savedCount();
+        const id = nextCustomId();
+        const item = {
+          id,
+          href: `work.html?id=${id}&v=detail-next-order-20260706-1`,
+          cats: 'interactive',
+          ko: '새 작품',
+          en: 'New Project',
+          year: String(new Date().getFullYear()),
+          type: 'Project Type'
+        };
+        const custom = readCustomWorks();
+        custom.push(item);
+        saveCustomWorks(custom);
+        grid.insertAdjacentHTML('beforeend', cardHtml(item));
+        localStorage.setItem(CARD_ORDER_KEY, JSON.stringify(currentHrefOrder()));
+        setCount(beforeCount + 1);
+        attachReorderHandles();
+        window.installWorksHoverSlots?.();
+        window.ArthodEditor?.refreshEditable?.();
+        applyDetailHoverImages?.();
+        grid.querySelector(`.port-card[data-custom-id="${id}"] .card-ko`)?.focus();
+      }
+      renderCustomWorks();
+      applyCardOrder();
+
+      function attachReorderHandles() {
+        grid.querySelectorAll('.port-card').forEach(card => {
+          if (card.querySelector(':scope > .card-reorder')) return;
+          const box = document.createElement('div');
+          box.className = 'card-reorder';
+          box.innerHTML = '<button type="button" class="cr-up">▲</button><button type="button" class="cr-down">▼</button><button type="button" class="cr-delete">삭제</button>';
+          card.appendChild(box);
+          box.querySelector('.cr-up').addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); moveCard(card, -1); });
+          box.querySelector('.cr-down').addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); moveCard(card, 1); });
+          box.querySelector('.cr-delete').addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); deleteCard(card); });
+        });
+      }
+      function moveCard(card, dir) {
+        const cards = [...grid.querySelectorAll('.port-card')];
+        const i = cards.indexOf(card);
+        const j = i + dir;
+        if (j < 0 || j >= cards.length) return;
+        if (dir < 0) grid.insertBefore(card, cards[j]);
+        else grid.insertBefore(cards[j], card);
+        localStorage.setItem(CARD_ORDER_KEY, JSON.stringify(currentHrefOrder()));
+        applyWorkCount();
+      }
+      function deleteCard(card) {
+        const count = savedCount();
+        if (count <= 1) return;
+        grid.appendChild(card);
+        localStorage.setItem(CARD_ORDER_KEY, JSON.stringify(currentHrefOrder()));
+        setCount(count - 1);
+      }
+      const mo = new MutationObserver(() => {
+        if (document.body.classList.contains('editing')) {
+          attachReorderHandles();
+          installCountTools();
+          installAddPostTool();
+        }
+      });
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+      if (document.body.classList.contains('editing')) {
+        attachReorderHandles();
+        installCountTools();
+        installAddPostTool();
+      }
+      window.addEventListener('load', installCountTools);
+      window.addEventListener('load', installAddPostTool);
+      applyWorkCount();
+
+      window.arthodApplyWorksCount = applyWorkCount;
+      window.arthodSetWorksFilter = filter => {
+        activeFilter = filter || 'all';
+        applyWorkCount();
+      };
+    })();
+
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        if (window.arthodSetWorksFilter) window.arthodSetWorksFilter(f);
+      });
+    });
+
+    // Particles for wp4
+    const wp4 = document.getElementById('wp4');
+    if (wp4) {
+      for (let i = 0; i < 28; i++) {
+        const p = document.createElement('div');
+        const sz = Math.random() * 2.5 + .5;
+        Object.assign(p.style, {
+          position:'absolute', borderRadius:'50%', background:'#2997ff',
+          width:sz+'px', height:sz+'px',
+          left:Math.random()*100+'%', bottom:'-5%',
+          opacity:Math.random()*.7+.1,
+          animationName:'pfloat',
+          animationDuration:(Math.random()*14+7)+'s',
+          animationDelay:(Math.random()*14)+'s',
+          animationTimingFunction:'linear',
+          animationIterationCount:'infinite',
+        });
+        wp4.appendChild(p);
+      }
+    }
+
+    // Hover image cycling
+    const FALLBACK_CARD_IMGS = {
+      'work.html?id=01': ['https://picsum.photos/seed/w01a/1600/900','https://picsum.photos/seed/w01b/1600/900','https://picsum.photos/seed/w01c/1600/900'],
+      'work.html?id=02': ['https://picsum.photos/seed/w02a/1600/900','https://picsum.photos/seed/w02b/1600/900','https://picsum.photos/seed/w02c/1600/900'],
+      'work.html?id=03': ['https://picsum.photos/seed/w03a/1600/900','https://picsum.photos/seed/w03b/1600/900','https://picsum.photos/seed/w03c/1600/900'],
+      'work.html?id=04': ['https://picsum.photos/seed/w04a/1600/900','https://picsum.photos/seed/w04b/1600/900','https://picsum.photos/seed/w04c/1600/900'],
+      'work.html?id=05': ['https://picsum.photos/seed/w05a/1600/900','https://picsum.photos/seed/w05b/1600/900','https://picsum.photos/seed/w05c/1600/900'],
+      'work.html?id=06': ['https://picsum.photos/seed/w06a/1600/900','https://picsum.photos/seed/w06b/1600/900','https://picsum.photos/seed/w06c/1600/900'],
+      'work.html?id=07': ['https://picsum.photos/seed/w07a/1600/900','https://picsum.photos/seed/w07b/1600/900','https://picsum.photos/seed/w07c/1600/900'],
+      'work.html?id=08': ['https://picsum.photos/seed/w08a/1600/900','https://picsum.photos/seed/w08b/1600/900','https://picsum.photos/seed/w08c/1600/900'],
+      'work.html?id=09': ['https://picsum.photos/seed/w09a/1600/900','https://picsum.photos/seed/w09b/1600/900','https://picsum.photos/seed/w09c/1600/900'],
+      'work.html?id=10': ['https://picsum.photos/seed/w10a/1600/900','https://picsum.photos/seed/w10b/1600/900','https://picsum.photos/seed/w10c/1600/900'],
+      'work.html?id=11': ['https://picsum.photos/seed/w11a/1600/900','https://picsum.photos/seed/w11b/1600/900','https://picsum.photos/seed/w11c/1600/900'],
+      'work.html?id=12': ['https://picsum.photos/seed/w12a/1600/900','https://picsum.photos/seed/w12b/1600/900','https://picsum.photos/seed/w12c/1600/900'],
+    };
+    const CARD_IMGS = { ...FALLBACK_CARD_IMGS };
+    const cardImgObjectUrls = [];
+    const PUBLIC_BACKUP_BASE = 'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/';
+    const DISSOLVE_MS = 900;
+    const HOLD_MS = 650;
+    const HOVER_START_DELAY = 120;
+    let publicContentPromise = null;
+
+    function getWorkIdFromHref(href) {
+      const m = (href || '').match(/id=(\w+)/);
+      return m ? m[1] : '';
+    }
+    function openMediaDb() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open('arthod-media', 1);
+        req.onupgradeneeded = () => req.result.createObjectStore('m');
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+    async function readMediaRecord(db, key) {
+      return await new Promise(resolve => {
+        const req = db.transaction('m').objectStore('m').get(key);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => resolve(null);
+      });
+    }
+    async function resolveLocalMediaRecord(db, key, seen) {
+      if (!db || !key) return null;
+      const guard = seen || new Set();
+      if (guard.has(key)) return null;
+      guard.add(key);
+      const rec = await readMediaRecord(db, key);
+      if (rec && rec.kind === 'ref') return resolveLocalMediaRecord(db, rec.refKey, guard);
+      return rec;
+    }
+    async function publicContent() {
+      if (!publicContentPromise) {
+        publicContentPromise = fetch(PUBLIC_BACKUP_BASE + 'backup/content.json', { cache: 'no-store' })
+          .then(r => r.ok ? r.json() : null)
+          .then(data => data || {})
+          .catch(() => ({}));
+      }
+      return publicContentPromise;
+    }
+    function publicImageUrl(key, publicIndex, seen) {
+      const guard = seen || new Set();
+      if (!key || guard.has(key)) return '';
+      guard.add(key);
+      const info = publicIndex[key];
+      if (!info) return '';
+      if (info.kind === 'ref') return publicImageUrl(info.refKey, publicIndex, guard);
+      if (info.kind === 'image' && info.file) return PUBLIC_BACKUP_BASE + info.file;
+      return '';
+    }
+    async function imageUrlForKey(db, key, publicIndex) {
+      const rec = await resolveLocalMediaRecord(db, key);
+      if (rec && rec.kind === 'image' && rec.blob) {
+        const url = URL.createObjectURL(rec.blob);
+        cardImgObjectUrls.push(url);
+        return url;
+      }
+      return publicImageUrl(key, publicIndex);
+    }
+    async function worksHoverImages(id, db, publicIndex) {
+      const urls = [];
+      for (let i = 1; i <= 6; i++) {
+        const url = await imageUrlForKey(db, `whover:${id}:${i}`, publicIndex);
+        if (url) urls.push(url);
+      }
+      return urls;
+    }
+    function gallerySlotsFor(id, publicText) {
+      try {
+        const saved = JSON.parse(localStorage.getItem('arthod-galleryitems:' + id));
+        if (Array.isArray(saved) && saved.length) return saved;
+      } catch (e) {}
+      try {
+        const saved = JSON.parse((publicText || {})['arthod-galleryitems:' + id]);
+        if (Array.isArray(saved) && saved.length) return saved;
+      } catch (e) {}
+      return ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
+    }
+    async function detailHoverImages(id) {
+      let db = null;
+      try { db = await openMediaDb(); } catch (e) {}
+      const publicData = await publicContent();
+      const publicIndex = publicData.mediaIndex || {};
+      const customHover = await worksHoverImages(id, db, publicIndex);
+      if (customHover.length) return customHover;
+      const slots = gallerySlotsFor(id, publicData.text);
+      const urls = [];
+      for (const slot of slots) {
+        const url = await imageUrlForKey(db, `wd:${id}:${slot}`, publicIndex);
+        if (url) urls.push(url);
+      }
+      if (!urls.length) {
+        const key = `wd:${id}:c0`;
+        const url = await imageUrlForKey(db, key, publicIndex);
+        if (url) urls.push(url);
+      }
+      return urls;
+    }
+    function getCardImgs(card) {
+      const href = card.getAttribute('href') || '';
+      const normalizedHref = href
+        .replace(/([?&])v=[^&]*&?/, '$1')
+        .replace('?&', '?')
+        .replace(/[?&]$/, '');
+      return CARD_IMGS[href] || CARD_IMGS[normalizedHref] || [];
+    }
+
+    // Set initial bg image for all cards on load
+    // 페이지 로드 즉시 모든 카드 이미지 미리 로드 + 디코딩 (첨 디졸브만 빠르게 보이던 문제 해결:
+    // 호버 시점에 디코딩하면 첫 이미지는 디코딩 중 트랜지션이 시작되어 몷뭐이지는 현상이 있음)
+    const decodedImgs = new Set();
+    function preloadAll(imgs) {
+      imgs.forEach(src => {
+        const im = new Image();
+        im.src = src;
+        (im.decode ? im.decode() : Promise.resolve()).catch(() => {}).finally(() => decodedImgs.add(src));
+      });
+    }
+    document.querySelectorAll('.port-card').forEach(card => {
+      if (card.hasAttribute('data-custom-img')) return;
+      const imgs = getCardImgs(card);
+      if (imgs) {
+        card.querySelector('.card-bg').style.backgroundImage = `url('${imgs[0]}')`;
+        preloadAll(imgs);
+      }
+    });
+
+    document.querySelectorAll('.port-card').forEach(card => {
+      const bg = card.querySelector('.card-bg');
+      const ov = card.querySelector('.card-bg-ov');
+      let idx = 0, cycleTimer = null, delayTimer = null, commitTimer = null;
+
+      // 이미지는 페이지 로드 시점에 이미 미리 로드되었으므로 여기서는 생략
+
+      // 대상 이미지가 디코딩 완료될 때까지 기다렸다가 페이드 시작 (첫 번째 전환도 나머지와 동일하게 매끄럽게)
+      function whenReady(src, cb) {
+        if (decodedImgs.has(src)) { cb(); return; }
+        const im = new Image();
+        im.src = src;
+        (im.decode ? im.decode() : Promise.resolve()).catch(() => {}).finally(() => { decodedImgs.add(src); cb(); });
+      }
+
+      // 오버레이 즉시 초기화 (트랜지션 없이 opacity 0)
+      const resetOv = () => {
+        ov.style.transition = 'none';
+        ov.style.opacity = '0';
+        void ov.offsetWidth;               // reflow 강제 → 다음 페이드가 처음부터
+        ov.style.transition = `opacity ${DISSOLVE_MS}ms ease`;
+      };
+
+      const stop = () => {
+        clearTimeout(delayTimer); clearInterval(cycleTimer); clearTimeout(commitTimer);
+        resetOv();
+      };
+
+      card.addEventListener('mouseenter', () => {
+        const imgs = getCardImgs(card);
+        if (!imgs.length || (card.hasAttribute('data-custom-img') && !card.dataset.detailHover)) return;
+        idx = 0;
+        bg.style.backgroundImage = `url('${imgs[0]}')`;
+        resetOv();
+
+        // 스크롤 오발 방지: 짧게 대기 후 시작
+        delayTimer = setTimeout(() => {
+          const step = () => {
+            idx = (idx + 1) % imgs.length;
+            const targetSrc = imgs[idx];
+            clearTimeout(commitTimer);
+            whenReady(targetSrc, () => {
+              ov.style.backgroundImage = `url('${targetSrc}')`;
+              // 브라우저가 opacity:0 상태를 확실히 한 프레임 그린 뒤 1로 바꿔야
+              // 모든 사이클(첫 디졸브 포함)이 항상 같은 속도로 보임
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  ov.style.opacity = '1';
+                });
+              });
+            });
+            commitTimer = setTimeout(() => {
+              // 페이드 완료 → 베이스에 확정하고 오버레이 숨김(같은 이미지라 깜빡임 없음)
+              bg.style.backgroundImage = `url('${targetSrc}')`;
+              resetOv();
+            }, DISSOLVE_MS);
+          };
+          step();                            // 첫 디졸브 바로 시작
+          cycleTimer = setInterval(step, DISSOLVE_MS + HOLD_MS);
+        }, HOVER_START_DELAY);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        const imgs = getCardImgs(card);
+        clearTimeout(delayTimer); clearInterval(cycleTimer); clearTimeout(commitTimer);
+        if (!imgs.length || (card.hasAttribute('data-custom-img') && !card.dataset.detailHover)) { resetOv(); return; }
+        // 처음 이미지로 부드럽게 디졸브 (튀 방지)
+        ov.style.backgroundImage = `url('${imgs[0]}')`;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            ov.style.opacity = '1';
+          });
+        });
+        commitTimer = setTimeout(() => {
+          bg.style.backgroundImage = `url('${imgs[0]}')`;
+          resetOv();
+          idx = 0;
+        }, DISSOLVE_MS);
+      });
+    });
+
+    async function applyDetailHoverImages() {
+      const cards = [...document.querySelectorAll('.port-card')];
+      await Promise.all(cards.map(async card => {
+        const id = getWorkIdFromHref(card.getAttribute('href'));
+        if (!id) return;
+        const imgs = await detailHoverImages(id);
+        if (!imgs.length) return;
+        CARD_IMGS[card.getAttribute('href')] = imgs;
+        card.dataset.detailHover = '1';
+        const bg = card.querySelector('.card-bg');
+        if (bg && !card.matches(':hover')) bg.style.backgroundImage = `url('${imgs[0]}')`;
+        preloadAll(imgs);
+      }));
+    }
+    applyDetailHoverImages();
+    setTimeout(applyDetailHoverImages, 900);
+    setTimeout(applyDetailHoverImages, 2200);
+    window.addEventListener('arthod:media-updated', e => {
+      const key = e.detail && e.detail.key;
+      if (!key || key.indexOf('whover:') === 0 || key.indexOf('wd:') === 0 || key.indexOf('wimg:') === 0) {
+        applyDetailHoverImages();
+      }
+    });
+    window.addEventListener('beforeunload', () => cardImgObjectUrls.forEach(url => URL.revokeObjectURL(url)));
+  </script>
+</body>
+</html>

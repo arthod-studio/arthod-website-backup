@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Arthod(아쏘드) — Art와 Method의 합성어. 예술과 기술을 결합하여 효과적으로 표현하는 방법을 연구하고 창작하는 미디어아트 스튜디오."/>
+  <meta name="application-name" content="Arthod(아쏘드)"/>
+  <meta property="og:site_name" content="Arthod(아쏘드)"/>
+  <meta property="og:title" content="About — Arthod(아쏘드)"/>
+  <link rel="canonical" href="https://www.arthod-studio.com/about.html"/>
+  <title>About — Arthod(아쏘드)</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
+  <link rel="stylesheet" href="style.css?v=about-nav-box-20260707-1"/>
+  <style>
+    .page-wrap { padding-top: 0; }
+
+    /* dark hero — nav always white */
+    .nav-logo img { filter: none !important; }
+    .site-nav { background: transparent !important; border-color: transparent !important; }
+    .site-nav.scrolled { background: rgba(0,0,0,.8) !important; backdrop-filter: blur(16px); border-color: transparent !important; }
+    .nav-links a { color: rgba(255,255,255,.6) !important; background: linear-gradient(#fff,#fff) no-repeat left center / 0% 100% !important; }
+    .nav-links a:hover { background-size: 100% 100% !important; color: #000 !important; }
+    .nav-links a.active,
+    .site-nav.scrolled .nav-links a.active {
+      background: #fff !important;
+      color: #000 !important;
+      font-weight: 600 !important;
+    }
+
+    /* ── Hero ── */
+    .ab-hero {
+      background: #000;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(48px,8vh,100px) var(--px) clamp(48px,6vh,80px);
+    }
+    .ab-hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .ab-hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .ab-hero-year {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: rgba(255,255,255,.3);
+    }
+    .ab-hero-center {
+      text-align: center;
+      padding: clamp(40px,6vh,80px) 0;
+    }
+    .ab-hero-title {
+      font-family: var(--font-d);
+      font-size: clamp(64px,13vw,200px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: .9;
+      color: #fff;
+      display: block;
+    }
+    .ab-hero-logo {
+      display: block;
+      width: min(76vw, 980px);
+      margin: 0 auto;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+    .ab-hero-sub {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px,4vw,64px);
+      margin-top: clamp(20px,3vh,40px);
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding: clamp(20px,3vh,36px) 0;
+    }
+    .ab-hs-word {
+      font-family: var(--font-d);
+      font-size: clamp(36px,6vw,88px);
+      font-weight: 300;
+      letter-spacing: .02em;
+      color: rgba(255,255,255,.85);
+    }
+    .ab-hs-plus {
+      font-family: var(--font-d);
+      font-size: clamp(28px,4vw,60px);
+      font-weight: 100;
+      color: rgba(255,255,255,.3);
+    }
+    .ab-hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: clamp(24px,3vh,40px);
+    }
+    .ab-hero-desc {
+      font-size: clamp(15px,1.4vw,18px);
+      line-height: 1.75;
+      color: rgba(255,255,255,.55);
+      max-width: 480px;
+    }
+    .ab-hero-info {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .ab-hero-info p {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.3);
+      line-height: 1.9;
+    }
+
+    /* ── Statement ── */
+    .ab-statement {
+      padding: clamp(80px,14vh,160px) var(--px);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .ab-statement-q {
+      font-family: var(--font-d);
+      font-size: clamp(28px,4.5vw,64px);
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -.04em;
+      line-height: 1.15;
+      color: var(--ink);
+      max-width: 900px;
+      margin: 0 auto clamp(40px,6vh,72px);
+    }
+    .ab-statement-q em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink-3);
+    }
+    .ab-statement-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px,5vw,96px);
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .ab-statement-body p {
+      font-size: clamp(15px,1.3vw,17px);
+      line-height: 1.9;
+      color: var(--ink-2);
+    }
+
+    /* ── Stats ── */
+    .ab-stats {
+      background: var(--ink);
+      padding: clamp(60px,10vh,120px) var(--px);
+    }
+    .ab-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.07);
+    }
+    .ab-stat {
+      background: var(--ink);
+      padding: clamp(36px,5vw,64px) clamp(24px,3vw,48px);
+    }
+    .ab-stat-n {
+      font-family: var(--font-d);
+      font-size: clamp(52px,8vw,100px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .ab-stat-l {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ── Philosophy ── */
+    .ab-phil {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .ab-phil-col {
+      padding: clamp(60px,9vh,120px) clamp(40px,5vw,80px);
+      position: relative;
+      overflow: hidden;
+      --gx: 50%;
+      --gy: 50%;
+    }
+    .ab-phil-col::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .5s;
+    }
+    .ab-phil-col:hover::before { opacity: 1; }
+    .ab-phil-col:first-child { background: #f0f0ee; }
+    .ab-phil-col:first-child::before {
+      background: radial-gradient(circle 420px at var(--gx) var(--gy), rgba(0,0,0,.18), transparent 70%);
+    }
+    .ab-phil-col:last-child { background: #080808; color: #fff; }
+    .ab-phil-col:last-child::before {
+      background: radial-gradient(circle 420px at var(--gx) var(--gy), rgba(255,255,255,.11), transparent 70%);
+    }
+    .ab-phil-inner { position: relative; z-index: 1; }
+
+    /* ── 합쳐졌다 분리 애니메이션 ── */
+    @keyframes pull-right {
+      0%,100% { transform: translateX(0); }
+      50%      { transform: translateX(14px); }
+    }
+    @keyframes pull-left {
+      0%,100% { transform: translateX(0); }
+      50%      { transform: translateX(-14px); }
+    }
+
+    /* 기본: 중앙으로 모인 상태 */
+    .ab-phil-col:first-child .ab-phil-word { transform: translateX(48%); }
+    .ab-phil-col:last-child  .ab-phil-word { transform: translateX(-48%); }
+    .ab-phil-col .ab-phil-word {
+      transition: transform 1.3s cubic-bezier(.76,0,.24,1), opacity .8s ease;
+      opacity: 0;
+    }
+    .ab-phil-col .ab-phil-tag,
+    .ab-phil-col .ab-phil-list {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    /* split 클래스 추가되면 분리 */
+    .ab-phil.split .ab-phil-col:first-child .ab-phil-word { transform: translateX(0); opacity: 1; }
+    .ab-phil.split .ab-phil-col:last-child  .ab-phil-word { transform: translateX(0); opacity: 1; }
+    .ab-phil.split .ab-phil-col .ab-phil-tag { opacity: 1; transform: none; transition-delay: .6s; }
+    .ab-phil.split .ab-phil-col .ab-phil-list { opacity: 1; transform: none; transition-delay: .8s; }
+
+    /* idle: 서로 당기는 숨쉬기 */
+    .ab-phil.idle .ab-phil-col:first-child .ab-phil-word {
+      animation: pull-right 3.5s ease-in-out infinite;
+      transition: none;
+    }
+    .ab-phil.idle .ab-phil-col:last-child .ab-phil-word {
+      animation: pull-left 3.5s ease-in-out infinite;
+      transition: none;
+    }
+    .ab-phil-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 28px;
+      display: block;
+    }
+    .ab-phil-col:last-child .ab-phil-tag { color: rgba(255,255,255,.4); }
+    .ab-phil-word {
+      font-family: var(--font-d);
+      font-size: clamp(52px,9vw,120px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: .9;
+      margin-bottom: 44px;
+      color: var(--ink);
+    }
+    .ab-phil-col:last-child .ab-phil-word { color: #fff; font-weight: 900; }
+    .ab-phil-list { display: flex; flex-direction: column; gap: 16px; }
+    .ab-phil-list li {
+      font-size: clamp(15px,1.4vw,19px);
+      color: var(--ink-2);
+      padding-left: 20px;
+      border-left: 2px solid var(--border);
+      line-height: 1.6;
+    }
+    .ab-phil-col:last-child .ab-phil-list li {
+      color: rgba(255,255,255,.6);
+      border-left-color: rgba(255,255,255,.15);
+    }
+
+    /* ── Timeline ── */
+    .ab-timeline {
+      padding: clamp(80px,12vh,140px) var(--px);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .ab-tl-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: clamp(48px,6vh,80px);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    .ab-tl-title {
+      font-family: var(--font-d);
+      font-size: clamp(28px,4vw,52px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      color: var(--ink);
+    }
+    .ab-tl-sub {
+      font-family: var(--font-mono);
+      font-size: clamp(14px,1.4vw,18px);
+      letter-spacing: .08em;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+    .ab-tl-grid {
+      display: block;
+    }
+    .ab-tl-group {
+      display: grid;
+      grid-template-columns: minmax(180px, 280px) 1fr;
+      gap: clamp(28px,5vw,80px);
+      padding: clamp(32px,5vw,64px) 0;
+      border-bottom: 1px solid var(--border);
+      min-height: 0;
+    }
+    body:not(.editing) .ab-tl-group.is-empty {
+      display: none;
+    }
+    body.editing .ab-tl-group.is-empty {
+      padding: 18px 0;
+    }
+    .ab-tl-cat {
+      font-family: var(--font-d);
+      font-size: clamp(28px,4vw,52px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      color: var(--ink);
+      margin: 0;
+      line-height: .95;
+    }
+    .ab-tl-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 24px;
+      padding: 0 0 24px;
+      align-items: start;
+      min-width: 0;
+    }
+    .ab-tl-item + .ab-tl-item {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .ab-tl-list .ab-tl-item:last-child { padding-bottom: 0; }
+    .ab-tl-item > div {
+      min-width: 0;
+      max-width: 100%;
+    }
+    .ab-tl-year {
+      font-family: var(--font-mono);
+      font-size: clamp(18px,1.8vw,24px);
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: var(--ink-2);
+      padding-top: 3px;
+      overflow-wrap: anywhere;
+    }
+    .ab-tl-name {
+      font-family: var(--font-d);
+      font-size: clamp(18px,2vw,24px);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      margin-bottom: 8px;
+      max-width: 100%;
+      line-height: 1.22;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .ab-tl-desc {
+      font-size: clamp(13px,1.2vw,15px);
+      color: var(--ink-3);
+      line-height: 1.7;
+      max-width: min(720px,100%);
+      margin: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .ab-tl-note {
+      margin-top: clamp(24px,4vh,40px);
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--ink-3);
+      max-width: 520px;
+    }
+
+    /* ── CTA ── */
+    .ab-cta {
+      background: var(--ink);
+      padding: clamp(80px,12vh,140px) var(--px);
+      text-align: center;
+    }
+    .ab-cta h2 {
+      font-family: var(--font-d);
+      font-size: clamp(32px,6vw,80px);
+      font-weight: 700;
+      letter-spacing: -.05em;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 36px;
+    }
+    .ab-cta h2 em { font-style: normal; font-weight: 300; color: rgba(255,255,255,.45); }
+    .ab-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-w  { background:#fff;color:var(--ink);font-size:13px;font-weight:600;padding:14px 32px;border-radius:2px;display:inline-flex;align-items:center;transition:background .2s; letter-spacing:.04em; }
+    .btn-w:hover { background:rgba(255,255,255,.88); }
+    .btn-wg { background:transparent;color:#fff;font-size:13px;font-weight:500;padding:13px 32px;border-radius:2px;border:1px solid rgba(255,255,255,.3);display:inline-flex;align-items:center;transition:border-color .2s; letter-spacing:.04em; }
+    .btn-wg:hover { border-color:rgba(255,255,255,.7); }
+
+    @media(max-width:900px){
+      .ab-statement-body { grid-template-columns:1fr; }
+      .ab-stats-grid { grid-template-columns:1fr 1fr; }
+      .ab-phil { grid-template-columns:1fr; }
+      .ab-hero-bottom { flex-direction:column; align-items:flex-start; }
+      .ab-hero-info { text-align:left; }
+    }
+    @media(max-width:600px){
+      .ab-stats-grid { grid-template-columns:1fr 1fr; }
+      .ab-tl-group { display:block; padding:40px 0; }
+      .ab-tl-cat { margin-bottom:28px; }
+      .ab-tl-item { grid-template-columns:minmax(48px,64px) minmax(0,1fr); gap:16px; }
+      .ab-tl-year { font-size:13px; padding-top:4px; }
+      .ab-tl-name { font-size:18px; margin-bottom:6px; }
+      .ab-tl-desc { font-size:13px; line-height:1.65; }
+    }
+    @media(max-width:420px){
+      .ab-tl-header { display:block; }
+      .ab-tl-sub { display:block; margin-top:8px; }
+      .ab-tl-item {
+        grid-template-columns:1fr;
+        gap:7px;
+      }
+      .ab-tl-year {
+        min-height: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
+
+  <header class="site-nav scrolled" id="site-nav">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo"><img src="logo.png?v=logo-arthod-20260706-1" alt="Arthod"></a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="works.html?v=works-hover-slots-20260706-1">Works</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobile-overlay">
+    <nav class="mobile-nav">
+      <a href="about.html"    class="mobile-link">About</a>
+      <a href="works.html?v=works-hover-slots-20260706-1"    class="mobile-link">Works</a>
+      <a href="services.html" class="mobile-link">Services</a>
+      <a href="contact.html"  class="mobile-link">Contact</a>
+    </nav>
+    <div class="mob-foot">
+      <span>hello@arthod.kr</span>
+      <div class="mob-soc"><a href="#">IG</a><a href="#">VM</a><a href="#">BE</a></div>
+    </div>
+  </div>
+
+  <main class="page-wrap">
+
+    <!-- Hero -->
+    <div class="ab-hero">
+      <div class="ab-hero-top r">
+        <span class="ab-hero-label">About — Arthod</span>
+        <span class="ab-hero-year">Seoul · Est. 2018</span>
+      </div>
+
+      <div class="ab-hero-center r d1">
+        <video class="ab-hero-logo ab-hero-title" autoplay muted loop playsinline preload="auto" aria-label="ARTHOD">
+          <source src="assets/about-logo.mp4?v=about-logo-20260710-1" type="video/mp4"/>
+        </video>
+      </div>
+
+      <div class="ab-hero-bottom r d2">
+        <p class="ab-hero-desc">
+          미디어아트 스튜디오 Arthod는 Art와 Method의 합성어입니다.<br/>
+          예술과 기술이 교차하는 지점에서 새로운 감각적 경험을 설계합니다.
+        </p>
+        <div class="ab-hero-info">
+          <p>미디어아트 스튜디오</p>
+          <p>서울 기반</p>
+          <p>2018년 설립</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statement -->
+    <div class="ab-statement">
+      <p class="ab-statement-q r">
+        빛, 공간, 데이터를 재료 삼아<br/>
+        관람객이 직접 반응하고 경험하는<br/>
+        <em>설치 예술을 만듭니다.</em>
+      </p>
+      <div class="ab-statement-body">
+        <p class="r d1">
+          우리는 단순히 아름다운 것을 만드는 데 그치지 않습니다.
+          왜 아름다운지, 어떻게 그 감각이 만들어지는지를 탐구합니다.
+          방법론(Method)은 우리의 창작을 구조화하고,
+          예술(Art)은 그 구조에 숨결을 불어넣습니다.
+        </p>
+        <p class="r d2">
+          갤러리, 도시 공간, 브랜드 캠페인 —
+          어떤 맥락에서도 Arthod의 언어는 일관됩니다.
+          기획부터 제작, 설치, 운영까지
+          미디어아트의 전 과정을 함께합니다.
+        </p>
+      </div>
+    </div>
+
+    <!-- Philosophy -->
+    <div class="ab-phil">
+      <div class="ab-phil-col r">
+        <div class="ab-phil-inner">
+          <span class="ab-phil-tag">Art —</span>
+          <div class="ab-phil-word">ART</div>
+          <ul class="ab-phil-list">
+            <li>직관 / 감각 / 감성</li>
+            <li>시각 언어와 공간 경험</li>
+            <li>예술적 표현과 창의성</li>
+            <li>관람객과의 감성적 교감</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ab-phil-col r d1">
+        <div class="ab-phil-inner">
+          <span class="ab-phil-tag">Method —</span>
+          <div class="ab-phil-word">METHOD</div>
+          <ul class="ab-phil-list">
+            <li>체계 / 구조 / 기술</li>
+            <li>데이터와 알고리즘</li>
+            <li>과학적 탐구와 설계</li>
+            <li>재현 가능하고 정밀한 제작</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="ab-timeline">
+      <div class="ab-tl-header r">
+        <span class="ab-tl-title">History</span>
+        <span class="ab-tl-sub">2018 — Present</span>
+      </div>
+      <div class="ab-tl-grid">
+        <section class="ab-tl-group r">
+          <h3 class="ab-tl-cat">Education</h3>
+          <div class="ab-tl-list">
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2024</span>
+              <div>
+                <div class="ab-tl-name">미디어아트 교육 프로그램</div>
+                <p class="ab-tl-desc">프로젝션 매핑, 인터랙션 디자인, 공간 연출 워크숍 운영.</p>
+              </div>
+            </div>
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2023</span>
+              <div>
+                <div class="ab-tl-name">크리에이티브 테크 세미나</div>
+                <p class="ab-tl-desc">예술과 기술을 연결하는 제작 프로세스 강의 및 멘토링.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ab-tl-group r d1">
+          <h3 class="ab-tl-cat">Awards</h3>
+          <div class="ab-tl-list">
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2024</span>
+              <div>
+                <div class="ab-tl-name">Media Art Festival Award</div>
+                <p class="ab-tl-desc">도시 데이터 기반 인터랙티브 설치 작품으로 수상.</p>
+              </div>
+            </div>
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2022</span>
+              <div>
+                <div class="ab-tl-name">Interactive Experience Selection</div>
+                <p class="ab-tl-desc">관람객 반응형 공간 경험 프로젝트 선정.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ab-tl-group r d2">
+          <h3 class="ab-tl-cat">Exhibitions</h3>
+          <div class="ab-tl-list">
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2024</span>
+              <div>
+                <div class="ab-tl-name">빛의 파동 · 공간 매핑</div>
+                <p class="ab-tl-desc">인터랙티브 LED 설치와 LiDAR 기반 프로젝션 매핑 작품 발표.</p>
+              </div>
+            </div>
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2023</span>
+              <div>
+                <div class="ab-tl-name">소리의 형태 · 잔상</div>
+                <p class="ab-tl-desc">라이브 AV 퍼포먼스와 비디오 설치 시리즈 공개.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ab-tl-group r">
+          <h3 class="ab-tl-cat">Studio</h3>
+          <div class="ab-tl-list">
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2021</span>
+              <div>
+                <div class="ab-tl-name">도시의 피부 · 청각의 색</div>
+                <p class="ab-tl-desc">공공 건물 외벽 대규모 프로젝션 매핑 및 라이브 퍼포먼스.</p>
+              </div>
+            </div>
+            <div class="ab-tl-item">
+              <span class="ab-tl-year">2018</span>
+              <div>
+                <div class="ab-tl-name">Arthod 설립</div>
+                <p class="ab-tl-desc">Art + Method를 기반으로 서울에서 미디어아트 스튜디오 설립.</p>
+              </div>
+            </div>
+            <p class="ab-tl-note">각 카테고리는 항목을 계속 추가하거나 제목을 바꿔서 사용할 수 있습니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="ab-cta">
+      <h2 class="r">상상을 현실로<br/><em>현실을 예술로</em></h2>
+      <div class="ab-cta-btns r d1">
+        <a href="contact.html" class="btn-w">Contact</a>
+        <a href="works.html?v=works-hover-slots-20260706-1"   class="btn-wg">Works 보기</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-in">
+      <div>
+        <p class="f-logo">ARTHOD</p>
+        <p class="f-tag">Art + Method<br/>예술과 기술을 결합하여 효과적으로<br/>표현하는 방법을 연구하고 창작하는<br/>미디어아트 스튜디오. 서울.</p>
+      </div>
+      <div class="f-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="works.html?v=works-hover-slots-20260706-1">Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <ul id="services-connect-list">
+          <li><a href="#" data-ek="connect-01-name">Instagram</a></li>
+          <li><a href="#" data-ek="connect-02-name">Vimeo</a></li>
+          <li><a href="#" data-ek="connect-03-name">Behance</a></li>
+          <li><a href="#" data-ek="connect-04-name">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p class="f-copy">© 2024 Arthod (아쏘드). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Mouse follow glow ── */
+    document.querySelectorAll('.ab-phil-col').forEach(col => {
+      col.addEventListener('mousemove', e => {
+        const r = col.getBoundingClientRect();
+        col.style.setProperty('--gx', (e.clientX - r.left) + 'px');
+        col.style.setProperty('--gy', (e.clientY - r.top)  + 'px');
+      });
+    });
+
+    /* ── Merge → Split animation on scroll ── */
+    const phil = document.querySelector('.ab-phil');
+    if (phil) {
+      const obs = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) {
+          phil.classList.add('split');
+          setTimeout(() => phil.classList.add('idle'), 1400);
+          obs.disconnect();
+        }
+      }, { threshold: 0.25 });
+      obs.observe(phil);
+    }
+
+    /* ── ART: 자기장 글자 반발 효과 ── */
+    const artCol   = document.querySelector('.ab-phil-col:first-child');
+    const artWord  = artCol.querySelector('.ab-phil-word');
+    artWord.innerHTML = [...'ART'].map(l =>
+      `<span class="ab-letter" style="display:inline-block;transition:transform .12s ease">${l}</span>`
+    ).join('');
+
+    artCol.addEventListener('mousemove', e => {
+      const cr = artCol.getBoundingClientRect();
+      const mx = e.clientX - cr.left, my = e.clientY - cr.top;
+      artWord.querySelectorAll('.ab-letter').forEach(letter => {
+        const lr = letter.getBoundingClientRect();
+        const lx = lr.left - cr.left + lr.width  / 2;
+        const ly = lr.top  - cr.top  + lr.height / 2;
+        const dx = mx - lx, dy = my - ly;
+        const dist = Math.hypot(dx, dy);
+        const force = Math.max(0, 160 - dist) / 160;
+        letter.style.transform = `translate(${-dx * force * .7}px, ${-dy * force * .45}px) scale(${1 + force * .12})`;
+        letter.style.transition = 'transform .1s ease';
+      });
+    });
+    artCol.addEventListener('mouseleave', () => {
+      artWord.querySelectorAll('.ab-letter').forEach(l => {
+        l.style.transform = '';
+        l.style.transition = 'transform .8s cubic-bezier(.76,0,.24,1)';
+      });
+    });
+
+    /* ── METHOD: 도트 그리드 파티클 ── */
+    const methodCol = document.querySelector('.ab-phil-col:last-child');
+    const canvas    = document.createElement('canvas');
+    Object.assign(canvas.style, {
+      position:'absolute', inset:'0', width:'100%', height:'100%',
+      pointerEvents:'none', zIndex:'0'
+    });
+    methodCol.prepend(canvas);
+    const ctx = canvas.getContext('2d');
+
+    const COLS = 14, ROWS = 9;
+    let dots = [], mx2 = -999, my2 = -999;
+
+    function buildDots() {
+      canvas.width  = methodCol.offsetWidth;
+      canvas.height = methodCol.offsetHeight;
+      dots = [];
+      const gx = canvas.width / COLS, gy = canvas.height / ROWS;
+      for (let r = 0; r <= ROWS; r++)
+        for (let c = 0; c <= COLS; c++)
+          dots.push({ x: c*gx, y: r*gy, ox: c*gx, oy: r*gy, vx:0, vy:0 });
+    }
+    buildDots();
+    new ResizeObserver(buildDots).observe(methodCol);
+
+    methodCol.addEventListener('mousemove', e => {
+      const r = methodCol.getBoundingClientRect();
+      mx2 = e.clientX - r.left; my2 = e.clientY - r.top;
+    });
+    methodCol.addEventListener('mouseleave', () => { mx2 = -999; my2 = -999; });
+
+    (function tick() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(d => {
+        const dx = mx2 - d.x, dy = my2 - d.y;
+        const dist  = Math.hypot(dx, dy);
+        const force = Math.max(0, 100 - dist) / 100;
+        d.vx += (-dx * force * .18) + (d.ox - d.x) * .09;
+        d.vy += (-dy * force * .18) + (d.oy - d.y) * .09;
+        d.vx *= .82; d.vy *= .82;
+        d.x  += d.vx; d.y  += d.vy;
+        const sz = 1.5 + force * 5;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, sz, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${.18 + force * .55})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(tick);
+    })();
+  </script>
+  <script src="main.js?v=contact-phone-links-20260713-5"></script>
+</body>
+</html>
