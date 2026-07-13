@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-13T03:30:31.432118+00:00",
+  "savedAt": "2026-07-13T04:19:43.337229+00:00",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -271,7 +271,6 @@
     "arthod-edit:works:12": "Vimeo",
     "arthod-proj:08:type": "Media Facade",
     "arthod-edit:work:12": "Details",
-    "arthod-proj:footer-connect-4:name": "",
     "arthod-edit:services:svctag:19": "Spatial Audio",
     "arthod-style:services:fcolh4:0": "{\"color\":\"#ffffff\"}",
     "arthod-edit:services:svc-brand-experience-tag-1": "Concept",
@@ -379,7 +378,6 @@
     "arthod-edit:services:svcentryname:0": "인터랙티브 설치<em>Interactive Installation</em>",
     "arthod-proj:06:type": "Fluid Simulation",
     "arthod-edit:contact:cdilabel:2": "Location",
-    "arthod-proj:footer-connect-3:name": "",
     "arthod-edit:about:fcolula:5": "Vimeo",
     "arthod-edit:about:fcolula:3": "Contact",
     "arthod-edit:about:abphillistli:4": "체계 / 구조 / 기술",
@@ -576,7 +574,6 @@
     "arthod-edit:work:18": "기획 · 개발 · 설치",
     "arthod-edit:work02:tag2": "TouchDesigner",
     "arthod-edit:about:fcolula:0": "About",
-    "arthod-proj:footer-connect-2:name": "",
     "arthod-edit:services:svc-projection-mapping-tag-3": "Millumin",
     "arthod-proj:03:en": "Public Installation",
     "arthod-edit:about:recentMeta4A": "04 / Luminous Melody",
@@ -658,7 +655,8 @@
     "arthod-edit:services:fcolula:1": "Works",
     "arthod-edit:services:svc-interactive-installation-tag-2": "Depth Sensor",
     "arthod-edit:work:specval:2": "경주 코스믹 리조트 콘텐츠 제작",
-    "arthod-workcount:works": "10"
+    "arthod-workcount:works": "10",
+    "arthod-connect:global": "[{\"name\": \"Instagram\", \"url\": \"https://www.instagram.com/arthod_studio/\"}, {\"name\": \"Youtube\", \"url\": \"https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C\"}]"
   },
   "mediaIndex": {
     "svc:0": {
@@ -1124,5 +1122,5 @@
     "09"
   ],
   "servicesBackupAt": "2026-07-12T11:25:19.943Z",
-  "note": "Updated works count and project 01 title for next project wraparound"
+  "note": "Updated public footer connect links and contact phone field"
 }
