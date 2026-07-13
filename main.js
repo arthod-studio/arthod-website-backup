@@ -1851,6 +1851,15 @@ if (fv) {
   /* ── 6. 편집 UI ── */
   let editing = false;
   let btn, bar, toastEl;
+  const EDITOR_HOSTS = new Set(['localhost', '127.0.0.1', '0.0.0.0', '::1']);
+  const EDITOR_ALLOWED =
+    location.protocol === 'file:' ||
+    EDITOR_HOSTS.has(location.hostname) ||
+    location.hostname.endsWith('.local');
+
+  function isEditorAllowed() {
+    return EDITOR_ALLOWED;
+  }
 
   /* 텍스트 스타일 툴바 — 폰트·크기·굵기·정렬·색상 */
   let textToolbar = null, ttTarget = null;
@@ -1983,6 +1992,15 @@ if (fv) {
   }
 
   function buildUI() {
+    if (!isEditorAllowed()) {
+      document.documentElement.classList.add('public-view');
+      document.body.classList.remove('editing');
+      document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+        el.contentEditable = 'false';
+        el.removeAttribute('spellcheck');
+      });
+      return;
+    }
     btn = document.createElement('button');
     btn.className = 'edit-btn';
     btn.innerHTML = '<span class="edit-dot"></span><span class="edit-label">편집 모드</span>';

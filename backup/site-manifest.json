@@ -1,8 +1,8 @@
 {
-  "savedAt": "2026-07-13T03:18:59.944554+00:00",
+  "savedAt": "2026-07-13T03:24:37.419612+00:00",
   "source": "/Users/chankim2max/Downloads/deploy 3",
-  "commit": "a52df81431381de7f5573653d1683c539f637ea8",
-  "note": "Manual full local backup while GitHub Pages HTTPS certificate is pending",
+  "commit": "891bd862c5b4f348907a9a8ca644d637e8d570c4",
+  "note": "Backup after separating public domain from local editor mode",
   "files": [
     ".gitignore",
     "CNAME",
