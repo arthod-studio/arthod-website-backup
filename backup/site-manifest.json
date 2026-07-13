@@ -1,7 +1,8 @@
 {
-  "savedAt": "2026-07-12T11:18:43.817051+00:00",
+  "savedAt": "2026-07-13T03:17:28.810634+00:00",
   "source": "/Users/chankim2max/Downloads/deploy 3",
   "commit": "a52df81431381de7f5573653d1683c539f637ea8",
+  "note": "Manual full local backup after domain HTTPS check",
   "files": [
     ".gitignore",
     "CNAME",
