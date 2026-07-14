@@ -2463,7 +2463,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-8-emotion-cloud-gallery';
+  const PUBLIC_SYNC_VERSION = 'public-sync-9-safari-particle-hover';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2471,7 +2471,8 @@ if (fv) {
     let changed = false;
     try {
       const base = `https://raw.githubusercontent.com/${PUBLIC_SOURCE.owner}/${PUBLIC_SOURCE.repo}/${PUBLIC_SOURCE.branch}/`;
-      const r = await fetch(base + 'backup/content.json', { cache: 'no-store' });
+      const cacheBust = '?v=' + encodeURIComponent(PUBLIC_SYNC_VERSION);
+      const r = await fetch(base + 'backup/content.json' + cacheBust, { cache: 'reload' });
       if (!r.ok) return false;
       const data = await r.json();
       const lastSyncedAt = localStorage.getItem(PUBLIC_SYNC_KEY);
@@ -2505,7 +2506,7 @@ if (fv) {
           }
           if (info.file) {
             try {
-              const mr = await fetch(base + info.file, { cache: 'no-store' });
+              const mr = await fetch(base + info.file + cacheBust, { cache: 'reload' });
               if (mr.ok) {
                 const blob = await mr.blob();
                 await mediaSet(key, { kind: info.kind, blob });
