@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-14T08:03:28.532Z",
+  "savedAt": "2026-07-14T08:13:35.425Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -1100,12 +1100,12 @@
       "file": "backup/media/02/wimg_02.jpg"
     },
     "wimg:07": {
-      "kind": "ref",
-      "refKey": "svc:1"
+      "kind": "image",
+      "file": "backup/media/07/whover_07_2.jpg"
     },
     "wimg:08": {
-      "kind": "ref",
-      "refKey": "wd:07:next"
+      "kind": "image",
+      "file": "backup/media/08/thumbs/wd_08_g1.jpg"
     },
     "wd:08:next": {
       "kind": "image",

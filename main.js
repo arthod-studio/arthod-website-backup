@@ -1046,6 +1046,13 @@ if (fv) {
 
   /* ── 4. 미디어 적용 ── */
   function applyImage(container, url) {
+    const mediaKey = container.dataset.mediaKey || '';
+    if (mediaKey === 'wimg:07') {
+      url = 'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg';
+    }
+    if (mediaKey === 'wimg:08') {
+      url = 'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g1.jpg';
+    }
     const img = container.querySelector('img');
     if (img) { img.src = url; }
     else {
@@ -2463,7 +2470,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-10-remove-particle-red-hover';
+  const PUBLIC_SYNC_VERSION = 'public-sync-12-fix-particle-card-image';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {

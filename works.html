@@ -615,7 +615,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=particle-red-remove-20260714-1"></script>
+  <script src="main.js?v=particle-card-image-fix-20260714-3"></script>
   <script>
     // ── Works-only dissolve image slots ──────────────────────
     window.installWorksHoverSlots = function installWorksHoverSlots() {
@@ -895,22 +895,18 @@
 
     // Hover image cycling
     const FALLBACK_CARD_IMGS = {
-      'work.html?id=01': ['https://picsum.photos/seed/w01a/1600/900','https://picsum.photos/seed/w01b/1600/900','https://picsum.photos/seed/w01c/1600/900'],
-      'work.html?id=02': ['https://picsum.photos/seed/w02a/1600/900','https://picsum.photos/seed/w02b/1600/900','https://picsum.photos/seed/w02c/1600/900'],
-      'work.html?id=03': ['https://picsum.photos/seed/w03a/1600/900','https://picsum.photos/seed/w03b/1600/900','https://picsum.photos/seed/w03c/1600/900'],
-      'work.html?id=04': ['https://picsum.photos/seed/w04a/1600/900','https://picsum.photos/seed/w04b/1600/900','https://picsum.photos/seed/w04c/1600/900'],
-      'work.html?id=05': ['https://picsum.photos/seed/w05a/1600/900','https://picsum.photos/seed/w05b/1600/900','https://picsum.photos/seed/w05c/1600/900'],
-      'work.html?id=06': ['https://picsum.photos/seed/w06a/1600/900','https://picsum.photos/seed/w06b/1600/900','https://picsum.photos/seed/w06c/1600/900'],
-      'work.html?id=07': [
-        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg',
-        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_3.jpg',
-        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_4.jpg'
-      ],
-      'work.html?id=08': ['https://picsum.photos/seed/w08a/1600/900','https://picsum.photos/seed/w08b/1600/900','https://picsum.photos/seed/w08c/1600/900'],
-      'work.html?id=09': ['https://picsum.photos/seed/w09a/1600/900','https://picsum.photos/seed/w09b/1600/900','https://picsum.photos/seed/w09c/1600/900'],
-      'work.html?id=10': ['https://picsum.photos/seed/w10a/1600/900','https://picsum.photos/seed/w10b/1600/900','https://picsum.photos/seed/w10c/1600/900'],
-      'work.html?id=11': ['https://picsum.photos/seed/w11a/1600/900','https://picsum.photos/seed/w11b/1600/900','https://picsum.photos/seed/w11c/1600/900'],
-      'work.html?id=12': ['https://picsum.photos/seed/w12a/1600/900','https://picsum.photos/seed/w12b/1600/900','https://picsum.photos/seed/w12c/1600/900'],
+      'work.html?id=01': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_6.jpg'],
+      'work.html?id=02': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_6.jpg'],
+      'work.html?id=03': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g6.jpg'],
+      'work.html?id=04': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_6.jpg'],
+      'work.html?id=05': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g5.jpg'],
+      'work.html?id=06': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g5.jpg'],
+      'work.html?id=07': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_4.jpg'],
+      'work.html?id=08': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g6.jpg'],
+      'work.html?id=09': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_3.png','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_4.jpg'],
+      'work.html?id=10': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_4.jpg'],
+      'work.html?id=11': [],
+      'work.html?id=12': [],
     };
     const CARD_IMGS = { ...FALLBACK_CARD_IMGS };
     const cardImgObjectUrls = [];
@@ -996,6 +992,9 @@
       return ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
     }
     async function detailHoverImages(id) {
+      if (id === '07') {
+        return FALLBACK_CARD_IMGS['work.html?id=07'];
+      }
       let db = null;
       try { db = await openMediaDb(); } catch (e) {}
       const publicData = await publicContent();
