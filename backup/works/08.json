@@ -1,8 +1,13 @@
 {
   "work": "08",
-  "savedAt": "2026-07-14T07:21:34.310Z",
+  "savedAt": "2026-07-14T07:24:14.183Z",
   "media": {
-    "images": [],
+    "images": [
+      {
+        "key": "wd:08:next",
+        "file": "backup/media/10/whover_10_1.jpg"
+      }
+    ],
     "videos": [],
     "embeds": [
       {
@@ -14,10 +19,6 @@
       {
         "key": "wimg:08",
         "refKey": "wd:07:next"
-      },
-      {
-        "key": "wd:08:next",
-        "refKey": "whover:10:1"
       }
     ]
   },

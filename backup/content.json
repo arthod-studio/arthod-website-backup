@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-14T07:21:34.310Z",
+  "savedAt": "2026-07-14T07:24:14.183Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -1108,8 +1108,8 @@
       "refKey": "wd:07:next"
     },
     "wd:08:next": {
-      "kind": "ref",
-      "refKey": "whover:10:1"
+      "kind": "image",
+      "file": "backup/media/10/whover_10_1.jpg"
     }
   },
   "works": [
