@@ -588,14 +588,6 @@ if (fv) {
   const ABOUT_HISTORY_RECOVERY_VERSION = 'history-recovered-20260710-mediafantagy';
   const ABOUT_HISTORY_RECOVERY_ITEMS = [
     {
-      category: 'Awards',
-      items: [
-        { year: '2024', name: 'Media Art Festival Award', desc: '도시 데이터 기반 인터랙티브 설치 작품으로 수상.' },
-        { year: '2022', name: 'Interactive Experience Selection', desc: '관람객 반응형 공간 경험 프로젝트 선정.' },
-      ],
-      note: '',
-    },
-    {
       category: 'Exhibitions',
       items: [
         { year: '2025', name: 'Stream Scape', desc: 'Interactive Media Art & Generative Al • 고양콘텐츠사업화 • 고양산업진흥원' },
@@ -661,14 +653,23 @@ if (fv) {
       return !(isPlaceholderCategory && onlyPlaceholderItem);
     });
   }
+  function removeDeprecatedAboutHistory(items) {
+    return normalizeAboutHistory(items).filter(group => {
+      const names = (group.items || []).map(item => plainAboutHistoryText(item.name));
+      const isOldAwardsGroup = plainAboutHistoryText(group.category) === 'Awards'
+        && names.length > 0
+        && names.every(name => name === 'Media Art Festival Award' || name === 'Interactive Experience Selection');
+      return !isOldAwardsGroup;
+    });
+  }
   function recoverAboutHistory(items) {
-    const normalized = normalizeAboutHistory(items);
+    const normalized = removeDeprecatedAboutHistory(items);
     const recoveryApplied = localStorage.getItem(ABOUT_HISTORY_RECOVERY_KEY) === ABOUT_HISTORY_RECOVERY_VERSION;
     const historyText = JSON.stringify(normalized);
     const missingRecoveredText = !historyText.includes('미디어판타GY') || !historyText.includes('상상마당 아카데미');
     if (!recoveryApplied && missingRecoveredText) {
       localStorage.setItem(ABOUT_HISTORY_RECOVERY_KEY, ABOUT_HISTORY_RECOVERY_VERSION);
-      return normalizeAboutHistory(ABOUT_HISTORY_RECOVERY_ITEMS);
+      return removeDeprecatedAboutHistory(ABOUT_HISTORY_RECOVERY_ITEMS);
     }
     if (!recoveryApplied && !missingRecoveredText) {
       localStorage.setItem(ABOUT_HISTORY_RECOVERY_KEY, ABOUT_HISTORY_RECOVERY_VERSION);
@@ -697,7 +698,7 @@ if (fv) {
     return recoverAboutHistory(readAboutHistoryFromDom());
   }
   function saveAboutHistory(items) {
-    localStorage.setItem(ABOUT_HISTORY_KEY, JSON.stringify(normalizeAboutHistory(items)));
+    localStorage.setItem(ABOUT_HISTORY_KEY, JSON.stringify(removeDeprecatedAboutHistory(items)));
     localStorage.setItem(ABOUT_HISTORY_LAYOUT_VERSION_KEY, ABOUT_HISTORY_LAYOUT_VERSION);
   }
   function legacyAboutText(slug, index) {
