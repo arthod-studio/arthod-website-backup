@@ -544,7 +544,7 @@
       </a>
 
       <!-- 07 -->
-      <a class="port-card r" href="work.html?id=07&v=detail-next-order-20260706-1" data-cats="brand">
+      <a class="port-card r" href="work.html?id=07&v=detail-next-order-20260706-1" data-cats="brand" data-hover-dissolve="500" data-hover-hold="650" data-hover-delay="120">
         <div class="card-head">
           <div class="card-head-left"><span class="card-title"><span class="card-ko">Emotion Particle</span><span class="card-en">Interactive Media Installation</span></span></div>
           <div class="card-head-right"><span class="card-yr">2023</span><span class="card-type">미디어아트ON</span></div>
@@ -902,7 +902,7 @@
       'work.html?id=05': ['https://picsum.photos/seed/w05a/1600/900','https://picsum.photos/seed/w05b/1600/900','https://picsum.photos/seed/w05c/1600/900'],
       'work.html?id=06': ['https://picsum.photos/seed/w06a/1600/900','https://picsum.photos/seed/w06b/1600/900','https://picsum.photos/seed/w06c/1600/900'],
       'work.html?id=07': [
-        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/services/svc_1.jpg',
+        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/wd_07_next.jpg',
         'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg',
         'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_3.jpg',
         'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_4.jpg'
@@ -1002,6 +1002,9 @@
       const publicData = await publicContent();
       const publicIndex = publicData.mediaIndex || {};
       const customHover = await worksHoverImages(id, db, publicIndex);
+      if (id === '07' && customHover.length) {
+        customHover[0] = PUBLIC_BACKUP_BASE + 'backup/media/07/wd_07_next.jpg';
+      }
       if (customHover.length) return customHover;
       const slots = gallerySlotsFor(id, publicData.text);
       const urls = [];
@@ -1074,8 +1077,12 @@
         ov.style.transition = 'none';
         ov.style.opacity = '0';
         void ov.offsetWidth;               // reflow 강제 → 다음 페이드가 처음부터
-        ov.style.transition = `opacity ${DISSOLVE_MS}ms ease`;
+        ov.style.transition = `opacity ${cardDissolveMs()}ms ease`;
       };
+
+      const cardDissolveMs = () => Number(card.dataset.hoverDissolve || DISSOLVE_MS);
+      const cardHoldMs = () => Number(card.dataset.hoverHold || HOLD_MS);
+      const cardStartDelay = () => Number(card.dataset.hoverDelay || HOVER_START_DELAY);
 
       const stop = () => {
         clearTimeout(delayTimer); clearInterval(cycleTimer); clearTimeout(commitTimer);
@@ -1109,11 +1116,11 @@
               // 페이드 완료 → 베이스에 확정하고 오버레이 숨김(같은 이미지라 깜빡임 없음)
               bg.style.backgroundImage = `url('${targetSrc}')`;
               resetOv();
-            }, DISSOLVE_MS);
+            }, cardDissolveMs());
           };
           step();                            // 첫 디졸브 바로 시작
-          cycleTimer = setInterval(step, DISSOLVE_MS + HOLD_MS);
-        }, HOVER_START_DELAY);
+          cycleTimer = setInterval(step, cardDissolveMs() + cardHoldMs());
+        }, cardStartDelay());
       });
 
       card.addEventListener('mouseleave', () => {
@@ -1131,7 +1138,7 @@
           bg.style.backgroundImage = `url('${imgs[0]}')`;
           resetOv();
           idx = 0;
-        }, DISSOLVE_MS);
+        }, cardDissolveMs());
       });
     });
 

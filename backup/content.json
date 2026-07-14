@@ -1048,8 +1048,8 @@
       "file": "backup/media/04/whover_04_6.jpg"
     },
     "whover:07:1": {
-      "kind": "ref",
-      "refKey": "svc:1"
+      "kind": "image",
+      "file": "backup/media/07/wd_07_next.jpg"
     },
     "whover:07:2": {
       "kind": "image",
