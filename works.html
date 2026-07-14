@@ -901,7 +901,12 @@
       'work.html?id=04': ['https://picsum.photos/seed/w04a/1600/900','https://picsum.photos/seed/w04b/1600/900','https://picsum.photos/seed/w04c/1600/900'],
       'work.html?id=05': ['https://picsum.photos/seed/w05a/1600/900','https://picsum.photos/seed/w05b/1600/900','https://picsum.photos/seed/w05c/1600/900'],
       'work.html?id=06': ['https://picsum.photos/seed/w06a/1600/900','https://picsum.photos/seed/w06b/1600/900','https://picsum.photos/seed/w06c/1600/900'],
-      'work.html?id=07': ['https://picsum.photos/seed/w07a/1600/900','https://picsum.photos/seed/w07b/1600/900','https://picsum.photos/seed/w07c/1600/900'],
+      'work.html?id=07': [
+        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/services/svc_1.jpg',
+        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg',
+        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_3.jpg',
+        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_4.jpg'
+      ],
       'work.html?id=08': ['https://picsum.photos/seed/w08a/1600/900','https://picsum.photos/seed/w08b/1600/900','https://picsum.photos/seed/w08c/1600/900'],
       'work.html?id=09': ['https://picsum.photos/seed/w09a/1600/900','https://picsum.photos/seed/w09b/1600/900','https://picsum.photos/seed/w09c/1600/900'],
       'work.html?id=10': ['https://picsum.photos/seed/w10a/1600/900','https://picsum.photos/seed/w10b/1600/900','https://picsum.photos/seed/w10c/1600/900'],
@@ -1050,9 +1055,18 @@
       // 대상 이미지가 디코딩 완료될 때까지 기다렸다가 페이드 시작 (첫 번째 전환도 나머지와 동일하게 매끄럽게)
       function whenReady(src, cb) {
         if (decodedImgs.has(src)) { cb(); return; }
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          decodedImgs.add(src);
+          cb();
+        };
         const im = new Image();
         im.src = src;
-        (im.decode ? im.decode() : Promise.resolve()).catch(() => {}).finally(() => { decodedImgs.add(src); cb(); });
+        if (im.complete) { finish(); return; }
+        setTimeout(finish, 80);
+        (im.decode ? im.decode() : Promise.resolve()).catch(() => {}).finally(finish);
       }
 
       // 오버레이 즉시 초기화 (트랜지션 없이 opacity 0)
