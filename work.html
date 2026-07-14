@@ -326,7 +326,7 @@
       position: relative;
       opacity: 0;
       transform: translateY(34px);
-      transition: opacity .95s cubic-bezier(0,0,.2,1), transform .95s cubic-bezier(0,0,.2,1);
+      transition: opacity .65s cubic-bezier(0,0,.2,1), transform .65s cubic-bezier(0,0,.2,1);
       transition-delay: var(--g-delay, 0s);
     }
     .wc-gitem.v {
@@ -890,7 +890,7 @@
   function setupGalleryReveal() {
     const items = [...document.querySelectorAll('#wc-gallery-root .wc-gitem')];
     items.forEach((item, i) => {
-      item.style.setProperty('--g-delay', Math.min((i % 3) * 0.08, 0.16).toFixed(2) + 's');
+      item.style.setProperty('--g-delay', Math.min((i % 3) * 0.04, 0.08).toFixed(2) + 's');
     });
 
     if (!('IntersectionObserver' in window)) {
@@ -905,7 +905,7 @@
         if (!entry.isIntersecting) return;
         revealGalleryByScroll(items);
       });
-    }, { threshold: 0.18, rootMargin: '0px 0px -22% 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -12% 0px' });
 
     items.forEach(item => galleryRevealObserver.observe(item));
     window.addEventListener('scroll', () => {
@@ -927,7 +927,7 @@
       const rect = item.getBoundingClientRect();
       const col = i % cols;
       const row = Math.floor(i / cols);
-      const trigger = vh * (0.82 - col * 0.08 - row * 0.03);
+      const trigger = vh * (0.88 - col * 0.025 - row * 0.015);
       if (rect.top < trigger) {
         item.classList.add('v');
         if (galleryRevealObserver) galleryRevealObserver.unobserve(item);
