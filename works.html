@@ -615,7 +615,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=safari-particle-sync-20260714-1"></script>
+  <script src="main.js?v=particle-red-remove-20260714-1"></script>
   <script>
     // ── Works-only dissolve image slots ──────────────────────
     window.installWorksHoverSlots = function installWorksHoverSlots() {
@@ -902,7 +902,6 @@
       'work.html?id=05': ['https://picsum.photos/seed/w05a/1600/900','https://picsum.photos/seed/w05b/1600/900','https://picsum.photos/seed/w05c/1600/900'],
       'work.html?id=06': ['https://picsum.photos/seed/w06a/1600/900','https://picsum.photos/seed/w06b/1600/900','https://picsum.photos/seed/w06c/1600/900'],
       'work.html?id=07': [
-        'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/wd_07_next.jpg',
         'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg',
         'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_3.jpg',
         'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_4.jpg'
@@ -1003,7 +1002,7 @@
       const publicIndex = publicData.mediaIndex || {};
       const customHover = await worksHoverImages(id, db, publicIndex);
       if (id === '07' && customHover.length) {
-        customHover[0] = PUBLIC_BACKUP_BASE + 'backup/media/07/wd_07_next.jpg';
+        return customHover.filter(url => !url.includes('/wd_07_next.jpg'));
       }
       if (customHover.length) return customHover;
       const slots = gallerySlotsFor(id, publicData.text);
