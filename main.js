@@ -1097,7 +1097,25 @@ if (fv) {
     };
     tryImage(0);
   }
+  function ensureMediaPlayStyles() {
+    if (document.getElementById('arthod-media-play-style')) return;
+    const st = document.createElement('style');
+    st.id = 'arthod-media-play-style';
+    st.textContent = `
+      .media-poster:hover .media-play-btn{background:rgba(0,0,0,.85);transform:scale(1.08)}
+      .media-play-btn{
+        width:76px;height:76px;border-radius:50%;background:rgba(0,0,0,.62);border:2px solid rgba(255,255,255,.88);
+        display:flex;align-items:center;justify-content:center;appearance:none;-webkit-appearance:none;padding:0;margin:0;
+        transition:background .2s,transform .2s;box-shadow:0 14px 34px rgba(0,0,0,.28);cursor:pointer;
+      }
+      .media-play-btn span{
+        display:block;width:0;height:0;margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:22px solid #fff;
+      }
+    `;
+    document.head.appendChild(st);
+  }
   function buildClickToPlay(wrap, embedUrl) {
+    ensureMediaPlayStyles();
     const info = embedIdInfo(embedUrl);
     const poster = document.createElement('div');
     poster.className = 'media-poster';
@@ -1105,7 +1123,7 @@ if (fv) {
     if (info && info.kind === 'youtube') {
       setYouTubePoster(poster, info.id);
     }
-    poster.innerHTML = '<div class="media-play-btn">▶</div>';
+    poster.innerHTML = '<button class="media-play-btn" type="button" aria-label="Play video"><span></span></button>';
     const startPlayback = () => {
       // 기존에 저장된 embedUrl에 옛 파라미터(autoplay/mute/controls 등)가 섞여 있어도
       // 확실하게 "재생+소리 켜짐" 상태가 되도록 URL을 새로 구성한다.
@@ -2470,7 +2488,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-14-emotion-cloud-card-image';
+  const PUBLIC_SYNC_VERSION = 'public-sync-15-work-video-play-button';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
