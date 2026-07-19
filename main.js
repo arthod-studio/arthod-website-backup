@@ -1376,6 +1376,54 @@ if (fv) {
     refreshCount();
   }
 
+  const mobileAutoVideos = new Set();
+  let mobileAutoVideoObserver = null;
+  let mobileAutoVideoListenersBound = false;
+  function tryPlayMobileVideo(video) {
+    if (!video || !video.isConnected) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    const attempt = video.play();
+    if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
+  }
+  function playVisibleMobileVideos() {
+    mobileAutoVideos.forEach(video => {
+      if (!video.isConnected) {
+        mobileAutoVideos.delete(video);
+        return;
+      }
+      const rect = video.getBoundingClientRect();
+      const visible = rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+      if (visible) tryPlayMobileVideo(video);
+    });
+  }
+  function registerMobileAutoVideo(video) {
+    mobileAutoVideos.add(video);
+    if (!mobileAutoVideoObserver && 'IntersectionObserver' in window) {
+      mobileAutoVideoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) tryPlayMobileVideo(entry.target);
+        });
+      }, { rootMargin: '160px 0px', threshold: 0.05 });
+    }
+    if (mobileAutoVideoObserver) mobileAutoVideoObserver.observe(video);
+    if (!mobileAutoVideoListenersBound) {
+      mobileAutoVideoListenersBound = true;
+      ['touchstart', 'pointerdown', 'click'].forEach(evt => {
+        document.addEventListener(evt, playVisibleMobileVideos, { passive: true });
+      });
+      window.addEventListener('pageshow', playVisibleMobileVideos);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) playVisibleMobileVideos();
+      });
+    }
+    tryPlayMobileVideo(video);
+  }
+
   // 히어가 아닌 일반 슬롯(예: '작품에 대하여' 위 대표 이미지)에 사진/영상/링크를 적용
   function applyRichMedia(el, rec) {
     el.querySelectorAll(':scope > .rich-media-el').forEach(n => n.remove());
@@ -1403,6 +1451,7 @@ if (fv) {
       v.playsInline = true;
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
       v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:#050505;opacity:0;transition:opacity .18s ease';
       const revealVideo = () => {
         v.style.opacity = '1';
@@ -1411,7 +1460,7 @@ if (fv) {
       v.addEventListener('loadeddata', revealVideo, { once: true });
       v.addEventListener('canplay', revealVideo, { once: true });
       el.insertBefore(v, el.firstChild);
-      v.play().catch(() => {});
+      registerMobileAutoVideo(v);
       if (v.readyState >= 2) revealVideo();
     } else if (img) {
       const url = recUrl(rec);
@@ -2542,7 +2591,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-23-detail-default-clean';
+  const PUBLIC_SYNC_VERSION = 'public-sync-24-detail-mobile-video-autoplay';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
