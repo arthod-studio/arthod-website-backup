@@ -514,7 +514,7 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=detail-mobile-media-stable-20260719-1"></script>
+  <script src="main.js?v=detail-default-clean-20260719-1"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [
@@ -791,12 +791,21 @@
 
   // 대표 이미지(hero)는 이제 단일 사진/영상/링크 슬롯 — imgs[0]을 기본값으로 사용
   const imgs = SLIDER_IMAGES[p.id] || SLIDER_IMAGES['01'];
+  const BACKED_MEDIA_KEYS = new Set(['wd:01:c0','wd:01:g1','wd:01:g2','wd:01:g3','wd:01:g4','wd:01:g5','wd:01:g6','wd:01:next','wd:02:c0','wd:02:g1','wd:02:g2','wd:02:g3','wd:02:g4','wd:02:g5','wd:02:g6','wd:02:next','wd:03:c0','wd:03:g1','wd:03:g2','wd:03:g3','wd:03:g4','wd:03:g5','wd:03:g6','wd:03:next','wd:04:c0','wd:04:g1','wd:04:g2','wd:04:g3','wd:04:g4','wd:04:g5','wd:04:g6','wd:04:next','wd:05:c0','wd:05:g1','wd:05:g2','wd:05:g3','wd:05:g4','wd:05:g5','wd:05:next','wd:06:c0','wd:06:g1','wd:06:g2','wd:06:g3','wd:06:g4','wd:06:g5','wd:06:next','wd:07:c0','wd:07:g1','wd:07:g2','wd:07:g3','wd:07:g4','wd:07:g5','wd:07:g6','wd:07:next','wd:08:c0','wd:08:g1','wd:08:g2','wd:08:g3','wd:08:g4','wd:08:g5','wd:08:g6','wd:08:next','wd:09:c0','wd:09:g1','wd:09:g2','wd:09:g3','wd:09:g4','wd:09:g5','wd:09:g6','wd:09:next','wd:10:c0','wd:10:g1','wd:10:g2','wd:10:g3','wd:10:g4','wd:10:g5','wd:10:g6','wd:10:next']);
+  function backedAttr(key) {
+    return BACKED_MEDIA_KEYS.has(key) ? ' data-public-backed="1"' : '';
+  }
+  function fallbackStyle(key, baseStyle) {
+    return BACKED_MEDIA_KEYS.has(key)
+      ? baseStyle + ';display:none'
+      : baseStyle;
+  }
 
   document.getElementById('work-page').innerHTML = `
     <!-- Hero: 사진/영상/링크 (편집 모드에서 클릭해 교체) -->
     <div class="work-hero">
-      <div class="wc-img" data-media="image" data-media-key="wd:${p.id}:c0" data-media-rich="1" style="position:absolute;inset:0;border-radius:0">
-        <img src="${imgs[0]}" alt="${p.ko} 전경" style="width:100%;height:100%;object-fit:cover">
+      <div class="wc-img" data-media="image" data-media-key="wd:${p.id}:c0" data-media-rich="1"${backedAttr(`wd:${p.id}:c0`)} style="position:absolute;inset:0;border-radius:0;background:#050505">
+        <img src="${imgs[0]}" alt="${p.ko} 전경" style="${fallbackStyle(`wd:${p.id}:c0`, 'width:100%;height:100%;object-fit:cover')}">
       </div>
     </div>
 
@@ -867,8 +876,8 @@
     </div>
 
     <!-- Next project -->
-    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-mobile-media-stable-20260719-1" data-media="image" data-media-key="wd:${p.id}:next">
-      <div class="wn-bg" style="background-image:url('${nextImg}')"></div>
+    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-default-clean-20260719-1" data-media="image" data-media-key="wd:${p.id}:next"${backedAttr(`wd:${p.id}:next`)}>
+      <div class="wn-bg" style="${BACKED_MEDIA_KEYS.has(`wd:${p.id}:next`) ? 'background-image:none;background-color:#050505' : `background-image:url('${nextImg}')`}"></div>
       <div class="wn-overlay"></div>
       <div class="wn-content">
         <span class="wn-label">Next Project</span>
@@ -976,7 +985,7 @@
     const root = document.getElementById('wc-gallery-root');
     root.innerHTML = gallerySlots.map(slot =>
       `<div class="wc-gitem" data-slot="${slot}">`
-      + `<div class="wc-img" data-media="image" data-media-key="wd:${p.id}:${slot}" data-media-rich="1"><img src="${defaultImgFor(slot)}" alt=""></div>`
+      + `<div class="wc-img" data-media="image" data-media-key="wd:${p.id}:${slot}" data-media-rich="1"${backedAttr(`wd:${p.id}:${slot}`)}><img src="${defaultImgFor(slot)}" alt="" style="${fallbackStyle(`wd:${p.id}:${slot}`, '')}"></div>`
       + `<button class="wc-gitem-remove" type="button" title="사진 삭제">✕</button>`
       + `</div>`
     ).join('');
