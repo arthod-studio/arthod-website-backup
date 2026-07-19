@@ -2488,7 +2488,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-17-detail-load-fix';
+  const PUBLIC_SYNC_VERSION = 'public-sync-18-detail-nonblocking-load';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2574,7 +2574,7 @@ if (fv) {
 
   async function init() {
     db(); // warm-start IndexedDB
-    const publicSyncChanged = await syncFromPublicSource(); // 방문자마다 최신 게시본을 먼저 반영
+    const publicSyncPromise = syncFromPublicSource(); // 방문자마다 최신 게시본을 반영하되 화면 표시는 막지 않는다.
     restoreFooterConnect();
     restoreAboutHistory();
     migrateLegacyProjectTitles();
@@ -2589,10 +2589,14 @@ if (fv) {
     restoreLayouts();
     attachMediaHandles();
     buildUI();
+    revealBootingPage();
     applyAllMedia().then(() => {
       refreshCount();
       revealBootingPage();
     }).catch(revealBootingPage);
+    publicSyncPromise.then(changed => {
+      if (changed) applyAllMedia().then(refreshCount).catch(() => {});
+    }).catch(() => {});
     // 콜드 스타트 / works.html 기본 이미지 루프와의 경합 방지: 여러 번 재적용 (idempotent)
     setTimeout(() => applyAllMedia(), 250);
     setTimeout(() => applyAllMedia(), 800);
@@ -2623,9 +2627,6 @@ if (fv) {
         applyAllMedia();
       },
     };
-    if (publicSyncChanged) {
-      window.dispatchEvent(new CustomEvent('arthod:public-sync'));
-    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
