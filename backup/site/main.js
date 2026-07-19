@@ -1388,19 +1388,27 @@ if (fv) {
       el.insertBefore(wrap, el.firstChild);
       buildClickToPlay(wrap, rec.embedUrl);
     } else if (rec.kind === 'video') {
-      if (img) img.style.display = 'none';
       const url = recUrl(rec);
       if (!url) return;
       const v = document.createElement('video');
       v.className = 'rich-media-el';
       v.src = url;
+      v.preload = 'auto';
       v.autoplay = v.muted = v.loop = true;
+      v.defaultMuted = true;
       v.playsInline = true;
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
-      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:#f3f3f3';
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:#050505;opacity:0;transition:opacity .18s ease';
+      const revealVideo = () => {
+        v.style.opacity = '1';
+        if (img) img.style.display = 'none';
+      };
+      v.addEventListener('loadeddata', revealVideo, { once: true });
+      v.addEventListener('canplay', revealVideo, { once: true });
       el.insertBefore(v, el.firstChild);
-      v.play().catch(() => {});
+      v.play().then(revealVideo).catch(() => {});
+      if (v.readyState >= 2) revealVideo();
     } else if (img) {
       const url = recUrl(rec);
       if (!url) return;
@@ -2530,7 +2538,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-19-detail-mobile-media-sync';
+  const PUBLIC_SYNC_VERSION = 'public-sync-20-detail-mobile-media-frame';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {

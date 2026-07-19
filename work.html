@@ -298,6 +298,22 @@
       .wc-2col,
       .wc-gallery[data-layout] { grid-template-columns: 1fr !important; }
       .wc-gallery[data-layout="feature-mix"] .wc-gitem:first-child { grid-column: span 1; }
+      .wc-gallery[data-layout] .wc-img {
+        aspect-ratio: auto !important;
+        min-height: 0;
+        background: #050505;
+      }
+      .wc-gallery .wc-img img,
+      .wc-gallery .wc-img video.rich-media-el {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        background: #050505 !important;
+      }
     }
 
     .wc-layout-btn {
@@ -496,7 +512,7 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=detail-mobile-media-sync-20260719-1"></script>
+  <script src="main.js?v=detail-mobile-media-frame-20260719-1"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [
@@ -849,7 +865,7 @@
     </div>
 
     <!-- Next project -->
-    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-mobile-media-sync-20260719-1" data-media="image" data-media-key="wd:${p.id}:next">
+    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-mobile-media-frame-20260719-1" data-media="image" data-media-key="wd:${p.id}:next">
       <div class="wn-bg" style="background-image:url('${nextImg}')"></div>
       <div class="wn-overlay"></div>
       <div class="wn-content">
