@@ -1480,10 +1480,16 @@ if (fv) {
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
       v.setAttribute('webkit-playsinline', '');
+      v.style.pointerEvents = 'none';
       v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:#050505;opacity:0;transition:opacity .18s ease';
+      v.style.pointerEvents = 'none';
+      const mobileMedia = window.matchMedia && window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
       const revealVideo = () => {
         v.style.opacity = '1';
-        if (img) img.style.display = 'none';
+        if (img && !mobileMedia) img.style.display = 'none';
+      };
+      const revealWhenReallyPlaying = () => {
+        if (!mobileMedia || v.readyState >= 2) revealVideo();
       };
       const showPoster = () => {
         if (img && posterUrl) {
@@ -1492,13 +1498,18 @@ if (fv) {
         }
         v.style.opacity = '0';
       };
-      v.addEventListener('loadeddata', revealVideo, { once: true });
-      v.addEventListener('canplay', revealVideo, { once: true });
+      if (mobileMedia) {
+        v.addEventListener('playing', revealWhenReallyPlaying, { once: true });
+        v.addEventListener('timeupdate', revealWhenReallyPlaying, { once: true });
+      } else {
+        v.addEventListener('loadeddata', revealVideo, { once: true });
+        v.addEventListener('canplay', revealVideo, { once: true });
+      }
       v.addEventListener('error', showPoster);
       v.addEventListener('stalled', showPoster);
       el.insertBefore(v, el.firstChild);
       registerMobileAutoVideo(v);
-      if (v.readyState >= 2) revealVideo();
+      if (!mobileMedia && v.readyState >= 2) revealVideo();
     } else if (img) {
       const url = recUrl(rec);
       if (!url) return;
@@ -2628,7 +2639,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-26-detail-mobile-video-localmedia';
+  const PUBLIC_SYNC_VERSION = 'public-sync-27-detail-mobile-gallery-scroll';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2729,6 +2740,8 @@ if (fv) {
 
   /* ── 7. 초기화 ── */
   function revealBootingPage() {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
     document.body.classList.remove('work-detail-booting');
     document.body.classList.add('work-detail-ready');
     const workPage = document.getElementById('work-page');
