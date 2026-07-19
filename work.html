@@ -24,8 +24,8 @@
       visibility: hidden;
     }
     body.work-detail-ready .work-page {
-      opacity: 1;
-      visibility: visible;
+      opacity: 1 !important;
+      visibility: visible !important;
       transition: opacity .18s ease;
     }
 
@@ -496,7 +496,7 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=mobile-responsive-20260719-1"></script>
+  <script src="main.js?v=detail-load-fix-20260719-1"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [
