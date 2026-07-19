@@ -120,50 +120,48 @@ document.querySelectorAll('.mobile-link').forEach(link => {
   });
 });
 
-/* ── Mobile work detail: immediate finger swipe scrolling ───── */
-(function initMobileNaturalTouchScroll() {
+/* ── Work detail mobile scroll: match Works page swipe feel ── */
+(function initWorkDetailScrollLikeWorks() {
   const isWorkDetail = (location.pathname.split('/').pop() || '').split('?')[0] === 'work.html';
-  const isTouchViewport = window.innerWidth <= 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-  if (!isWorkDetail || !isTouchViewport) return;
-  let startX = 0;
-  let startY = 0;
-  let startScroll = 0;
+  const isMobileTouch = window.innerWidth <= 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  if (!isWorkDetail || !isMobileTouch) return;
+  const skipSelector = 'a,button,input,textarea,select,.nav-toggle,.mobile-overlay,.media-play-btn,.size-handle,.pan-handle,.zoom-handle,.media-revert';
   let active = false;
   let locked = false;
+  let sx = 0;
+  let sy = 0;
   let lastY = 0;
   let lastT = 0;
   let velocity = 0;
-  const interactiveSelector = 'a,button,input,textarea,select,.nav-toggle,.mobile-overlay,.media-play-btn,.size-handle,.pan-handle,.zoom-handle,.media-revert';
-  const maxScroll = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-  const clampScroll = y => Math.max(0, Math.min(maxScroll(), y));
-  const shouldIgnore = target => {
-    const hit = target && target.closest && target.closest(interactiveSelector);
-    if (!hit) return false;
-    return !target.closest('.work-page') || hit.classList.contains('media-play-btn') || hit.tagName === 'A' || hit.tagName === 'BUTTON' || hit.matches('input,textarea,select');
+  const scroller = () => document.scrollingElement || document.documentElement;
+  const maxTop = () => Math.max(0, scroller().scrollHeight - window.innerHeight);
+  const clamp = top => Math.max(0, Math.min(maxTop(), top));
+  const ignore = target => {
+    const hit = target && target.closest && target.closest(skipSelector);
+    return !!hit && !hit.closest('.wc-img');
   };
   const onStart = event => {
-    if (event.touches.length !== 1 || shouldIgnore(event.target)) {
+    if (event.touches.length !== 1 || ignore(event.target)) {
       active = false;
       return;
     }
     const t = event.touches[0];
-    startX = t.clientX;
-    startY = t.clientY;
+    sx = t.clientX;
+    sy = t.clientY;
     lastY = t.clientY;
     lastT = event.timeStamp || performance.now();
     velocity = 0;
-    startScroll = window.scrollY || document.documentElement.scrollTop || 0;
     active = true;
     locked = false;
   };
   const onMove = event => {
     if (!active || event.touches.length !== 1) return;
     const t = event.touches[0];
-    const dx = t.clientX - startX;
-    const dy = t.clientY - startY;
+    const dx = t.clientX - sx;
+    const dy = t.clientY - sy;
     if (!locked) {
-      if (Math.abs(dy) < 6) return;
-      if (Math.abs(dy) <= Math.abs(dx) * 1.1) {
+      if (Math.abs(dy) < 2) return;
+      if (Math.abs(dy) <= Math.abs(dx) * 1.05) {
         active = false;
         return;
       }
@@ -172,10 +170,11 @@ document.querySelectorAll('.mobile-link').forEach(link => {
     event.preventDefault();
     const now = event.timeStamp || performance.now();
     const dt = Math.max(16, now - lastT);
-    velocity = (lastY - t.clientY) / dt;
+    const delta = lastY - t.clientY;
+    velocity = delta / dt;
     lastY = t.clientY;
     lastT = now;
-    window.scrollTo(0, clampScroll(startScroll - dy));
+    scroller().scrollTop = clamp(scroller().scrollTop + delta * 1.65);
   };
   const onEnd = () => {
     if (!active || !locked) {
@@ -183,10 +182,8 @@ document.querySelectorAll('.mobile-link').forEach(link => {
       return;
     }
     active = false;
-    const start = window.scrollY || document.documentElement.scrollTop || 0;
-    const distance = Math.max(-520, Math.min(520, velocity * 260));
-    if (Math.abs(distance) < 24) return;
-    window.scrollTo({ top: clampScroll(start + distance), behavior: 'smooth' });
+    const distance = Math.max(-620, Math.min(620, velocity * 340));
+    if (Math.abs(distance) > 20) window.scrollTo({ top: clamp(scroller().scrollTop + distance), behavior: 'smooth' });
   };
   window.addEventListener('touchstart', onStart, { passive: true, capture: true });
   window.addEventListener('touchmove', onMove, { passive: false, capture: true });
@@ -1506,9 +1503,8 @@ if (fv) {
     if (mobileAutoVideoObserver) mobileAutoVideoObserver.observe(video);
     if (!mobileAutoVideoListenersBound) {
       mobileAutoVideoListenersBound = true;
-      ['touchstart', 'pointerdown', 'click'].forEach(evt => {
-        document.addEventListener(evt, playVisibleMobileVideos, { passive: true });
-      });
+      document.addEventListener('click', playVisibleMobileVideos, { passive: true });
+      window.addEventListener('scroll', playVisibleMobileVideos, { passive: true });
       window.addEventListener('pageshow', playVisibleMobileVideos);
       document.addEventListener('visibilitychange', () => {
         if (!document.hidden) playVisibleMobileVideos();
@@ -2714,7 +2710,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-29-detail-natural-touch-scroll';
+  const PUBLIC_SYNC_VERSION = 'public-sync-31-detail-works-scroll';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {

@@ -16,7 +16,7 @@
   <meta property="og:title" content="Work — Arthod(아쏘드)"/>
   <title>Work — Arthod(아쏘드)</title>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
-  <link rel="stylesheet" href="style.css?v=mobile-natural-touch-scroll-20260719-1"/>
+  <link rel="stylesheet" href="style.css?v=mobile-works-scroll-20260719-2"/>
   <style>
     .work-page { padding-top: var(--nav-h); }
     body.work-detail-booting .work-page {
@@ -38,7 +38,6 @@
       overflow: hidden;
       margin: 8px;
       border-radius: 16px;
-      touch-action: pan-y;
     }
 
     .work-hero-bg {
@@ -244,7 +243,6 @@
       border-radius: 12px;
       overflow: hidden;
       position: relative;
-      touch-action: pan-y;
     }
     .wc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .wc-img-wide { aspect-ratio: 21/9; }
@@ -271,7 +269,7 @@
 
     /* ── 갤러리 레이아웃 범트 (편집 모드에서 선택) ── */
     .wc-gallery { display: grid; gap: 6px; }
-    .wc-gallery .wc-img { border-radius: 0; background: #f3f3f3; touch-action: pan-y; }
+    .wc-gallery .wc-img { border-radius: 0; background: #f3f3f3; }
     .wc-gallery .wc-img img,
     .wc-gallery .wc-img video.rich-media-el {
       object-fit: cover !important;
@@ -317,15 +315,8 @@
       .wc-gallery .wc-img img { z-index: 1; }
       .wc-gallery .wc-img video.rich-media-el { z-index: 2; pointer-events: none !important; }
       .work-page,
-      .work-hero,
-      .work-content,
-      .wc-gallery,
-      .wc-gitem,
-      .wc-img,
-      .media-poster,
-      .rich-media-el {
-        touch-action: pan-y !important;
-        -webkit-overflow-scrolling: touch;
+      .work-page * {
+        touch-action: auto !important;
       }
       .work-hero .rich-media-el,
       .work-hero iframe,
@@ -541,7 +532,7 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=detail-natural-touch-scroll-20260719-1"></script>
+  <script src="main.js?v=detail-works-scroll-20260719-2"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [
@@ -920,7 +911,7 @@
     </div>
 
     <!-- Next project -->
-    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-natural-touch-scroll-20260719-1" data-media="image" data-media-key="wd:${p.id}:next"${backedAttr(`wd:${p.id}:next`)}>
+    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-works-scroll-20260719-2" data-media="image" data-media-key="wd:${p.id}:next"${backedAttr(`wd:${p.id}:next`)}>
       <div class="wn-bg" style="${nextBgStyle(`wd:${p.id}:next`, nextImg)}"></div>
       <div class="wn-overlay"></div>
       <div class="wn-content">
