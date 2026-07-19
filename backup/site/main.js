@@ -935,9 +935,13 @@ if (fv) {
     }
     if (info.file) {
       const sep = info.file.indexOf('?') >= 0 ? '&' : '?';
+      const posterFile = info.poster || ((info.kind === 'video' && /\.(mp4|mov|webm)$/i.test(info.file))
+        ? info.file.replace(/\.(mp4|mov|webm)(\?.*)?$/i, '.jpg')
+        : '');
       return {
         kind: info.kind || 'image',
         url: publicMediaBase + info.file + sep + 'v=' + encodeURIComponent(publicMediaVersion || 'public-media'),
+        posterUrl: posterFile ? publicMediaBase + posterFile + '?v=' + encodeURIComponent(publicMediaVersion || 'public-media') : '',
       };
     }
     return null;
@@ -1154,28 +1158,33 @@ if (fv) {
       setYouTubePoster(poster, info.id);
     }
     poster.innerHTML = '<button class="media-play-btn" type="button" aria-label="Play video"><span></span></button>';
-    const startPlayback = () => {
+    let started = false;
+    const startPlayback = event => {
+      if (event) event.preventDefault();
+      if (started) return;
+      started = true;
       // 기존에 저장된 embedUrl에 옛 파라미터(autoplay/mute/controls 등)가 섞여 있어도
       // 확실하게 "재생+소리 켜짐" 상태가 되도록 URL을 새로 구성한다.
       const base = embedUrl.split('?')[0];
       const params = new URLSearchParams(embedUrl.split('?')[1] || '');
       params.set('autoplay', '1');
-      params.set('mute', '0');
+      params.set('mute', '1');
       if (info && info.kind === 'youtube') {
         params.set('controls', '1');
-        params.set('muted', '0');
+        params.set('muted', '1');
         params.set('cc_load_policy', '0');
         params.set('iv_load_policy', '3');
         params.set('disablekb', '0');
         params.set('fs', '1');
         params.set('enablejsapi', '1');
         params.set('playsinline', '1');
+        params.set('origin', location.origin);
       }
-      if (info && info.kind === 'vimeo') { params.set('muted', '0'); params.set('background', '0'); }
+      if (info && info.kind === 'vimeo') { params.set('muted', '1'); params.set('background', '0'); }
       const liveUrl = base + '?' + params.toString();
       const ifr = document.createElement('iframe');
       ifr.src = liveUrl;
-      ifr.allow = 'autoplay; encrypted-media; picture-in-picture';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       ifr.setAttribute('frameborder', '0');
       ifr.setAttribute('allowfullscreen', '');
       ifr.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
@@ -1192,8 +1201,7 @@ if (fv) {
         };
         ifr.addEventListener('load', () => {
           setTimeout(() => {
-            send('unMute');
-            send('setVolume', [80]);
+            send('playVideo');
             send('unloadModule', ['captions']);
             send('unloadModule', ['cc']);
           }, 700);
@@ -1201,7 +1209,9 @@ if (fv) {
       }
       poster.remove();
     };
-    poster.addEventListener('click', startPlayback);
+    ['click', 'pointerup', 'touchend'].forEach(evt => {
+      poster.addEventListener(evt, startPlayback, { passive: false });
+    });
     wrap.appendChild(poster);
   }
   function applyHero(rec) {
@@ -1442,9 +1452,15 @@ if (fv) {
     } else if (rec.kind === 'video') {
       const url = recUrl(rec);
       if (!url) return;
+      if (img && rec.posterUrl) {
+        img.src = rec.posterUrl;
+        img.style.display = 'block';
+        img.style.objectFit = 'cover';
+      }
       const v = document.createElement('video');
       v.className = 'rich-media-el';
       v.src = url;
+      if (rec.posterUrl) v.poster = rec.posterUrl;
       v.preload = 'auto';
       v.autoplay = v.muted = v.loop = true;
       v.defaultMuted = true;
@@ -1457,8 +1473,17 @@ if (fv) {
         v.style.opacity = '1';
         if (img) img.style.display = 'none';
       };
+      const showPoster = () => {
+        if (img && rec.posterUrl) {
+          img.src = rec.posterUrl;
+          img.style.display = 'block';
+        }
+        v.style.opacity = '0';
+      };
       v.addEventListener('loadeddata', revealVideo, { once: true });
       v.addEventListener('canplay', revealVideo, { once: true });
+      v.addEventListener('error', showPoster);
+      v.addEventListener('stalled', showPoster);
       el.insertBefore(v, el.firstChild);
       registerMobileAutoVideo(v);
       if (v.readyState >= 2) revealVideo();
@@ -2591,7 +2616,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-24-detail-mobile-video-autoplay';
+  const PUBLIC_SYNC_VERSION = 'public-sync-25-detail-mobile-video-fallback';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2650,7 +2675,14 @@ if (fv) {
               const mr = await fetch(base + info.file + cacheBust, { cache: 'reload' });
               if (mr.ok) {
                 const blob = await mr.blob();
-                await mediaSet(key, { kind: info.kind, blob });
+                const posterFile = info.poster || ((info.kind === 'video' && /\.(mp4|mov|webm)$/i.test(info.file))
+                  ? info.file.replace(/\.(mp4|mov|webm)(\?.*)?$/i, '.jpg')
+                  : '');
+                await mediaSet(key, {
+                  kind: info.kind,
+                  blob,
+                  posterUrl: posterFile ? base + posterFile + cacheBust : '',
+                });
                 return true;
               }
             } catch (e) { /* 개별 파일 실패는 무시 */ }

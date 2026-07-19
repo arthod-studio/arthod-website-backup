@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-18T13:55:06.965Z",
+  "savedAt": "2026-07-19T09:05:15.199Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -693,27 +693,33 @@
     },
     "wd:01:g1": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g1.mp4"
+      "file": "backup/media/01/wd_01_g1.mp4",
+      "poster": "backup/media/01/wd_01_g1.jpg"
     },
     "wd:01:g2": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g2.mp4"
+      "file": "backup/media/01/wd_01_g2.mp4",
+      "poster": "backup/media/01/wd_01_g2.jpg"
     },
     "wd:01:g3": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g3.mp4"
+      "file": "backup/media/01/wd_01_g3.mp4",
+      "poster": "backup/media/01/wd_01_g3.jpg"
     },
     "wd:01:g4": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g4.mp4"
+      "file": "backup/media/01/wd_01_g4.mp4",
+      "poster": "backup/media/01/wd_01_g4.jpg"
     },
     "wd:01:g5": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g5.mov"
+      "file": "backup/media/01/wd_01_g5.mp4",
+      "poster": "backup/media/01/wd_01_g5.jpg"
     },
     "wd:01:g6": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g6.mp4"
+      "file": "backup/media/01/wd_01_g6.mp4",
+      "poster": "backup/media/01/wd_01_g6.jpg"
     },
     "wd:01:next": {
       "kind": "ref",
