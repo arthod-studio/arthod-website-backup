@@ -17,7 +17,7 @@
   <link rel="canonical" href="https://www.arthod-studio.com/works.html"/>
   <title>Works — Arthod(아쏘드)</title>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
-  <link rel="stylesheet" href="style.css?v=cursor-fast-20260706-1"/>
+  <link rel="stylesheet" href="style.css?v=mobile-responsive-20260719-1"/>
   <style>
     body { background: #080808; color: #fff; }
     .nav-logo img { filter: none !important; }
@@ -420,25 +420,32 @@
     @media (max-width: 480px) {
       .card-inner { aspect-ratio: 16/9; border-radius: 8px; }
       .card-head {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
-        gap: 8px;
+        justify-content: space-between;
+        gap: 12px;
         padding: 14px 0;
       }
-      .card-head-left,
-      .card-head-right {
-        width: 100%;
+      .card-head-left {
+        flex: 1 1 auto;
         min-width: 0;
       }
       .card-head-right {
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 56px;
+        justify-content: flex-end;
+        text-align: right;
+        padding-top: 3px;
       }
       .card-title { line-height: 1.08; }
       .card-en {
         display: block;
         margin: 6px 0 0;
+        max-width: min(64vw, 270px);
+        white-space: normal;
       }
+      .card-yr { display: block; font-size: 13px; letter-spacing: .14em; }
     }
   </style>
 </head>
@@ -615,7 +622,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=work-video-play-button-20260718-1"></script>
+  <script src="main.js?v=mobile-responsive-20260719-1"></script>
   <script>
     // ── Works-only dissolve image slots ──────────────────────
     window.installWorksHoverSlots = function installWorksHoverSlots() {

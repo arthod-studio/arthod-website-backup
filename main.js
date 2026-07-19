@@ -1195,14 +1195,14 @@ if (fv) {
       v.playsInline = true;
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
-      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1';
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#000;z-index:1';
       card.appendChild(v);
       v.play().catch(() => {});
     } else {
       const url = URL.createObjectURL(rec.blob);
       const d = document.createElement('div');
       d.className = 'hero-user-media';
-      d.style.cssText = `position:absolute;inset:0;background:url("${url}") center/cover no-repeat;z-index:1`;
+      d.style.cssText = `position:absolute;inset:0;background:#000 url("${url}") center/contain no-repeat;z-index:1`;
       card.appendChild(d);
     }
     markCustom(card);
@@ -2488,7 +2488,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-15-work-video-play-button';
+  const PUBLIC_SYNC_VERSION = 'public-sync-16-mobile-responsive-home-works';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
