@@ -82,6 +82,21 @@ body,body *{
 body.ch-hover #cursor-ring{width:64px;height:64px;border-color:rgba(255,255,255,.5)}
 body.ch-click #cursor-dot{width:12px;height:12px}
 
+@media (hover:none), (pointer:coarse) {
+  html,
+  body {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+  body,
+  body * {
+    cursor: auto !important;
+  }
+  #cursor {
+    display: none !important;
+  }
+}
+
 /* ── Nav ───────────────────────────────────────────────────── */
 .site-nav{
   position:fixed;

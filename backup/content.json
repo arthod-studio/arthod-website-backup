@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-19T09:05:15.199Z",
+  "savedAt": "2026-07-19T10:12:57.689Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -735,27 +735,33 @@
     },
     "wd:02:g1": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g1.mp4"
+      "file": "backup/media/02/wd_02_g1.mp4",
+      "poster": "backup/media/02/wd_02_g1.jpg"
     },
     "wd:02:g2": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g2.mp4"
+      "file": "backup/media/02/wd_02_g2.mp4",
+      "poster": "backup/media/02/wd_02_g2.jpg"
     },
     "wd:02:g3": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g3.mp4"
+      "file": "backup/media/02/wd_02_g3.mp4",
+      "poster": "backup/media/02/wd_02_g3.jpg"
     },
     "wd:02:g4": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g4.mp4"
+      "file": "backup/media/02/wd_02_g4.mp4",
+      "poster": "backup/media/02/wd_02_g4.jpg"
     },
     "wd:02:g5": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g5.mp4"
+      "file": "backup/media/02/wd_02_g5.mp4",
+      "poster": "backup/media/02/wd_02_g5.jpg"
     },
     "wd:02:g6": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g6.mp4"
+      "file": "backup/media/02/wd_02_g6.mp4",
+      "poster": "backup/media/02/wd_02_g6.jpg"
     },
     "wd:02:next": {
       "kind": "ref",
@@ -799,27 +805,33 @@
     },
     "wd:04:g1": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g1.mp4"
+      "file": "backup/media/04/wd_04_g1.mp4",
+      "poster": "backup/media/04/wd_04_g1.jpg"
     },
     "wd:04:g2": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g2.mp4"
+      "file": "backup/media/04/wd_04_g2.mp4",
+      "poster": "backup/media/04/wd_04_g2.jpg"
     },
     "wd:04:g3": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g3.mp4"
+      "file": "backup/media/04/wd_04_g3.mp4",
+      "poster": "backup/media/04/wd_04_g3.jpg"
     },
     "wd:04:g4": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g4.mp4"
+      "file": "backup/media/04/wd_04_g4.mp4",
+      "poster": "backup/media/04/wd_04_g4.jpg"
     },
     "wd:04:g5": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g5.mp4"
+      "file": "backup/media/04/wd_04_g5.mp4",
+      "poster": "backup/media/04/wd_04_g5.jpg"
     },
     "wd:04:g6": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g6.mp4"
+      "file": "backup/media/04/wd_04_g6.mp4",
+      "poster": "backup/media/04/wd_04_g6.jpg"
     },
     "wd:04:next": {
       "kind": "ref",
@@ -887,27 +899,33 @@
     },
     "wd:07:g1": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g1.mp4"
+      "file": "backup/media/07/wd_07_g1.mp4",
+      "poster": "backup/media/07/wd_07_g1.jpg"
     },
     "wd:07:g2": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g2.mp4"
+      "file": "backup/media/07/wd_07_g2.mp4",
+      "poster": "backup/media/07/wd_07_g2.jpg"
     },
     "wd:07:g3": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g3.mp4"
+      "file": "backup/media/07/wd_07_g3.mp4",
+      "poster": "backup/media/07/wd_07_g3.jpg"
     },
     "wd:07:g4": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g4.mp4"
+      "file": "backup/media/07/wd_07_g4.mp4",
+      "poster": "backup/media/07/wd_07_g4.jpg"
     },
     "wd:07:g5": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g5.mp4"
+      "file": "backup/media/07/wd_07_g5.mp4",
+      "poster": "backup/media/07/wd_07_g5.jpg"
     },
     "wd:07:g6": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g6.mp4"
+      "file": "backup/media/07/wd_07_g6.mp4",
+      "poster": "backup/media/07/wd_07_g6.jpg"
     },
     "wd:07:next": {
       "kind": "image",
@@ -931,19 +949,23 @@
     },
     "wd:09:g3": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g3.mp4"
+      "file": "backup/media/09/wd_09_g3.mp4",
+      "poster": "backup/media/09/wd_09_g3.jpg"
     },
     "wd:09:g4": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g4.mp4"
+      "file": "backup/media/09/wd_09_g4.mp4",
+      "poster": "backup/media/09/wd_09_g4.jpg"
     },
     "wd:09:g5": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g5.mp4"
+      "file": "backup/media/09/wd_09_g5.mp4",
+      "poster": "backup/media/09/wd_09_g5.jpg"
     },
     "wd:09:g6": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g6.mp4"
+      "file": "backup/media/09/wd_09_g6.mp4",
+      "poster": "backup/media/09/wd_09_g6.jpg"
     },
     "wd:09:next": {
       "kind": "ref",
@@ -955,27 +977,33 @@
     },
     "wd:10:g1": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g1.mp4"
+      "file": "backup/media/10/wd_10_g1.mp4",
+      "poster": "backup/media/10/wd_10_g1.jpg"
     },
     "wd:10:g2": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g2.mp4"
+      "file": "backup/media/10/wd_10_g2.mp4",
+      "poster": "backup/media/10/wd_10_g2.jpg"
     },
     "wd:10:g3": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g3.mp4"
+      "file": "backup/media/10/wd_10_g3.mp4",
+      "poster": "backup/media/10/wd_10_g3.jpg"
     },
     "wd:10:g4": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g4.mp4"
+      "file": "backup/media/10/wd_10_g4.mp4",
+      "poster": "backup/media/10/wd_10_g4.jpg"
     },
     "wd:10:g5": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g5.mp4"
+      "file": "backup/media/10/wd_10_g5.mp4",
+      "poster": "backup/media/10/wd_10_g5.jpg"
     },
     "wd:10:g6": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g6.mp4"
+      "file": "backup/media/10/wd_10_g6.mp4",
+      "poster": "backup/media/10/wd_10_g6.jpg"
     },
     "wd:10:next": {
       "kind": "ref",
@@ -1119,27 +1147,33 @@
     },
     "wd:08:g1": {
       "kind": "video",
-      "file": "backup/media/08/wd_08_g1.mp4"
+      "file": "backup/media/08/wd_08_g1.mp4",
+      "poster": "backup/media/08/wd_08_g1.jpg"
     },
     "wd:08:g2": {
       "kind": "video",
-      "file": "backup/media/08/wd_08_g2.mp4"
+      "file": "backup/media/08/wd_08_g2.mp4",
+      "poster": "backup/media/08/wd_08_g2.jpg"
     },
     "wd:08:g3": {
       "kind": "video",
-      "file": "backup/media/08/wd_08_g3.mp4"
+      "file": "backup/media/08/wd_08_g3.mp4",
+      "poster": "backup/media/08/wd_08_g3.jpg"
     },
     "wd:08:g4": {
       "kind": "video",
-      "file": "backup/media/08/wd_08_g4.mp4"
+      "file": "backup/media/08/wd_08_g4.mp4",
+      "poster": "backup/media/08/wd_08_g4.jpg"
     },
     "wd:08:g5": {
       "kind": "video",
-      "file": "backup/media/08/wd_08_g5.mp4"
+      "file": "backup/media/08/wd_08_g5.mp4",
+      "poster": "backup/media/08/wd_08_g5.jpg"
     },
     "wd:08:g6": {
       "kind": "video",
-      "file": "backup/media/08/wd_08_g6.mp4"
+      "file": "backup/media/08/wd_08_g6.mp4",
+      "poster": "backup/media/08/wd_08_g6.jpg"
     }
   },
   "works": [

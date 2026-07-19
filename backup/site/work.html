@@ -16,7 +16,7 @@
   <meta property="og:title" content="Work — Arthod(아쏘드)"/>
   <title>Work — Arthod(아쏘드)</title>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
-  <link rel="stylesheet" href="style.css?v=mobile-responsive-20260719-1"/>
+  <link rel="stylesheet" href="style.css?v=mobile-swipe-scroll-20260719-1"/>
   <style>
     .work-page { padding-top: var(--nav-h); }
     body.work-detail-booting .work-page {
@@ -38,6 +38,7 @@
       overflow: hidden;
       margin: 8px;
       border-radius: 16px;
+      touch-action: pan-y;
     }
 
     .work-hero-bg {
@@ -243,6 +244,7 @@
       border-radius: 12px;
       overflow: hidden;
       position: relative;
+      touch-action: pan-y;
     }
     .wc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .wc-img-wide { aspect-ratio: 21/9; }
@@ -314,6 +316,28 @@
       }
       .wc-gallery .wc-img img { z-index: 1; }
       .wc-gallery .wc-img video.rich-media-el { z-index: 2; pointer-events: none !important; }
+      .work-page,
+      .work-hero,
+      .work-content,
+      .wc-gallery,
+      .wc-gitem,
+      .wc-img,
+      .media-poster,
+      .rich-media-el {
+        touch-action: pan-y !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .work-hero .rich-media-el,
+      .work-hero iframe,
+      .work-hero .media-poster,
+      .wc-gallery .rich-media-el,
+      .wc-gallery video {
+        pointer-events: none !important;
+      }
+      .work-hero .media-play-btn {
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+      }
     }
     @media (max-width: 480px) {
       .wc-2col,
@@ -517,7 +541,7 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=detail-mobile-gallery-scroll-20260719-1"></script>
+  <script src="main.js?v=detail-mobile-swipe-scroll-20260719-1"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [
@@ -795,6 +819,19 @@
   // 대표 이미지(hero)는 이제 단일 사진/영상/링크 슬롯 — imgs[0]을 기본값으로 사용
   const imgs = SLIDER_IMAGES[p.id] || SLIDER_IMAGES['01'];
   const BACKED_MEDIA_KEYS = new Set(['wd:01:c0','wd:01:g1','wd:01:g2','wd:01:g3','wd:01:g4','wd:01:g5','wd:01:g6','wd:01:next','wd:02:c0','wd:02:g1','wd:02:g2','wd:02:g3','wd:02:g4','wd:02:g5','wd:02:g6','wd:02:next','wd:03:c0','wd:03:g1','wd:03:g2','wd:03:g3','wd:03:g4','wd:03:g5','wd:03:g6','wd:03:next','wd:04:c0','wd:04:g1','wd:04:g2','wd:04:g3','wd:04:g4','wd:04:g5','wd:04:g6','wd:04:next','wd:05:c0','wd:05:g1','wd:05:g2','wd:05:g3','wd:05:g4','wd:05:g5','wd:05:next','wd:06:c0','wd:06:g1','wd:06:g2','wd:06:g3','wd:06:g4','wd:06:g5','wd:06:next','wd:07:c0','wd:07:g1','wd:07:g2','wd:07:g3','wd:07:g4','wd:07:g5','wd:07:g6','wd:07:next','wd:08:c0','wd:08:g1','wd:08:g2','wd:08:g3','wd:08:g4','wd:08:g5','wd:08:g6','wd:08:next','wd:09:c0','wd:09:g1','wd:09:g2','wd:09:g3','wd:09:g4','wd:09:g5','wd:09:g6','wd:09:next','wd:10:c0','wd:10:g1','wd:10:g2','wd:10:g3','wd:10:g4','wd:10:g5','wd:10:g6','wd:10:next']);
+  const PUBLIC_MEDIA_BASE = 'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main';
+  const NEXT_MEDIA_IMAGES = {
+    'wd:01:next': `${PUBLIC_MEDIA_BASE}/backup/media/02/wimg_02.jpg`,
+    'wd:02:next': `${PUBLIC_MEDIA_BASE}/backup/media/03/wd_03_g1.jpg`,
+    'wd:03:next': `${PUBLIC_MEDIA_BASE}/backup/media/03/wd_03_next.jpg`,
+    'wd:04:next': `${PUBLIC_MEDIA_BASE}/backup/media/05/wd_05_g1.jpg`,
+    'wd:05:next': `${PUBLIC_MEDIA_BASE}/backup/media/06/wd_06_c0.jpg`,
+    'wd:06:next': `${PUBLIC_MEDIA_BASE}/backup/media/06/wd_06_next.jpg`,
+    'wd:07:next': `${PUBLIC_MEDIA_BASE}/backup/media/07/wd_07_next.jpg`,
+    'wd:08:next': `${PUBLIC_MEDIA_BASE}/backup/media/10/whover_10_1.jpg`,
+    'wd:09:next': `${PUBLIC_MEDIA_BASE}/backup/media/services/svc_1.jpg`,
+    'wd:10:next': `${PUBLIC_MEDIA_BASE}/backup/media/01/whover_01_1.jpg`
+  };
   function backedAttr(key) {
     return BACKED_MEDIA_KEYS.has(key) ? ' data-public-backed="1"' : '';
   }
@@ -802,6 +839,10 @@
     return BACKED_MEDIA_KEYS.has(key)
       ? baseStyle + ';display:none'
       : baseStyle;
+  }
+  function nextBgStyle(key, fallbackUrl) {
+    const url = NEXT_MEDIA_IMAGES[key] || fallbackUrl;
+    return `background-image:url('${url}');background-color:#050505`;
   }
 
   document.getElementById('work-page').innerHTML = `
@@ -879,8 +920,8 @@
     </div>
 
     <!-- Next project -->
-    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-mobile-gallery-scroll-20260719-1" data-media="image" data-media-key="wd:${p.id}:next"${backedAttr(`wd:${p.id}:next`)}>
-      <div class="wn-bg" style="${BACKED_MEDIA_KEYS.has(`wd:${p.id}:next`) ? 'background-image:none;background-color:#050505' : `background-image:url('${nextImg}')`}"></div>
+    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-mobile-swipe-scroll-20260719-1" data-media="image" data-media-key="wd:${p.id}:next"${backedAttr(`wd:${p.id}:next`)}>
+      <div class="wn-bg" style="${nextBgStyle(`wd:${p.id}:next`, nextImg)}"></div>
       <div class="wn-overlay"></div>
       <div class="wn-content">
         <span class="wn-label">Next Project</span>
