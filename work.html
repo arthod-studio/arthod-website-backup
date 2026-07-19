@@ -294,10 +294,7 @@
       .wc-gallery[data-layout] { grid-template-columns: repeat(2, 1fr) !important; }
       .wc-gallery[data-layout="feature-mix"] .wc-gitem:first-child { grid-column: span 2; grid-row: span 1; }
     }
-    @media (max-width: 480px) {
-      .wc-2col,
-      .wc-gallery[data-layout] { grid-template-columns: 1fr !important; }
-      .wc-gallery[data-layout="feature-mix"] .wc-gitem:first-child { grid-column: span 1; }
+    @media (max-width: 768px) {
       .wc-gallery[data-layout] .wc-img {
         aspect-ratio: auto !important;
         min-height: 0;
@@ -314,6 +311,11 @@
         object-position: center !important;
         background: #050505 !important;
       }
+    }
+    @media (max-width: 480px) {
+      .wc-2col,
+      .wc-gallery[data-layout] { grid-template-columns: 1fr !important; }
+      .wc-gallery[data-layout="feature-mix"] .wc-gitem:first-child { grid-column: span 1; }
     }
 
     .wc-layout-btn {
@@ -512,7 +514,7 @@
   <!-- ══ CONTENT (filled by JS) ══════════════════════════════ -->
   <main class="work-page" id="work-page"></main>
 
-  <script src="main.js?v=detail-mobile-media-frame-20260719-1"></script>
+  <script src="main.js?v=detail-mobile-media-stable-20260719-1"></script>
   <script>
   // ── Project data ──────────────────────────────────────────
   const PROJECTS = [
@@ -865,7 +867,7 @@
     </div>
 
     <!-- Next project -->
-    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-mobile-media-frame-20260719-1" data-media="image" data-media-key="wd:${p.id}:next">
+    <a class="work-next wr" href="work.html?id=${next.id}&v=detail-mobile-media-stable-20260719-1" data-media="image" data-media-key="wd:${p.id}:next">
       <div class="wn-bg" style="background-image:url('${nextImg}')"></div>
       <div class="wn-overlay"></div>
       <div class="wn-content">

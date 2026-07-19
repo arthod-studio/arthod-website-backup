@@ -1380,6 +1380,10 @@ if (fv) {
   function applyRichMedia(el, rec) {
     el.querySelectorAll(':scope > .rich-media-el').forEach(n => n.remove());
     const img = el.querySelector('img');
+    if (img) {
+      img.style.display = 'block';
+      img.style.objectFit = 'cover';
+    }
     if (rec.kind === 'embed') {
       if (img) img.style.display = 'none';
       const wrap = document.createElement('div');
@@ -1407,7 +1411,7 @@ if (fv) {
       v.addEventListener('loadeddata', revealVideo, { once: true });
       v.addEventListener('canplay', revealVideo, { once: true });
       el.insertBefore(v, el.firstChild);
-      v.play().then(revealVideo).catch(() => {});
+      v.play().catch(() => {});
       if (v.readyState >= 2) revealVideo();
     } else if (img) {
       const url = recUrl(rec);
@@ -2538,7 +2542,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-20-detail-mobile-media-frame';
+  const PUBLIC_SYNC_VERSION = 'public-sync-22-detail-mobile-media-stable';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
