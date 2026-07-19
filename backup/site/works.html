@@ -17,7 +17,7 @@
   <link rel="canonical" href="https://www.arthod-studio.com/works.html"/>
   <title>Works — Arthod(아쏘드)</title>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"/>
-  <link rel="stylesheet" href="style.css?v=cursor-fast-20260706-1"/>
+  <link rel="stylesheet" href="style.css?v=mobile-responsive-20260719-1"/>
   <style>
     body { background: #080808; color: #fff; }
     .nav-logo img { filter: none !important; }
@@ -388,7 +388,7 @@
     .card-bg { transition: none; }
     .card-bg-ov {
       opacity: 0;
-      transition: opacity .9s ease;
+      transition: opacity .5s ease;
     }
 
     /* ── Footer ── */
@@ -420,25 +420,32 @@
     @media (max-width: 480px) {
       .card-inner { aspect-ratio: 16/9; border-radius: 8px; }
       .card-head {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
-        gap: 8px;
+        justify-content: space-between;
+        gap: 12px;
         padding: 14px 0;
       }
-      .card-head-left,
-      .card-head-right {
-        width: 100%;
+      .card-head-left {
+        flex: 1 1 auto;
         min-width: 0;
       }
       .card-head-right {
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 56px;
+        justify-content: flex-end;
+        text-align: right;
+        padding-top: 3px;
       }
       .card-title { line-height: 1.08; }
       .card-en {
         display: block;
         margin: 6px 0 0;
+        max-width: min(64vw, 270px);
+        white-space: normal;
       }
+      .card-yr { display: block; font-size: 13px; letter-spacing: .14em; }
     }
   </style>
 </head>
@@ -544,7 +551,7 @@
       </a>
 
       <!-- 07 -->
-      <a class="port-card r" href="work.html?id=07&v=detail-next-order-20260706-1" data-cats="brand">
+      <a class="port-card r" href="work.html?id=07&v=detail-next-order-20260706-1" data-cats="brand" data-hover-dissolve="500" data-hover-hold="650" data-hover-delay="120">
         <div class="card-head">
           <div class="card-head-left"><span class="card-title"><span class="card-ko">Emotion Particle</span><span class="card-en">Interactive Media Installation</span></span></div>
           <div class="card-head-right"><span class="card-yr">2023</span><span class="card-type">미디어아트ON</span></div>
@@ -615,7 +622,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=emotion-cloud-gallery-20260714-1"></script>
+  <script src="main.js?v=detail-load-fix-20260719-2"></script>
   <script>
     // ── Works-only dissolve image slots ──────────────────────
     window.installWorksHoverSlots = function installWorksHoverSlots() {
@@ -895,23 +902,23 @@
 
     // Hover image cycling
     const FALLBACK_CARD_IMGS = {
-      'work.html?id=01': ['https://picsum.photos/seed/w01a/1600/900','https://picsum.photos/seed/w01b/1600/900','https://picsum.photos/seed/w01c/1600/900'],
-      'work.html?id=02': ['https://picsum.photos/seed/w02a/1600/900','https://picsum.photos/seed/w02b/1600/900','https://picsum.photos/seed/w02c/1600/900'],
-      'work.html?id=03': ['https://picsum.photos/seed/w03a/1600/900','https://picsum.photos/seed/w03b/1600/900','https://picsum.photos/seed/w03c/1600/900'],
-      'work.html?id=04': ['https://picsum.photos/seed/w04a/1600/900','https://picsum.photos/seed/w04b/1600/900','https://picsum.photos/seed/w04c/1600/900'],
-      'work.html?id=05': ['https://picsum.photos/seed/w05a/1600/900','https://picsum.photos/seed/w05b/1600/900','https://picsum.photos/seed/w05c/1600/900'],
-      'work.html?id=06': ['https://picsum.photos/seed/w06a/1600/900','https://picsum.photos/seed/w06b/1600/900','https://picsum.photos/seed/w06c/1600/900'],
-      'work.html?id=07': ['https://picsum.photos/seed/w07a/1600/900','https://picsum.photos/seed/w07b/1600/900','https://picsum.photos/seed/w07c/1600/900'],
-      'work.html?id=08': ['https://picsum.photos/seed/w08a/1600/900','https://picsum.photos/seed/w08b/1600/900','https://picsum.photos/seed/w08c/1600/900'],
-      'work.html?id=09': ['https://picsum.photos/seed/w09a/1600/900','https://picsum.photos/seed/w09b/1600/900','https://picsum.photos/seed/w09c/1600/900'],
-      'work.html?id=10': ['https://picsum.photos/seed/w10a/1600/900','https://picsum.photos/seed/w10b/1600/900','https://picsum.photos/seed/w10c/1600/900'],
-      'work.html?id=11': ['https://picsum.photos/seed/w11a/1600/900','https://picsum.photos/seed/w11b/1600/900','https://picsum.photos/seed/w11c/1600/900'],
-      'work.html?id=12': ['https://picsum.photos/seed/w12a/1600/900','https://picsum.photos/seed/w12b/1600/900','https://picsum.photos/seed/w12c/1600/900'],
+      'work.html?id=01': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/01/whover_01_6.jpg'],
+      'work.html?id=02': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/02/whover_02_6.jpg'],
+      'work.html?id=03': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/03/wd_03_g6.jpg'],
+      'work.html?id=04': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/04/whover_04_6.jpg'],
+      'work.html?id=05': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/05/wd_05_g5.jpg'],
+      'work.html?id=06': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/06/wd_06_g5.jpg'],
+      'work.html?id=07': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_4.jpg'],
+      'work.html?id=08': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/wd_07_next.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g4.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g5.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/08/thumbs/wd_08_g6.jpg'],
+      'work.html?id=09': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_3.png','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/09/whover_09_4.jpg'],
+      'work.html?id=10': ['https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_1.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_2.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_3.jpg','https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/10/whover_10_4.jpg'],
+      'work.html?id=11': [],
+      'work.html?id=12': [],
     };
     const CARD_IMGS = { ...FALLBACK_CARD_IMGS };
     const cardImgObjectUrls = [];
     const PUBLIC_BACKUP_BASE = 'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/';
-    const DISSOLVE_MS = 900;
+    const DISSOLVE_MS = 500;
     const HOLD_MS = 650;
     const HOVER_START_DELAY = 120;
     let publicContentPromise = null;
@@ -992,11 +999,17 @@
       return ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
     }
     async function detailHoverImages(id) {
+      if (id === '07') {
+        return FALLBACK_CARD_IMGS['work.html?id=07'];
+      }
       let db = null;
       try { db = await openMediaDb(); } catch (e) {}
       const publicData = await publicContent();
       const publicIndex = publicData.mediaIndex || {};
       const customHover = await worksHoverImages(id, db, publicIndex);
+      if (id === '07' && customHover.length) {
+        return customHover.filter(url => !url.includes('/wd_07_next.jpg'));
+      }
       if (customHover.length) return customHover;
       const slots = gallerySlotsFor(id, publicData.text);
       const urls = [];
@@ -1050,9 +1063,18 @@
       // 대상 이미지가 디코딩 완료될 때까지 기다렸다가 페이드 시작 (첫 번째 전환도 나머지와 동일하게 매끄럽게)
       function whenReady(src, cb) {
         if (decodedImgs.has(src)) { cb(); return; }
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          decodedImgs.add(src);
+          cb();
+        };
         const im = new Image();
         im.src = src;
-        (im.decode ? im.decode() : Promise.resolve()).catch(() => {}).finally(() => { decodedImgs.add(src); cb(); });
+        if (im.complete) { finish(); return; }
+        setTimeout(finish, 80);
+        (im.decode ? im.decode() : Promise.resolve()).catch(() => {}).finally(finish);
       }
 
       // 오버레이 즉시 초기화 (트랜지션 없이 opacity 0)
@@ -1060,8 +1082,12 @@
         ov.style.transition = 'none';
         ov.style.opacity = '0';
         void ov.offsetWidth;               // reflow 강제 → 다음 페이드가 처음부터
-        ov.style.transition = `opacity ${DISSOLVE_MS}ms ease`;
+        ov.style.transition = `opacity ${cardDissolveMs()}ms ease`;
       };
+
+      const cardDissolveMs = () => Number(card.dataset.hoverDissolve || DISSOLVE_MS);
+      const cardHoldMs = () => Number(card.dataset.hoverHold || HOLD_MS);
+      const cardStartDelay = () => Number(card.dataset.hoverDelay || HOVER_START_DELAY);
 
       const stop = () => {
         clearTimeout(delayTimer); clearInterval(cycleTimer); clearTimeout(commitTimer);
@@ -1095,11 +1121,11 @@
               // 페이드 완료 → 베이스에 확정하고 오버레이 숨김(같은 이미지라 깜빡임 없음)
               bg.style.backgroundImage = `url('${targetSrc}')`;
               resetOv();
-            }, DISSOLVE_MS);
+            }, cardDissolveMs());
           };
           step();                            // 첫 디졸브 바로 시작
-          cycleTimer = setInterval(step, DISSOLVE_MS + HOLD_MS);
-        }, HOVER_START_DELAY);
+          cycleTimer = setInterval(step, cardDissolveMs() + cardHoldMs());
+        }, cardStartDelay());
       });
 
       card.addEventListener('mouseleave', () => {
@@ -1117,7 +1143,7 @@
           bg.style.backgroundImage = `url('${imgs[0]}')`;
           resetOv();
           idx = 0;
-        }, DISSOLVE_MS);
+        }, cardDissolveMs());
       });
     });
 

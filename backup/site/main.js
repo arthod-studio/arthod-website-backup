@@ -1046,6 +1046,13 @@ if (fv) {
 
   /* ── 4. 미디어 적용 ── */
   function applyImage(container, url) {
+    const mediaKey = container.dataset.mediaKey || '';
+    if (mediaKey === 'wimg:07') {
+      url = 'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/whover_07_2.jpg';
+    }
+    if (mediaKey === 'wimg:08') {
+      url = 'https://raw.githubusercontent.com/arthod-studio/arthod-website-backup/main/backup/media/07/wd_07_next.jpg';
+    }
     const img = container.querySelector('img');
     if (img) { img.src = url; }
     else {
@@ -1090,7 +1097,25 @@ if (fv) {
     };
     tryImage(0);
   }
+  function ensureMediaPlayStyles() {
+    if (document.getElementById('arthod-media-play-style')) return;
+    const st = document.createElement('style');
+    st.id = 'arthod-media-play-style';
+    st.textContent = `
+      .media-poster:hover .media-play-btn{background:rgba(0,0,0,.85);transform:scale(1.08)}
+      .media-play-btn{
+        width:76px;height:76px;border-radius:50%;background:rgba(0,0,0,.62);border:2px solid rgba(255,255,255,.88);
+        display:flex;align-items:center;justify-content:center;appearance:none;-webkit-appearance:none;padding:0;margin:0;
+        transition:background .2s,transform .2s;box-shadow:0 14px 34px rgba(0,0,0,.28);cursor:pointer;
+      }
+      .media-play-btn span{
+        display:block;width:0;height:0;margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:22px solid #fff;
+      }
+    `;
+    document.head.appendChild(st);
+  }
   function buildClickToPlay(wrap, embedUrl) {
+    ensureMediaPlayStyles();
     const info = embedIdInfo(embedUrl);
     const poster = document.createElement('div');
     poster.className = 'media-poster';
@@ -1098,7 +1123,7 @@ if (fv) {
     if (info && info.kind === 'youtube') {
       setYouTubePoster(poster, info.id);
     }
-    poster.innerHTML = '<div class="media-play-btn">▶</div>';
+    poster.innerHTML = '<button class="media-play-btn" type="button" aria-label="Play video"><span></span></button>';
     const startPlayback = () => {
       // 기존에 저장된 embedUrl에 옛 파라미터(autoplay/mute/controls 등)가 섞여 있어도
       // 확실하게 "재생+소리 켜짐" 상태가 되도록 URL을 새로 구성한다.
@@ -1170,14 +1195,14 @@ if (fv) {
       v.playsInline = true;
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
-      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1';
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#000;z-index:1';
       card.appendChild(v);
       v.play().catch(() => {});
     } else {
       const url = URL.createObjectURL(rec.blob);
       const d = document.createElement('div');
       d.className = 'hero-user-media';
-      d.style.cssText = `position:absolute;inset:0;background:url("${url}") center/cover no-repeat;z-index:1`;
+      d.style.cssText = `position:absolute;inset:0;background:#000 url("${url}") center/contain no-repeat;z-index:1`;
       card.appendChild(d);
     }
     markCustom(card);
@@ -2463,7 +2488,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-8-emotion-cloud-gallery';
+  const PUBLIC_SYNC_VERSION = 'public-sync-18-detail-nonblocking-load';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2471,7 +2496,8 @@ if (fv) {
     let changed = false;
     try {
       const base = `https://raw.githubusercontent.com/${PUBLIC_SOURCE.owner}/${PUBLIC_SOURCE.repo}/${PUBLIC_SOURCE.branch}/`;
-      const r = await fetch(base + 'backup/content.json', { cache: 'no-store' });
+      const cacheBust = '?v=' + encodeURIComponent(PUBLIC_SYNC_VERSION);
+      const r = await fetch(base + 'backup/content.json' + cacheBust, { cache: 'reload' });
       if (!r.ok) return false;
       const data = await r.json();
       const lastSyncedAt = localStorage.getItem(PUBLIC_SYNC_KEY);
@@ -2505,7 +2531,7 @@ if (fv) {
           }
           if (info.file) {
             try {
-              const mr = await fetch(base + info.file, { cache: 'no-store' });
+              const mr = await fetch(base + info.file + cacheBust, { cache: 'reload' });
               if (mr.ok) {
                 const blob = await mr.blob();
                 await mediaSet(key, { kind: info.kind, blob });
@@ -2538,12 +2564,17 @@ if (fv) {
   function revealBootingPage() {
     document.body.classList.remove('work-detail-booting');
     document.body.classList.add('work-detail-ready');
+    const workPage = document.getElementById('work-page');
+    if (workPage) {
+      workPage.style.opacity = '1';
+      workPage.style.visibility = 'visible';
+    }
     window.dispatchEvent(new CustomEvent('arthod:editor-ready'));
   }
 
   async function init() {
     db(); // warm-start IndexedDB
-    const publicSyncChanged = await syncFromPublicSource(); // 방문자마다 최신 게시본을 먼저 반영
+    const publicSyncPromise = syncFromPublicSource(); // 방문자마다 최신 게시본을 반영하되 화면 표시는 막지 않는다.
     restoreFooterConnect();
     restoreAboutHistory();
     migrateLegacyProjectTitles();
@@ -2558,10 +2589,14 @@ if (fv) {
     restoreLayouts();
     attachMediaHandles();
     buildUI();
+    revealBootingPage();
     applyAllMedia().then(() => {
       refreshCount();
       revealBootingPage();
     }).catch(revealBootingPage);
+    publicSyncPromise.then(changed => {
+      if (changed) applyAllMedia().then(refreshCount).catch(() => {});
+    }).catch(() => {});
     // 콜드 스타트 / works.html 기본 이미지 루프와의 경합 방지: 여러 번 재적용 (idempotent)
     setTimeout(() => applyAllMedia(), 250);
     setTimeout(() => applyAllMedia(), 800);
@@ -2592,9 +2627,6 @@ if (fv) {
         applyAllMedia();
       },
     };
-    if (publicSyncChanged) {
-      window.dispatchEvent(new CustomEvent('arthod:public-sync'));
-    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
