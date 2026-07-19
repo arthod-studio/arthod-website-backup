@@ -920,6 +920,12 @@ if (fv) {
   let publicMediaIndex = null;
   let publicMediaBase = '';
   let publicMediaVersion = '';
+  function publicMediaFileBase(file, fallbackBase) {
+    if (/^backup\/media\/01\//.test(file || '') && /^https?:$/.test(location.protocol)) {
+      return location.origin.replace(/\/$/, '') + '/';
+    }
+    return fallbackBase || publicMediaBase;
+  }
   function publicMediaRec(key, seen) {
     if (!publicMediaIndex || !key) return null;
     const guard = seen || new Set();
@@ -938,10 +944,12 @@ if (fv) {
       const posterFile = info.poster || ((info.kind === 'video' && /\.(mp4|mov|webm)$/i.test(info.file))
         ? info.file.replace(/\.(mp4|mov|webm)(\?.*)?$/i, '.jpg')
         : '');
+      const fileBase = publicMediaFileBase(info.file);
+      const posterBase = publicMediaFileBase(posterFile || info.file);
       return {
         kind: info.kind || 'image',
-        url: publicMediaBase + info.file + sep + 'v=' + encodeURIComponent(publicMediaVersion || 'public-media'),
-        posterUrl: posterFile ? publicMediaBase + posterFile + '?v=' + encodeURIComponent(publicMediaVersion || 'public-media') : '',
+        url: fileBase + info.file + sep + 'v=' + encodeURIComponent(publicMediaVersion || 'public-media'),
+        posterUrl: posterFile ? posterBase + posterFile + '?v=' + encodeURIComponent(publicMediaVersion || 'public-media') : '',
       };
     }
     return null;
@@ -1452,15 +1460,19 @@ if (fv) {
     } else if (rec.kind === 'video') {
       const url = recUrl(rec);
       if (!url) return;
-      if (img && rec.posterUrl) {
-        img.src = rec.posterUrl;
+      const publicPoster = (!rec.posterUrl && el.dataset.mediaKey)
+        ? ((publicMediaRec(el.dataset.mediaKey) || {}).posterUrl || '')
+        : '';
+      const posterUrl = rec.posterUrl || publicPoster;
+      if (img && posterUrl) {
+        img.src = posterUrl;
         img.style.display = 'block';
         img.style.objectFit = 'cover';
       }
       const v = document.createElement('video');
       v.className = 'rich-media-el';
       v.src = url;
-      if (rec.posterUrl) v.poster = rec.posterUrl;
+      if (posterUrl) v.poster = posterUrl;
       v.preload = 'auto';
       v.autoplay = v.muted = v.loop = true;
       v.defaultMuted = true;
@@ -1474,8 +1486,8 @@ if (fv) {
         if (img) img.style.display = 'none';
       };
       const showPoster = () => {
-        if (img && rec.posterUrl) {
-          img.src = rec.posterUrl;
+        if (img && posterUrl) {
+          img.src = posterUrl;
           img.style.display = 'block';
         }
         v.style.opacity = '0';
@@ -2616,7 +2628,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-25-detail-mobile-video-fallback';
+  const PUBLIC_SYNC_VERSION = 'public-sync-26-detail-mobile-video-localmedia';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2672,16 +2684,18 @@ if (fv) {
           }
           if (info.file) {
             try {
-              const mr = await fetch(base + info.file + cacheBust, { cache: 'reload' });
+              const mediaBase = publicMediaFileBase(info.file, base);
+              const mr = await fetch(mediaBase + info.file + cacheBust, { cache: 'reload' });
               if (mr.ok) {
                 const blob = await mr.blob();
                 const posterFile = info.poster || ((info.kind === 'video' && /\.(mp4|mov|webm)$/i.test(info.file))
                   ? info.file.replace(/\.(mp4|mov|webm)(\?.*)?$/i, '.jpg')
                   : '');
+                const posterBase = publicMediaFileBase(posterFile || info.file, base);
                 await mediaSet(key, {
                   kind: info.kind,
                   blob,
-                  posterUrl: posterFile ? base + posterFile + cacheBust : '',
+                  posterUrl: posterFile ? posterBase + posterFile + cacheBust : '',
                 });
                 return true;
               }
