@@ -1052,7 +1052,12 @@ if (fv) {
     guard.add(rec.refKey);
     return resolveMediaRec((await mediaGet(rec.refKey)) || publicMediaRec(rec.refKey, guard), guard);
   }
+  function usesHostedPublicMedia() {
+    return /^https?:$/.test(location.protocol) && !/^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
+  }
   async function mediaResolved(k) {
+    const hostedPublicRec = usesHostedPublicMedia() ? publicMediaRec(k) : null;
+    if (hostedPublicRec) return resolveMediaRec(hostedPublicRec);
     return resolveMediaRec((await mediaGet(k)) || publicMediaRec(k));
   }
   async function mediaSet(k, v) {
@@ -2715,7 +2720,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-39-works-baseline-align';
+  const PUBLIC_SYNC_VERSION = 'public-sync-40-detail-media-stable';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2798,17 +2803,21 @@ if (fv) {
                 return rank(a) - rank(b);
               })
           : [];
-        priorityKeys.forEach(key => {
-          syncMediaEntry(key, data.mediaIndex[key]).catch(() => {});
-        });
-        (async () => {
-          let mediaChanged = false;
-          for (const [key, info] of Object.entries(data.mediaIndex)) {
-            if (priorityKeys.includes(key)) continue;
-            if (await syncMediaEntry(key, info)) mediaChanged = true;
-          }
-          if (mediaChanged) window.dispatchEvent(new CustomEvent('arthod:public-sync'));
-        })();
+        if (usesHostedPublicMedia()) {
+          window.dispatchEvent(new CustomEvent('arthod:public-sync'));
+        } else {
+          priorityKeys.forEach(key => {
+            syncMediaEntry(key, data.mediaIndex[key]).catch(() => {});
+          });
+          (async () => {
+            let mediaChanged = false;
+            for (const [key, info] of Object.entries(data.mediaIndex)) {
+              if (priorityKeys.includes(key)) continue;
+              if (await syncMediaEntry(key, info)) mediaChanged = true;
+            }
+            if (mediaChanged) window.dispatchEvent(new CustomEvent('arthod:public-sync'));
+          })();
+        }
       }
     } catch (e) { /* 오프라인/네트워크 오류 시 조용히 무시 */ }
     return changed;
@@ -2830,7 +2839,7 @@ if (fv) {
 
   async function init() {
     db(); // warm-start IndexedDB
-    const publicSyncPromise = syncFromPublicSource(); // 방문자마다 최신 게시본을 반영하되 화면 표시는 막지 않는다.
+    const publicSyncPromise = syncFromPublicSource(); // 방문자마다 최신 게시본을 반영
     restoreFooterConnect();
     restoreAboutHistory();
     migrateLegacyProjectTitles();
@@ -2845,11 +2854,22 @@ if (fv) {
     restoreLayouts();
     attachMediaHandles();
     buildUI();
-    revealBootingPage();
-    applyAllMedia().then(() => {
-      refreshCount();
+    const isWorkDetailPage = /^work\d+/.test(PAGE);
+    const waitForPublicSync = () => Promise.race([
+      publicSyncPromise,
+      new Promise(resolve => setTimeout(() => resolve(false), isWorkDetailPage ? 5000 : 1200)),
+    ]);
+    if (isWorkDetailPage) {
+      await waitForPublicSync().catch(() => false);
+      await applyAllMedia().then(refreshCount).catch(() => {});
       revealBootingPage();
-    }).catch(revealBootingPage);
+    } else {
+      revealBootingPage();
+      applyAllMedia().then(() => {
+        refreshCount();
+        revealBootingPage();
+      }).catch(revealBootingPage);
+    }
     publicSyncPromise.then(changed => {
       if (changed) applyAllMedia().then(refreshCount).catch(() => {});
     }).catch(() => {});
