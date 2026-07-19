@@ -120,45 +120,78 @@ document.querySelectorAll('.mobile-link').forEach(link => {
   });
 });
 
-/* ── Mobile work detail: make the first swipe scroll immediately ── */
-(function initMobileSwipeScrollKick() {
+/* ── Mobile work detail: immediate finger swipe scrolling ───── */
+(function initMobileNaturalTouchScroll() {
   const isWorkDetail = (location.pathname.split('/').pop() || '').split('?')[0] === 'work.html';
-  const isTouch = (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) || window.innerWidth <= 768;
-  if (!isWorkDetail || !isTouch) return;
-  let sx = 0, sy = 0, lastY = 0, startScroll = 0, lastMoveStamp = -1, manualSwipe = false;
+  const isTouchViewport = window.innerWidth <= 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  if (!isWorkDetail || !isTouchViewport) return;
+  let startX = 0;
+  let startY = 0;
+  let startScroll = 0;
+  let active = false;
+  let locked = false;
+  let lastY = 0;
+  let lastT = 0;
+  let velocity = 0;
+  const interactiveSelector = 'a,button,input,textarea,select,.nav-toggle,.mobile-overlay,.media-play-btn,.size-handle,.pan-handle,.zoom-handle,.media-revert';
+  const maxScroll = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const clampScroll = y => Math.max(0, Math.min(maxScroll(), y));
+  const shouldIgnore = target => {
+    const hit = target && target.closest && target.closest(interactiveSelector);
+    if (!hit) return false;
+    return !target.closest('.work-page') || hit.classList.contains('media-play-btn') || hit.tagName === 'A' || hit.tagName === 'BUTTON' || hit.matches('input,textarea,select');
+  };
   const onStart = event => {
-    const t = event.touches && event.touches[0];
-    if (!t) return;
-    sx = t.clientX;
-    sy = t.clientY;
+    if (event.touches.length !== 1 || shouldIgnore(event.target)) {
+      active = false;
+      return;
+    }
+    const t = event.touches[0];
+    startX = t.clientX;
+    startY = t.clientY;
     lastY = t.clientY;
+    lastT = event.timeStamp || performance.now();
+    velocity = 0;
     startScroll = window.scrollY || document.documentElement.scrollTop || 0;
-    lastMoveStamp = -1;
-    manualSwipe = false;
+    active = true;
+    locked = false;
   };
   const onMove = event => {
-    if (event.timeStamp === lastMoveStamp) return;
-    lastMoveStamp = event.timeStamp;
-    const t = event.touches && event.touches[0];
-    if (!t) return;
-    const dx = t.clientX - sx;
-    const dy = t.clientY - sy;
-    if (Math.abs(dy) < 14 || Math.abs(dy) <= Math.abs(dx) * 1.15) return;
-    const stepDelta = lastY - t.clientY;
+    if (!active || event.touches.length !== 1) return;
+    const t = event.touches[0];
+    const dx = t.clientX - startX;
+    const dy = t.clientY - startY;
+    if (!locked) {
+      if (Math.abs(dy) < 6) return;
+      if (Math.abs(dy) <= Math.abs(dx) * 1.1) {
+        active = false;
+        return;
+      }
+      locked = true;
+    }
+    event.preventDefault();
+    const now = event.timeStamp || performance.now();
+    const dt = Math.max(16, now - lastT);
+    velocity = (lastY - t.clientY) / dt;
     lastY = t.clientY;
-    requestAnimationFrame(() => {
-      const current = window.scrollY || document.documentElement.scrollTop || 0;
-      if (!manualSwipe && Math.abs(current - startScroll) < 2) manualSwipe = true;
-      if (manualSwipe && Math.abs(stepDelta) > 0) window.scrollBy(0, stepDelta);
-    });
+    lastT = now;
+    window.scrollTo(0, clampScroll(startScroll - dy));
   };
-  const onEnd = () => { manualSwipe = false; };
+  const onEnd = () => {
+    if (!active || !locked) {
+      active = false;
+      return;
+    }
+    active = false;
+    const start = window.scrollY || document.documentElement.scrollTop || 0;
+    const distance = Math.max(-520, Math.min(520, velocity * 260));
+    if (Math.abs(distance) < 24) return;
+    window.scrollTo({ top: clampScroll(start + distance), behavior: 'smooth' });
+  };
   window.addEventListener('touchstart', onStart, { passive: true, capture: true });
-  window.addEventListener('touchmove', onMove, { passive: true, capture: true });
+  window.addEventListener('touchmove', onMove, { passive: false, capture: true });
   window.addEventListener('touchend', onEnd, { passive: true, capture: true });
-  document.addEventListener('touchstart', onStart, { passive: true, capture: true });
-  document.addEventListener('touchmove', onMove, { passive: true, capture: true });
-  document.addEventListener('touchend', onEnd, { passive: true, capture: true });
+  window.addEventListener('touchcancel', onEnd, { passive: true, capture: true });
 })();
 
 /* ── Smooth scroll ───────────────────────────────────────────*/
@@ -1186,10 +1219,12 @@ if (fv) {
     st.id = 'arthod-media-play-style';
     st.textContent = `
       .media-poster:hover .media-play-btn{background:rgba(0,0,0,.85);transform:scale(1.08)}
+      .media-poster{pointer-events:none;touch-action:auto}
       .media-play-btn{
         width:76px;height:76px;border-radius:50%;background:rgba(0,0,0,.62);border:2px solid rgba(255,255,255,.88);
         display:flex;align-items:center;justify-content:center;appearance:none;-webkit-appearance:none;padding:0;margin:0;
         transition:background .2s,transform .2s;box-shadow:0 14px 34px rgba(0,0,0,.28);cursor:pointer;
+        pointer-events:auto;touch-action:manipulation;
       }
       .media-play-btn span{
         display:block;width:0;height:0;margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:22px solid #fff;
@@ -1202,38 +1237,13 @@ if (fv) {
     const info = embedIdInfo(embedUrl);
     const poster = document.createElement('div');
     poster.className = 'media-poster';
-    poster.style.cssText = 'position:absolute;inset:0;z-index:5;cursor:pointer;background:#000 center/cover no-repeat;display:flex;align-items:center;justify-content:center';
+    poster.style.cssText = 'position:absolute;inset:0;z-index:5;pointer-events:none;background:#000 center/cover no-repeat;display:flex;align-items:center;justify-content:center';
     if (info && info.kind === 'youtube') {
       setYouTubePoster(poster, info.id);
     }
     poster.innerHTML = '<button class="media-play-btn" type="button" aria-label="Play video"><span></span></button>';
     let started = false;
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchMoved = false;
-    poster.addEventListener('touchstart', event => {
-      const t = event.touches && event.touches[0];
-      touchStartX = t ? t.clientX : 0;
-      touchStartY = t ? t.clientY : 0;
-      touchMoved = false;
-    }, { passive: true });
-    poster.addEventListener('touchmove', event => {
-      const t = event.touches && event.touches[0];
-      if (!t) return;
-      if (Math.abs(t.clientX - touchStartX) > 8 || Math.abs(t.clientY - touchStartY) > 8) touchMoved = true;
-    }, { passive: true });
-    poster.addEventListener('pointerdown', event => {
-      if (event.pointerType && event.pointerType !== 'touch') return;
-      touchStartX = event.clientX || 0;
-      touchStartY = event.clientY || 0;
-      touchMoved = false;
-    }, { passive: true });
-    poster.addEventListener('pointermove', event => {
-      if (event.pointerType && event.pointerType !== 'touch') return;
-      if (Math.abs((event.clientX || 0) - touchStartX) > 8 || Math.abs((event.clientY || 0) - touchStartY) > 8) touchMoved = true;
-    }, { passive: true });
     const startPlayback = event => {
-      if (event && touchMoved && (event.type === 'touchend' || event.type === 'pointerup' || event.pointerType === 'touch')) return;
       if (event && event.cancelable) event.preventDefault();
       if (started) return;
       started = true;
@@ -1284,10 +1294,7 @@ if (fv) {
       poster.remove();
     };
     poster.addEventListener('click', startPlayback, { passive: false });
-    poster.addEventListener('pointerup', event => {
-      if (event.pointerType === 'touch') return;
-      startPlayback(event);
-    }, { passive: false });
+    poster.querySelector('.media-play-btn')?.addEventListener('click', startPlayback, { passive: false });
     wrap.appendChild(poster);
   }
   function applyHero(rec) {
@@ -2707,7 +2714,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-28-detail-mobile-swipe-scroll';
+  const PUBLIC_SYNC_VERSION = 'public-sync-29-detail-natural-touch-scroll';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
