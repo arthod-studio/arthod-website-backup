@@ -917,6 +917,31 @@ if (fv) {
   /* ── 2. 미디어 저장소 (IndexedDB — 사진/영상 Blob) ── */
   const DB_NAME = 'arthod-media';
   let _dbp = null;
+  let publicMediaIndex = null;
+  let publicMediaBase = '';
+  let publicMediaVersion = '';
+  function publicMediaRec(key, seen) {
+    if (!publicMediaIndex || !key) return null;
+    const guard = seen || new Set();
+    if (guard.has(key)) return null;
+    guard.add(key);
+    const info = publicMediaIndex[key];
+    if (!info) return null;
+    if (info.kind === 'ref') {
+      return publicMediaRec(info.refKey, guard);
+    }
+    if (info.kind === 'embed') {
+      return { kind: 'embed', embedUrl: info.embedUrl || info.url || info.src || '' };
+    }
+    if (info.file) {
+      const sep = info.file.indexOf('?') >= 0 ? '&' : '?';
+      return {
+        kind: info.kind || 'image',
+        url: publicMediaBase + info.file + sep + 'v=' + encodeURIComponent(publicMediaVersion || 'public-media'),
+      };
+    }
+    return null;
+  }
   function db() {
     if (_dbp) return _dbp;
     _dbp = new Promise((res, rej) => {
@@ -942,10 +967,10 @@ if (fv) {
     const guard = seen || new Set();
     if (!rec.refKey || guard.has(rec.refKey)) return null;
     guard.add(rec.refKey);
-    return resolveMediaRec(await mediaGet(rec.refKey), guard);
+    return resolveMediaRec((await mediaGet(rec.refKey)) || publicMediaRec(rec.refKey, guard), guard);
   }
   async function mediaResolved(k) {
-    return resolveMediaRec(await mediaGet(k));
+    return resolveMediaRec((await mediaGet(k)) || publicMediaRec(k));
   }
   async function mediaSet(k, v) {
     try {
@@ -1063,6 +1088,11 @@ if (fv) {
     const pc = container.closest('.port-card');
     if (pc && !(container.dataset.mediaKey || '').startsWith('whover:')) pc.setAttribute('data-custom-img', '1');
     markCustom(container);
+  }
+  function recUrl(rec) {
+    if (!rec) return '';
+    if (rec.url) return rec.url;
+    return rec.blob ? URL.createObjectURL(rec.blob) : '';
   }
   // 유튜브/비메오 iframe: 클릭 전엔 썸네일+재생 버튼만 보여주고,
   // 실제 클릭(사용자 제스처)이 발생했을 때만 autoplay+소리 켜진 iframe을 새로 로드한다.
@@ -1187,7 +1217,8 @@ if (fv) {
       card.appendChild(wrap);
       buildClickToPlay(wrap, rec.embedUrl);
     } else if (rec.kind === 'video') {
-      const url = URL.createObjectURL(rec.blob);
+      const url = recUrl(rec);
+      if (!url) return;
       const v = document.createElement('video');
       v.className = 'hero-user-media';
       v.src = url;
@@ -1199,7 +1230,8 @@ if (fv) {
       card.appendChild(v);
       v.play().catch(() => {});
     } else {
-      const url = URL.createObjectURL(rec.blob);
+      const url = recUrl(rec);
+      if (!url) return;
       const d = document.createElement('div');
       d.className = 'hero-user-media';
       d.style.cssText = `position:absolute;inset:0;background:#000 url("${url}") center/contain no-repeat;z-index:1`;
@@ -1214,7 +1246,10 @@ if (fv) {
       if (!rec) continue;
       if (el.dataset.media === 'hero') applyHero(rec);
       else if (el.dataset.mediaRich === '1') applyRichMedia(el, rec);
-      else applyImage(el, URL.createObjectURL(rec.blob));
+      else {
+        const url = recUrl(rec);
+        if (url) applyImage(el, url);
+      }
       const layout = getLayoutRec(el.dataset.mediaKey || '');
       if (Object.keys(layout).length) applyLayoutRec(el, layout);
     }
@@ -1306,7 +1341,7 @@ if (fv) {
       const rec = it.rec;
       const isEmbed = rec.kind === 'embed';
       const isVid = rec.kind === 'video';
-      const url = isEmbed ? '' : URL.createObjectURL(rec.blob);
+      const url = isEmbed ? '' : recUrl(rec);
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'hc-saved-item';
@@ -1331,7 +1366,10 @@ if (fv) {
     if (!rec) return;
     if (el.dataset.media === 'hero') applyHero(rec);
     else if (el.dataset.mediaRich === '1') applyRichMedia(el, rec);
-    else applyImage(el, URL.createObjectURL(rec.blob));
+    else {
+      const url = recUrl(rec);
+      if (url) applyImage(el, url);
+    }
     const layout = getLayoutRec(targetKey);
     if (Object.keys(layout).length) applyLayoutRec(el, layout);
     toast('업로드된 미디어를 적용했습니다');
@@ -1351,9 +1389,11 @@ if (fv) {
       buildClickToPlay(wrap, rec.embedUrl);
     } else if (rec.kind === 'video') {
       if (img) img.style.display = 'none';
+      const url = recUrl(rec);
+      if (!url) return;
       const v = document.createElement('video');
       v.className = 'rich-media-el';
-      v.src = URL.createObjectURL(rec.blob);
+      v.src = url;
       v.autoplay = v.muted = v.loop = true;
       v.playsInline = true;
       v.setAttribute('muted', '');
@@ -1362,8 +1402,10 @@ if (fv) {
       el.insertBefore(v, el.firstChild);
       v.play().catch(() => {});
     } else if (img) {
+      const url = recUrl(rec);
+      if (!url) return;
       img.style.display = 'block';
-      img.src = URL.createObjectURL(rec.blob);
+      img.src = url;
       img.style.objectFit = 'cover';
     }
     markCustom(el);
@@ -2488,7 +2530,7 @@ if (fv) {
      새 게시본이면 로컬의 오래된 값까지 갱신한다 → "저장하면 모두에게 반영"을 구현.
      같은 게시본 안에서 사용자가 편집 중인 로컬 값은 덮어쓰지 않는다. */
   const PUBLIC_SOURCE = { owner: 'arthod-studio', repo: 'arthod-website-backup', branch: 'main' };
-  const PUBLIC_SYNC_VERSION = 'public-sync-18-detail-nonblocking-load';
+  const PUBLIC_SYNC_VERSION = 'public-sync-19-detail-mobile-media-sync';
   const PUBLIC_SYNC_KEY = 'arthod-public-sync:savedAt';
   const PUBLIC_SYNC_VERSION_KEY = 'arthod-public-sync:version';
   async function syncFromPublicSource() {
@@ -2500,6 +2542,12 @@ if (fv) {
       const r = await fetch(base + 'backup/content.json' + cacheBust, { cache: 'reload' });
       if (!r.ok) return false;
       const data = await r.json();
+      publicMediaBase = base;
+      publicMediaVersion = (data.savedAt || PUBLIC_SYNC_VERSION);
+      if (data.mediaIndex) {
+        publicMediaIndex = data.mediaIndex;
+        changed = true;
+      }
       const lastSyncedAt = localStorage.getItem(PUBLIC_SYNC_KEY);
       const hasNewPublicVersion =
         localStorage.getItem(PUBLIC_SYNC_VERSION_KEY) !== PUBLIC_SYNC_VERSION ||
@@ -2516,8 +2564,15 @@ if (fv) {
       if (data.savedAt) localStorage.setItem(PUBLIC_SYNC_KEY, data.savedAt);
       localStorage.setItem(PUBLIC_SYNC_VERSION_KEY, PUBLIC_SYNC_VERSION);
       if (data.mediaIndex) {
-        const currentWorkMatch = PAGE.match(/^work(\w+)/);
-        const currentWorkMediaPrefix = currentWorkMatch ? ('wd:' + currentWorkMatch[1].padStart(2, '0') + ':') : '';
+        const currentWorkId = (() => {
+          if (PAGE === 'work') {
+            const pid = new URLSearchParams(location.search).get('id');
+            return pid ? pid.padStart(2, '0') : '';
+          }
+          const m = PAGE.match(/^work(\w+)/);
+          return m ? m[1].padStart(2, '0') : '';
+        })();
+        const currentWorkMediaPrefix = currentWorkId ? ('wd:' + currentWorkId + ':') : '';
         async function syncMediaEntry(key, info) {
           const existing = await mediaGet(key);
           if (existing && !hasNewPublicVersion) return false;
@@ -2542,11 +2597,16 @@ if (fv) {
           return false;
         }
         const priorityKeys = currentWorkMediaPrefix
-          ? Object.keys(data.mediaIndex).filter(key => key.indexOf(currentWorkMediaPrefix) === 0)
+          ? Object.keys(data.mediaIndex)
+              .filter(key => key.indexOf(currentWorkMediaPrefix) === 0 || key === 'wimg:' + currentWorkId || key.indexOf('whover:' + currentWorkId + ':') === 0)
+              .sort((a, b) => {
+                const rank = key => key.endsWith(':c0') ? 0 : (key === 'wimg:' + currentWorkId ? 1 : key.includes(':next') ? 2 : 3);
+                return rank(a) - rank(b);
+              })
           : [];
-        for (const key of priorityKeys) {
-          if (await syncMediaEntry(key, data.mediaIndex[key])) changed = true;
-        }
+        priorityKeys.forEach(key => {
+          syncMediaEntry(key, data.mediaIndex[key]).catch(() => {});
+        });
         (async () => {
           let mediaChanged = false;
           for (const [key, info] of Object.entries(data.mediaIndex)) {
@@ -2597,6 +2657,13 @@ if (fv) {
     publicSyncPromise.then(changed => {
       if (changed) applyAllMedia().then(refreshCount).catch(() => {});
     }).catch(() => {});
+    let mediaApplyTimer = null;
+    const scheduleMediaApply = () => {
+      clearTimeout(mediaApplyTimer);
+      mediaApplyTimer = setTimeout(() => applyAllMedia().then(refreshCount).catch(() => {}), 40);
+    };
+    window.addEventListener('arthod:media-updated', scheduleMediaApply);
+    window.addEventListener('arthod:public-sync', scheduleMediaApply);
     // 콜드 스타트 / works.html 기본 이미지 루프와의 경합 방지: 여러 번 재적용 (idempotent)
     setTimeout(() => applyAllMedia(), 250);
     setTimeout(() => applyAllMedia(), 800);
