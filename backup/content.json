@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-08-03T05:15:32.571Z",
+  "savedAt": "2026-08-03T05:37:26.214Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -377,7 +377,7 @@
     "arthod-edit:work05:speckey:2": "Project",
     "arthod-style:work02:wbsectionlabel:0": "{\"color\":\"#111111\",\"weight\":\"700\"}",
     "arthod-edit:work10:wbsectionlabel:0": "Project Overview",
-    "arthod-edit:services:svc-generative-art-name": "제너러티브 아트<em>Generative Art</em>",
+    "arthod-edit:services:svc-generative-art-name": "제너레이티브 아트<em>Generative Art</em>",
     "arthod-edit:services:svcentryname:0": "인터랙티브 설치<em>Interactive Installation</em>",
     "arthod-proj:06:type": "Fluid Simulation",
     "arthod-edit:contact:cdilabel:2": "Location",
@@ -671,8 +671,8 @@
       "file": "backup/media/services/svc_1.jpg"
     },
     "svc:2": {
-      "kind": "ref",
-      "refKey": "wd:01:s8"
+      "kind": "image",
+      "file": "backup/media/01/wd_01_s8.png"
     },
     "svc:3": {
       "kind": "image",
