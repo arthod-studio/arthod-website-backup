@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-07-19T10:12:57.689Z",
+  "savedAt": "2026-08-03T05:15:32.571Z",
   "text": {
     "arthod-edit:about:recentMeta2A": "02 / Hyper Drive",
     "arthod-edit:works:fcolula:5": "Behance",
@@ -90,7 +90,7 @@
     "arthod-proj:02:en": "Multimedia Installation",
     "arthod-edit:contact:contactdesc:0": "\n            전시, 브랜드 협업, 공공 미술, 인터렉티브 콘텐츠 등<br>어떤 규모의 이야기도 환영합니다.\n            먼저 어떤 프로젝트인지<br>간단히 알려주세요.\n          ",
     "arthod-edit:work07:speckey:0": "Role",
-    "arthod-about:history-items": "[{\"category\":\"Exhibitions\",\"items\":[{\"year\":\"2025\",\"name\":\"Stream Scape\",\"desc\":\"Interactive Media Art & Generative Al • 고양콘텐츠사업화 • 고양산업진흥원\"},{\"year\":\"\",\"name\":\"OS-1 : 우주광학전송장치\",\"desc\":\"Laser Installation • 미래감각 • 고양문화재단\"},{\"year\":\"\",\"name\":\"Voyage of Light\",\"desc\":\"Light Installation • 제24회 서울억새축제, 빛으로 물들다 • 서부여가공원센터\"},{\"year\":\"\",\"name\":\"Infinity Book\",\"desc\":\"Public Installation • 제7회 별마당도서관 열린아트공모전 대상작 전시 • (주)신세계프라버티\"},{\"year\":\"2024\",\"name\":\"Luminous Melody\",\"desc\":\"Interactive Light Installation • 고양콘텐츠사업화 • 고양산업진흥원\"},{\"year\":\"\",\"name\":\"OS-1 : 우주광학전송장치\",\"desc\":\"Laser Installation • 다원예술 창작산실 • 한국문화예술위원회\"},{\"year\":\"\",\"name\":\"Transmission\",\"desc\":\"Laser Reflection installation • 국가유산 수원화성 미디어아트 • 수원문화재단\"},{\"year\":\"2023\",\"name\":\"Emotion Particle\",\"desc\":\"Interactive Media Installation • 미디어아트ON • 남원아트센터\"},{\"year\":\"\",\"name\":\"Emotion Cloud\",\"desc\":\"Interactive Light Installation • 모든예술31 • 부천문화재단\"}],\"note\":\"\"},{\"category\":\"Awards\",\"items\":[{\"year\":\"2025\",\"name\":\"별마당도서관 열린아트공모전 대상\",\"desc\":\"Infinity Book • Public Installation\"},{\"year\":\"2024\",\"name\":\"Asia Design Prize WINNER 수상\",\"desc\":\"Emotion Cloud • Interactive Light Installation\"}],\"note\":\"각 카테고리는 항목을 계속 추가하거나 제목을 바꿔서 사용할 수 있습니다.\"},{\"category\":\"Education\",\"items\":[{\"year\":\"2025\",\"name\":\"교육발전특구 '미디어판타GY' 강의\",\"desc\":\"생성형 AI & 미디어아트 • 일산서구청소년수련관\"},{\"year\":\"\",\"name\":\"서강대학교 특강\",\"desc\":\"미디어 아티스트를 위한 프로젝션 맵핑 • 아트&테크놀로지 전공\"},{\"year\":\"\",\"name\":\"계원예술대학교 출강\",\"desc\":\"미디어아트 • 미래디자인학부\"},{\"year\":\"2024\",\"name\":\"문화PD 22기 문화디지털신기술 체험•실습 및 지역간담회 특강\",\"desc\":\"생성형 AI & 미디어아트 • 한국문화정보원\"},{\"year\":\"2023\",\"name\":\"프로젝션 맵핑의 시작\",\"desc\":\"프로젝션 맵핑 • 상상마당 아카데미 • 2023~2026\"},{\"year\":\"\",\"name\":\"프로젝션 맵핑 아트브릿지 강의\",\"desc\":\"생성형 AI & 미디어아트 •.서초유스센터 • 2022~2024\"},{\"year\":\"2022\",\"name\":\"부천아트벙커B39 강의\",\"desc\":\"미디어파사드 기초 & 심화 • 부천문화재단• 2021~2022\"},{\"year\":\"\",\"name\":\"창작날개22 강의\",\"desc\":\"프로젝션 맵핑 • 김포문화재단\"},{\"year\":\"2021\",\"name\":\"Class 101 온라인 강의 런칭\",\"desc\":\"프로젝션 맵핑 & 무대영상\"}],\"note\":\"\"}]",
+    "arthod-about:history-items": "[{\"category\":\"Category\",\"items\":[],\"note\":\"\"},{\"category\":\"Exhibitions\",\"items\":[{\"year\":\"2025\",\"name\":\"Stream Scape\",\"desc\":\"Interactive Media Art & Generative Al • 고양콘텐츠사업화 • 고양산업진흥원\"},{\"year\":\"\",\"name\":\"OS-1 : 우주광학전송장치\",\"desc\":\"Laser Installation • 미래감각 • 고양문화재단\"},{\"year\":\"\",\"name\":\"Voyage of Light\",\"desc\":\"Light Installation • 제24회 서울억새축제, 빛으로 물들다 • 서부여가공원센터\"},{\"year\":\"\",\"name\":\"Infinity Book\",\"desc\":\"Public Installation • 제7회 별마당도서관 열린아트공모전 대상작 전시 • (주)신세계프라버티\"},{\"year\":\"2024\",\"name\":\"Luminous Melody\",\"desc\":\"Interactive Light Installation • 고양콘텐츠사업화 • 고양산업진흥원\"},{\"year\":\"\",\"name\":\"OS-1 : 우주광학전송장치\",\"desc\":\"Laser Installation • 다원예술 창작산실 • 한국문화예술위원회\"},{\"year\":\"\",\"name\":\"Transmission\",\"desc\":\"Laser Reflection installation • 국가유산 수원화성 미디어아트 • 수원문화재단\"},{\"year\":\"2023\",\"name\":\"Emotion Particle\",\"desc\":\"Interactive Media Installation • 미디어아트ON • 남원아트센터\"},{\"year\":\"\",\"name\":\"Emotion Cloud\",\"desc\":\"Interactive Light Installation • 모든예술31 • 부천문화재단\"}],\"note\":\"\"},{\"category\":\"Awards\",\"items\":[{\"year\":\"2025\",\"name\":\"별마당도서관 열린아트공모전 대상\",\"desc\":\"Infinity Book • Public Installation\"},{\"year\":\"2024\",\"name\":\"Asia Design Prize WINNER 수상\",\"desc\":\"Emotion Cloud • Interactive Light Installation\"}],\"note\":\"\"},{\"category\":\"Education\",\"items\":[{\"year\":\"2025\",\"name\":\"교육발전특구 '미디어판타GY' 강의\",\"desc\":\"생성형 AI & 미디어아트 • 일산서구청소년수련관\"},{\"year\":\"\",\"name\":\"서강대학교 특강\",\"desc\":\"미디어 아티스트를 위한 프로젝션 맵핑 • 아트&테크놀로지 전공\"},{\"year\":\"\",\"name\":\"계원예술대학교 출강\",\"desc\":\"미디어아트 • 미래디자인학부\"},{\"year\":\"2024\",\"name\":\"문화PD 22기 문화디지털신기술 체험•실습 및 지역간담회 특강\",\"desc\":\"생성형 AI & 미디어아트 • 한국문화정보원\"},{\"year\":\"2023\",\"name\":\"프로젝션 맵핑의 시작\",\"desc\":\"프로젝션 맵핑 • 상상마당 아카데미 • 2023~2026\"},{\"year\":\"\",\"name\":\"프로젝션 맵핑 아트브릿지 강의\",\"desc\":\"생성형 AI & 미디어아트 •.서초유스센터 • 2022~2024\"},{\"year\":\"2022\",\"name\":\"부천아트벙커B39 강의\",\"desc\":\"미디어파사드 기초 & 심화 • 부천문화재단• 2021~2022\"},{\"year\":\"\",\"name\":\"창작날개22 강의\",\"desc\":\"프로젝션 맵핑 • 김포문화재단\"},{\"year\":\"2021\",\"name\":\"Class 101 온라인 강의 런칭\",\"desc\":\"프로젝션 맵핑 & 무대영상\"}],\"note\":\"\"}]",
     "arthod-proj:09:type": "Audio Reactive",
     "arthod-edit:work:6": "Interactive LED Installation",
     "arthod-edit:work03:mobfootspan:0": "hello@arthod.kr",
@@ -154,6 +154,7 @@
     "arthod-edit:work04:wbsectionlabel:0": "Project Overview",
     "arthod-edit:works:ftag:0": "Art + Method<br data-om-id=\"456b18f7:196\">예술과 기술을 결합하여 효과적으로<br data-om-id=\"456b18f7:197\">표현하는 방법을 연구하고 창작하는<br data-om-id=\"456b18f7:198\">미디어아트 스튜디오. 서울.",
     "arthod-edit:services:svctag:25": "Outdoor LED",
+    "arthod-workcount:works": "10",
     "arthod-style:services:svcentryname:0": "{\"italic\":false}",
     "arthod-edit:services:svc-motion-graphic-tag-1": "After Effects",
     "arthod-proj:09:year": "2024",
@@ -169,6 +170,7 @@
     "arthod-edit:work:tag1": "LED",
     "arthod-edit:services:svc-generative-art-tag-3": "DIFFUSION",
     "arthod-edit:contact:formfieldlabel:3": "프로젝트 유형",
+    "arthod-connect:global": "[{\"name\":\"Instagram\",\"url\":\"https://www.instagram.com/arthod_studio/\"},{\"name\":\"Youtube\",\"url\":\"https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C\"}]",
     "arthod-edit:work:9": "LED",
     "arthod-edit:services:svctag:11": "p5.js",
     "arthod-edit:works:5": "Art + Method<br data-om-id=\"456b18f7:196\">예술과 기술을 결합하여 효과적으로<br data-om-id=\"456b18f7:197\">표현하는 방법을 연구하고 창작하는<br data-om-id=\"456b18f7:198\">미디어아트 스튜디오. 서울.",
@@ -271,6 +273,7 @@
     "arthod-edit:works:12": "Vimeo",
     "arthod-proj:08:type": "Media Facade",
     "arthod-edit:work:12": "Details",
+    "arthod-proj:footer-connect-4:name": "",
     "arthod-edit:services:svctag:19": "Spatial Audio",
     "arthod-style:services:fcolh4:0": "{\"color\":\"#ffffff\"}",
     "arthod-edit:services:svc-brand-experience-tag-1": "Concept",
@@ -378,6 +381,7 @@
     "arthod-edit:services:svcentryname:0": "인터랙티브 설치<em>Interactive Installation</em>",
     "arthod-proj:06:type": "Fluid Simulation",
     "arthod-edit:contact:cdilabel:2": "Location",
+    "arthod-proj:footer-connect-3:name": "",
     "arthod-edit:about:fcolula:5": "Vimeo",
     "arthod-edit:about:fcolula:3": "Contact",
     "arthod-edit:about:abphillistli:4": "체계 / 구조 / 기술",
@@ -574,6 +578,7 @@
     "arthod-edit:work:18": "기획 · 개발 · 설치",
     "arthod-edit:work02:tag2": "TouchDesigner",
     "arthod-edit:about:fcolula:0": "About",
+    "arthod-proj:footer-connect-2:name": "",
     "arthod-edit:services:svc-projection-mapping-tag-3": "Millumin",
     "arthod-proj:03:en": "Public Installation",
     "arthod-edit:about:recentMeta4A": "04 / Luminous Melody",
@@ -654,9 +659,7 @@
     "arthod-style:contact:contactdesc:0": "{\"color\":\"#ffffff\"}",
     "arthod-edit:services:fcolula:1": "Works",
     "arthod-edit:services:svc-interactive-installation-tag-2": "Depth Sensor",
-    "arthod-edit:work:specval:2": "경주 코스믹 리조트 콘텐츠 제작",
-    "arthod-workcount:works": "10",
-    "arthod-connect:global": "[{\"name\": \"Instagram\", \"url\": \"https://www.instagram.com/arthod_studio/\"}, {\"name\": \"Youtube\", \"url\": \"https://www.youtube.com/@%EC%95%84%EC%8F%98%EB%93%9C\"}]"
+    "arthod-edit:work:specval:2": "경주 코스믹 리조트 콘텐츠 제작"
   },
   "mediaIndex": {
     "svc:0": {
@@ -693,33 +696,27 @@
     },
     "wd:01:g1": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g1.mp4",
-      "poster": "backup/media/01/wd_01_g1.jpg"
+      "file": "backup/media/01/wd_01_g1.mp4"
     },
     "wd:01:g2": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g2.mp4",
-      "poster": "backup/media/01/wd_01_g2.jpg"
+      "file": "backup/media/01/wd_01_g2.mp4"
     },
     "wd:01:g3": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g3.mp4",
-      "poster": "backup/media/01/wd_01_g3.jpg"
+      "file": "backup/media/01/wd_01_g3.mp4"
     },
     "wd:01:g4": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g4.mp4",
-      "poster": "backup/media/01/wd_01_g4.jpg"
+      "file": "backup/media/01/wd_01_g4.mp4"
     },
     "wd:01:g5": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g5.mp4",
-      "poster": "backup/media/01/wd_01_g5.jpg"
+      "file": "backup/media/01/wd_01_g5.mp4"
     },
     "wd:01:g6": {
       "kind": "video",
-      "file": "backup/media/01/wd_01_g6.mp4",
-      "poster": "backup/media/01/wd_01_g6.jpg"
+      "file": "backup/media/01/wd_01_g6.mp4"
     },
     "wd:01:next": {
       "kind": "ref",
@@ -735,33 +732,27 @@
     },
     "wd:02:g1": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g1.mp4",
-      "poster": "backup/media/02/wd_02_g1.jpg"
+      "file": "backup/media/02/wd_02_g1.mp4"
     },
     "wd:02:g2": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g2.mp4",
-      "poster": "backup/media/02/wd_02_g2.jpg"
+      "file": "backup/media/02/wd_02_g2.mp4"
     },
     "wd:02:g3": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g3.mp4",
-      "poster": "backup/media/02/wd_02_g3.jpg"
+      "file": "backup/media/02/wd_02_g3.mp4"
     },
     "wd:02:g4": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g4.mp4",
-      "poster": "backup/media/02/wd_02_g4.jpg"
+      "file": "backup/media/02/wd_02_g4.mp4"
     },
     "wd:02:g5": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g5.mp4",
-      "poster": "backup/media/02/wd_02_g5.jpg"
+      "file": "backup/media/02/wd_02_g5.mp4"
     },
     "wd:02:g6": {
       "kind": "video",
-      "file": "backup/media/02/wd_02_g6.mp4",
-      "poster": "backup/media/02/wd_02_g6.jpg"
+      "file": "backup/media/02/wd_02_g6.mp4"
     },
     "wd:02:next": {
       "kind": "ref",
@@ -805,33 +796,27 @@
     },
     "wd:04:g1": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g1.mp4",
-      "poster": "backup/media/04/wd_04_g1.jpg"
+      "file": "backup/media/04/wd_04_g1.mp4"
     },
     "wd:04:g2": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g2.mp4",
-      "poster": "backup/media/04/wd_04_g2.jpg"
+      "file": "backup/media/04/wd_04_g2.mp4"
     },
     "wd:04:g3": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g3.mp4",
-      "poster": "backup/media/04/wd_04_g3.jpg"
+      "file": "backup/media/04/wd_04_g3.mp4"
     },
     "wd:04:g4": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g4.mp4",
-      "poster": "backup/media/04/wd_04_g4.jpg"
+      "file": "backup/media/04/wd_04_g4.mp4"
     },
     "wd:04:g5": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g5.mp4",
-      "poster": "backup/media/04/wd_04_g5.jpg"
+      "file": "backup/media/04/wd_04_g5.mp4"
     },
     "wd:04:g6": {
       "kind": "video",
-      "file": "backup/media/04/wd_04_g6.mp4",
-      "poster": "backup/media/04/wd_04_g6.jpg"
+      "file": "backup/media/04/wd_04_g6.mp4"
     },
     "wd:04:next": {
       "kind": "ref",
@@ -899,33 +884,27 @@
     },
     "wd:07:g1": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g1.mp4",
-      "poster": "backup/media/07/wd_07_g1.jpg"
+      "file": "backup/media/07/wd_07_g1.mp4"
     },
     "wd:07:g2": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g2.mp4",
-      "poster": "backup/media/07/wd_07_g2.jpg"
+      "file": "backup/media/07/wd_07_g2.mp4"
     },
     "wd:07:g3": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g3.mp4",
-      "poster": "backup/media/07/wd_07_g3.jpg"
+      "file": "backup/media/07/wd_07_g3.mp4"
     },
     "wd:07:g4": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g4.mp4",
-      "poster": "backup/media/07/wd_07_g4.jpg"
+      "file": "backup/media/07/wd_07_g4.mp4"
     },
     "wd:07:g5": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g5.mp4",
-      "poster": "backup/media/07/wd_07_g5.jpg"
+      "file": "backup/media/07/wd_07_g5.mp4"
     },
     "wd:07:g6": {
       "kind": "video",
-      "file": "backup/media/07/wd_07_g6.mp4",
-      "poster": "backup/media/07/wd_07_g6.jpg"
+      "file": "backup/media/07/wd_07_g6.mp4"
     },
     "wd:07:next": {
       "kind": "image",
@@ -934,6 +913,34 @@
     "wd:08:c0": {
       "kind": "embed",
       "embedUrl": "https://www.youtube.com/embed/EzlVSJqjMT4?autoplay=0&mute=0&loop=1&playlist=EzlVSJqjMT4&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
+    },
+    "wd:08:g1": {
+      "kind": "video",
+      "file": "backup/media/08/wd_08_g1.mp4"
+    },
+    "wd:08:g2": {
+      "kind": "video",
+      "file": "backup/media/08/wd_08_g2.mp4"
+    },
+    "wd:08:g3": {
+      "kind": "video",
+      "file": "backup/media/08/wd_08_g3.mp4"
+    },
+    "wd:08:g4": {
+      "kind": "video",
+      "file": "backup/media/08/wd_08_g4.mp4"
+    },
+    "wd:08:g5": {
+      "kind": "video",
+      "file": "backup/media/08/wd_08_g5.mp4"
+    },
+    "wd:08:g6": {
+      "kind": "video",
+      "file": "backup/media/08/wd_08_g6.mp4"
+    },
+    "wd:08:next": {
+      "kind": "image",
+      "file": "backup/media/08/wd_08_next.jpg"
     },
     "wd:09:c0": {
       "kind": "embed",
@@ -949,23 +956,19 @@
     },
     "wd:09:g3": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g3.mp4",
-      "poster": "backup/media/09/wd_09_g3.jpg"
+      "file": "backup/media/09/wd_09_g3.mp4"
     },
     "wd:09:g4": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g4.mp4",
-      "poster": "backup/media/09/wd_09_g4.jpg"
+      "file": "backup/media/09/wd_09_g4.mp4"
     },
     "wd:09:g5": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g5.mp4",
-      "poster": "backup/media/09/wd_09_g5.jpg"
+      "file": "backup/media/09/wd_09_g5.mp4"
     },
     "wd:09:g6": {
       "kind": "video",
-      "file": "backup/media/09/wd_09_g6.mp4",
-      "poster": "backup/media/09/wd_09_g6.jpg"
+      "file": "backup/media/09/wd_09_g6.mp4"
     },
     "wd:09:next": {
       "kind": "ref",
@@ -977,33 +980,27 @@
     },
     "wd:10:g1": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g1.mp4",
-      "poster": "backup/media/10/wd_10_g1.jpg"
+      "file": "backup/media/10/wd_10_g1.mp4"
     },
     "wd:10:g2": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g2.mp4",
-      "poster": "backup/media/10/wd_10_g2.jpg"
+      "file": "backup/media/10/wd_10_g2.mp4"
     },
     "wd:10:g3": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g3.mp4",
-      "poster": "backup/media/10/wd_10_g3.jpg"
+      "file": "backup/media/10/wd_10_g3.mp4"
     },
     "wd:10:g4": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g4.mp4",
-      "poster": "backup/media/10/wd_10_g4.jpg"
+      "file": "backup/media/10/wd_10_g4.mp4"
     },
     "wd:10:g5": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g5.mp4",
-      "poster": "backup/media/10/wd_10_g5.jpg"
+      "file": "backup/media/10/wd_10_g5.mp4"
     },
     "wd:10:g6": {
       "kind": "video",
-      "file": "backup/media/10/wd_10_g6.mp4",
-      "poster": "backup/media/10/wd_10_g6.jpg"
+      "file": "backup/media/10/wd_10_g6.mp4"
     },
     "wd:10:next": {
       "kind": "ref",
@@ -1083,7 +1080,7 @@
     },
     "whover:07:1": {
       "kind": "image",
-      "file": "backup/media/07/whover_07_2.jpg"
+      "file": "backup/media/07/whover_07_1.jpg"
     },
     "whover:07:2": {
       "kind": "image",
@@ -1096,6 +1093,10 @@
     "whover:07:4": {
       "kind": "image",
       "file": "backup/media/07/whover_07_4.jpg"
+    },
+    "whover:08:1": {
+      "kind": "image",
+      "file": "backup/media/08/whover_08_1.jpg"
     },
     "whover:09:1": {
       "kind": "image",
@@ -1135,45 +1136,11 @@
     },
     "wimg:07": {
       "kind": "image",
-      "file": "backup/media/07/whover_07_2.jpg"
+      "file": "backup/media/07/wimg_07.jpg"
     },
     "wimg:08": {
       "kind": "image",
-      "file": "backup/media/07/wd_07_next.jpg"
-    },
-    "wd:08:next": {
-      "kind": "image",
-      "file": "backup/media/10/whover_10_1.jpg"
-    },
-    "wd:08:g1": {
-      "kind": "video",
-      "file": "backup/media/08/wd_08_g1.mp4",
-      "poster": "backup/media/08/wd_08_g1.jpg"
-    },
-    "wd:08:g2": {
-      "kind": "video",
-      "file": "backup/media/08/wd_08_g2.mp4",
-      "poster": "backup/media/08/wd_08_g2.jpg"
-    },
-    "wd:08:g3": {
-      "kind": "video",
-      "file": "backup/media/08/wd_08_g3.mp4",
-      "poster": "backup/media/08/wd_08_g3.jpg"
-    },
-    "wd:08:g4": {
-      "kind": "video",
-      "file": "backup/media/08/wd_08_g4.mp4",
-      "poster": "backup/media/08/wd_08_g4.jpg"
-    },
-    "wd:08:g5": {
-      "kind": "video",
-      "file": "backup/media/08/wd_08_g5.mp4",
-      "poster": "backup/media/08/wd_08_g5.jpg"
-    },
-    "wd:08:g6": {
-      "kind": "video",
-      "file": "backup/media/08/wd_08_g6.mp4",
-      "poster": "backup/media/08/wd_08_g6.jpg"
+      "file": "backup/media/08/wimg_08.jpg"
     }
   },
   "works": [
@@ -1188,7 +1155,5 @@
     "07",
     "08",
     "09"
-  ],
-  "servicesBackupAt": "2026-07-12T11:25:19.943Z",
-  "note": "Normalized footer social links and contact phone field"
+  ]
 }
