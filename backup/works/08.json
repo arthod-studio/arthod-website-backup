@@ -1,11 +1,19 @@
 {
   "work": "08",
-  "savedAt": "2026-07-14T07:28:26.715Z",
+  "savedAt": "2026-08-03T05:15:29.178Z",
   "media": {
     "images": [
       {
         "key": "wd:08:next",
-        "file": "backup/media/10/whover_10_1.jpg"
+        "file": "backup/media/08/wd_08_next.jpg"
+      },
+      {
+        "key": "whover:08:1",
+        "file": "backup/media/08/whover_08_1.jpg"
+      },
+      {
+        "key": "wimg:08",
+        "file": "backup/media/08/wimg_08.jpg"
       }
     ],
     "videos": [
@@ -40,12 +48,7 @@
         "url": "https://www.youtube.com/embed/EzlVSJqjMT4?autoplay=0&mute=0&loop=1&playlist=EzlVSJqjMT4&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
-    "refs": [
-      {
-        "key": "wimg:08",
-        "refKey": "wd:07:next"
-      }
-    ]
+    "refs": []
   },
   "text": {
     "arthod-proj:08:project": "모든예술31",
