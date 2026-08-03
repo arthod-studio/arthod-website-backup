@@ -1,11 +1,15 @@
 {
   "work": "07",
-  "savedAt": "2026-07-12T10:56:08.232Z",
+  "savedAt": "2026-08-03T05:15:27.656Z",
   "media": {
     "images": [
       {
         "key": "wd:07:next",
         "file": "backup/media/07/wd_07_next.jpg"
+      },
+      {
+        "key": "whover:07:1",
+        "file": "backup/media/07/whover_07_1.jpg"
       },
       {
         "key": "whover:07:2",
@@ -18,6 +22,10 @@
       {
         "key": "whover:07:4",
         "file": "backup/media/07/whover_07_4.jpg"
+      },
+      {
+        "key": "wimg:07",
+        "file": "backup/media/07/wimg_07.jpg"
       }
     ],
     "videos": [
@@ -52,16 +60,7 @@
         "url": "https://www.youtube.com/embed/ZIHOlZ7eZdI?autoplay=0&mute=0&loop=1&playlist=ZIHOlZ7eZdI&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&fs=1&enablejsapi=1"
       }
     ],
-    "refs": [
-      {
-        "key": "whover:07:1",
-        "refKey": "svc:1"
-      },
-      {
-        "key": "wimg:07",
-        "refKey": "svc:1"
-      }
-    ]
+    "refs": []
   },
   "text": {
     "arthod-proj:07:year": "2023",
